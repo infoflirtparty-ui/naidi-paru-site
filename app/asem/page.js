@@ -46,9 +46,9 @@ export default function AsemPage() {
             ))}
           </div>
 
-          <h1 style={{ fontSize: 'clamp(24px, 6vw, 38px)', fontWeight: 900, lineHeight: 1.15, marginBottom: 14, letterSpacing: '-0.02em', color: '#F5E9CF' }}>
-            ТЫ ИМЕЕШЬ ПРАВО БЫТЬ<br/>
-            <span style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>СЧАСТЛИВОЙ</span>
+          <h1 className="font-display" style={{ fontSize: 'clamp(26px, 6.5vw, 42px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 14, letterSpacing: '-0.025em', color: '#F5E9CF' }}>
+            Ты имеешь право быть<br/>
+            <em style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontStyle: 'italic', fontWeight: 800 }}>счастливой</em>
           </h1>
           <p style={{ fontSize: 15, color: '#A0A0C0', marginBottom: 6 }}>В любом возрасте</p>
           <p style={{ fontSize: 14, color: '#6B6B8D', marginBottom: 28 }}>Даже если тебе 50, 60 или 70</p>
@@ -97,13 +97,14 @@ export default function AsemPage() {
         {/* QUOTE */}
         <Reveal>
           <section style={{ padding: '20px 0 40px' }}>
-            <div style={{ padding: 28, borderRadius: 20, background: 'linear-gradient(145deg, rgba(212,175,55,0.08), rgba(255,77,141,0.04))', border: '1px solid rgba(212,175,55,0.2)', textAlign: 'center', position: 'relative' }}>
-              <div style={{ position: 'absolute', top: 12, left: 16, fontSize: 48, color: 'rgba(212,175,55,0.2)', fontFamily: 'serif', lineHeight: 1 }}>“</div>
-              <p style={{ fontSize: 18, color: '#F5E9CF', lineHeight: 1.6, fontStyle: 'italic', marginBottom: 12, position: 'relative' }}>
+            <div className="glass" style={{ padding: '40px 28px 32px', borderRadius: 24, borderColor: 'rgba(212,175,55,0.22)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+              <div className="font-display" style={{ position: 'absolute', top: 0, left: 22, fontSize: 120, color: 'rgba(212,175,55,0.12)', lineHeight: 0.8, fontWeight: 700, pointerEvents: 'none' }}>"</div>
+              <p className="font-display" style={{ fontSize: 'clamp(18px, 4vw, 22px)', color: '#F5E9CF', lineHeight: 1.4, fontStyle: 'italic', marginBottom: 16, position: 'relative', fontWeight: 500 }}>
                 Ты не для «попробовать».<br/>
-                Ты — та, на которой женятся.
+                Ты — та, на которой <em style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontStyle: 'italic' }}>женятся</em>.
               </p>
-              <p style={{ fontSize: 13, color: '#A0A0C0', lineHeight: 1.6 }}>
+              <div className="divider" style={{ marginBottom: 16, background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent)' }} />
+              <p style={{ fontSize: 13, color: '#A0A0C0', lineHeight: 1.65, maxWidth: 500, margin: '0 auto' }}>
                 Если мужчина с первых свиданий не понимает, что ты — женщина для семьи, значит ты просто не умеешь себя правильно подать.
               </p>
             </div>
@@ -348,14 +349,14 @@ export default function AsemPage() {
         {/* FINAL CTA */}
         <Reveal>
           <section style={{ padding: '60px 0 40px', textAlign: 'center' }}>
-            <h2 style={{ fontSize: 'clamp(24px, 5vw, 34px)', fontWeight: 800, lineHeight: 1.2, marginBottom: 20, color: '#F5E9CF' }}>Ты можешь продолжать:</h2>
+            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.5vw, 36px)', fontWeight: 700, lineHeight: 1.15, marginBottom: 20, color: '#F5E9CF', letterSpacing: '-0.02em' }}>Ты можешь продолжать:</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxWidth: 320, margin: '0 auto 24px' }}>
               {['ждать', 'надеяться', 'разочаровываться'].map(t => (
                 <div key={t} style={{ fontSize: 14, color: '#6B6B8D' }}>— {t}</div>
               ))}
             </div>
             <p style={{ fontSize: 18, color: '#A0A0C0', margin: '24px 0 8px' }}>или:</p>
-            <p style={{ fontSize: 'clamp(22px, 5vw, 30px)', fontWeight: 900, marginBottom: 36, background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <p className="font-display" style={{ fontSize: 'clamp(24px, 5.5vw, 32px)', fontWeight: 700, fontStyle: 'italic', marginBottom: 36, background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               стать женщиной, которую выбирают
             </p>
             <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"

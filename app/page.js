@@ -28,8 +28,8 @@ export default function HubLanding() {
         <section className="fade-in" style={{ padding: '50px 0 40px', textAlign: 'center' }}>
           <div className="glow-pulse" style={{ display: 'inline-block', padding: '6px 14px', background: 'rgba(255,77,141,0.08)', border: '1px solid rgba(255,77,141,0.25)', borderRadius: 20, fontSize: 12, color: '#FF4D8D', marginBottom: 28, fontWeight: 700, letterSpacing: '0.1em' }}>🤍 ВЫБЕРИ СВОЙ ПУТЬ</div>
 
-          <h1 className="hero-title" style={{ fontSize: 'clamp(36px, 8vw, 60px)', fontWeight: 900, lineHeight: 1.05, marginBottom: 18, letterSpacing: '-0.03em' }}>
-            Два пути к <span style={{ background: 'linear-gradient(135deg, #FF4D8D, #A855F7, #D4AF37)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>счастью</span>
+          <h1 className="hero-title font-display" style={{ fontSize: 'clamp(40px, 9vw, 68px)', fontWeight: 800, lineHeight: 1.02, marginBottom: 22, letterSpacing: '-0.035em' }}>
+            Два пути к <em style={{ background: 'linear-gradient(135deg, #FF4D8D, #A855F7, #D4AF37)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontStyle: 'italic', fontWeight: 800 }}>счастью</em>
           </h1>
 
           <p style={{ fontSize: 17, color: '#A0A0C0', lineHeight: 1.55, maxWidth: 560, margin: '0 auto 40px' }}>
@@ -165,48 +165,53 @@ export default function HubLanding() {
 
 function PathCard({ href, badge, title, subtitle, desc, features, gradient, accent, icon, cta, textColor = 'white' }) {
   return (
-    <Link href={href} className="switcher-link" style={{
+    <Link href={href} className="switcher-link glass" style={{
       display: 'block', textDecoration: 'none', color: 'white',
-      borderRadius: 24, overflow: 'hidden',
-      background: 'linear-gradient(145deg, #161630, #1A1A3E)',
-      border: `1.5px solid ${accent}33`,
+      borderRadius: 28, overflow: 'hidden',
+      borderColor: `${accent}2A`,
       position: 'relative',
+      boxShadow: `0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px ${accent}15 inset`,
     }}>
+      {/* Gradient accent glow at top */}
+      <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '60%', height: 2, background: gradient, filter: 'blur(2px)', opacity: 0.8 }} />
       {/* Gradient accent bar on left */}
       <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 4, background: gradient }} />
+      {/* Ambient glow behind icon */}
+      <div style={{ position: 'absolute', top: -20, right: -20, width: 200, height: 200, background: `radial-gradient(circle, ${accent}20, transparent 70%)`, pointerEvents: 'none' }} />
 
-      <div style={{ padding: 26, paddingLeft: 30 }}>
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16, marginBottom: 16 }}>
+      <div style={{ padding: 28, paddingLeft: 32, position: 'relative' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16, marginBottom: 18 }}>
           <div style={{
-            width: 60, height: 60, borderRadius: 18,
+            width: 64, height: 64, borderRadius: 20,
             background: gradient, display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 28, flexShrink: 0,
-            boxShadow: `0 10px 32px ${accent}55`,
+            fontSize: 30, flexShrink: 0,
+            boxShadow: `0 12px 40px ${accent}66, 0 0 0 1px rgba(255,255,255,0.1) inset`,
           }}>{icon}</div>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: 10, color: accent, fontWeight: 800, letterSpacing: '0.15em', marginBottom: 4 }}>{badge}</div>
-            <h2 style={{ fontSize: 'clamp(20px, 4.5vw, 24px)', fontWeight: 800, marginBottom: 4, letterSpacing: '-0.01em' }}>{title}</h2>
+            <div style={{ fontSize: 10, color: accent, fontWeight: 800, letterSpacing: '0.18em', marginBottom: 6 }}>{badge}</div>
+            <h2 className="font-display" style={{ fontSize: 'clamp(22px, 5vw, 28px)', fontWeight: 700, marginBottom: 4, letterSpacing: '-0.02em', lineHeight: 1.1 }}>{title}</h2>
             <div style={{ fontSize: 13, color: '#A0A0C0' }}>{subtitle}</div>
           </div>
         </div>
 
-        <p style={{ fontSize: 14, color: '#D4D4E8', lineHeight: 1.6, marginBottom: 16 }}>{desc}</p>
+        <p style={{ fontSize: 14, color: '#D4D4E8', lineHeight: 1.65, marginBottom: 18 }}>{desc}</p>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 18 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 22 }}>
           {features.map(f => (
-            <div key={f} style={{ fontSize: 13, color: '#8B8BA8' }}>{f}</div>
+            <div key={f} style={{ fontSize: 13, color: '#A0A0C0', paddingLeft: 2 }}>{f}</div>
           ))}
         </div>
 
         <div style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: '12px 18px', borderRadius: 14,
+          padding: '14px 20px', borderRadius: 14,
           background: gradient, color: textColor,
-          fontSize: 14, fontWeight: 700,
-          boxShadow: `0 8px 24px ${accent}55`,
+          fontSize: 15, fontWeight: 700,
+          boxShadow: `0 10px 32px ${accent}66`,
+          letterSpacing: '-0.01em',
         }}>
           {cta}
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </div>
     </Link>

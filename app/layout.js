@@ -1,12 +1,28 @@
 import './globals.css';
+import { Manrope, Playfair_Display } from 'next/font/google';
+
+const manrope = Manrope({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const playfair = Playfair_Display({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['500', '600', '700', '800', '900'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+  display: 'swap',
+});
 
 export const metadata = {
   metadataBase: new URL('https://naidi-paru-site.vercel.app'),
-  title: 'Найди Пару — закрытая платформа знакомств',
-  description: 'Серьёзные знакомства для мужчин. Программа для женщин от Асем. Только проверенные анкеты.',
+  title: 'Найди Пару — два пути к отношениям',
+  description: 'Закрытая платформа знакомств для мужчин · Программа трансформации для женщин от Асем.',
   openGraph: {
-    title: 'Найди Пару — закрытая платформа знакомств',
-    description: 'Серьёзные знакомства и программа трансформации для женщин',
+    title: 'Найди Пару',
+    description: 'Два пути к счастью: знакомства для мужчин и программа для женщин',
     type: 'website',
     locale: 'ru_RU',
     siteName: 'Найди Пару',
@@ -31,7 +47,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={`${manrope.variable} ${playfair.variable}`}>
       <body>{children}</body>
     </html>
   );

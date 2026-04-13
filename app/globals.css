@@ -7,13 +7,29 @@
 
 html {
   scroll-behavior: smooth;
+  font-feature-settings: 'kern', 'liga', 'cv01', 'cv03', 'cv04', 'ss01';
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background: #0C0C1D;
   color: white;
+  text-rendering: optimizeLegibility;
+  letter-spacing: -0.011em;
+}
+
+/* Subtle noise overlay — adds premium texture depth */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 a {
@@ -26,65 +42,153 @@ button {
   cursor: pointer;
 }
 
-/* Button hover */
+/* Playfair Display for editorial/luxury headlines */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+/* Buttons */
 .btn-primary {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s ease,
+              filter 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
 }
 .btn-primary:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
+  transform: translateY(-3px);
+  filter: brightness(1.08);
+}
+.btn-primary:hover::after {
+  transform: translateX(100%);
 }
 .btn-primary:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(-1px) scale(0.99);
 }
 
-/* Switcher hover */
+/* Switcher & path cards */
 .switcher-link {
-  transition: all 0.25s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
 }
 .switcher-link:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.1);
+  transform: translateY(-4px);
 }
 
-/* Hero blob animation */
+/* Glass morphism card */
+.glass {
+  background: rgba(22, 22, 48, 0.55);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Animated gradient blobs — organic floating motion */
 @keyframes blobFloat {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  25% { transform: translate(30px, -30px) scale(1.1) rotate(2deg); }
+  50% { transform: translate(-10px, 30px) scale(0.95) rotate(-1deg); }
+  75% { transform: translate(-30px, -20px) scale(1.05) rotate(1deg); }
 }
 .blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  animation: blobFloat 18s ease-in-out infinite;
+  animation: blobFloat 22s ease-in-out infinite;
   pointer-events: none;
   will-change: transform;
 }
 .blob-2 {
   animation-delay: -9s;
-  animation-duration: 22s;
+  animation-duration: 26s;
 }
 
-/* Page fade-in on load */
+/* Page fade-in */
 @keyframes pageIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .fade-in {
-  animation: pageIn 0.6s ease-out both;
+  animation: pageIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Pulse for badges */
+/* Glow pulse for badges */
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 0 currentColor; opacity: 1; }
-  50% { box-shadow: 0 0 16px 4px currentColor; opacity: 0.9; }
+  0%, 100% { box-shadow: 0 0 0 0 currentColor; }
+  50% { box-shadow: 0 0 20px 3px currentColor; }
 }
 .glow-pulse {
-  animation: glowPulse 2.5s ease-in-out infinite;
+  animation: glowPulse 3s ease-in-out infinite;
 }
 
-/* Responsive */
+/* Subtle shimmer for highlights */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0.05) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Floating heart/sparkle for hero */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.float-y {
+  animation: floatY 4s ease-in-out infinite;
+}
+
+/* Divider with fade */
+.divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  margin: 0 auto;
+}
+
+/* Section rhythm helper */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 77, 141, 0.3);
+  color: white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0C0C1D;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FF4D8D, #A855F7);
+  border-radius: 8px;
+}
+
+/* Responsive tweaks */
 @media (max-width: 480px) {
-  .hero-title { font-size: 38px !important; }
+  .hero-title { font-size: 42px !important; }
+  body { letter-spacing: -0.005em; }
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.4s ease;
 }

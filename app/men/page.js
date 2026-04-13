@@ -23,7 +23,7 @@ export default function MainLanding() {
         {/* HERO */}
         <section className="fade-in" style={{ padding: '50px 0 40px', textAlign: 'center', position: 'relative' }}>
           <div className="glow-pulse" style={{ display: 'inline-block', padding: '6px 14px', background: 'rgba(255,77,141,0.1)', border: '1px solid rgba(255,77,141,0.3)', borderRadius: 20, fontSize: 12, color: '#FF4D8D', marginBottom: 24, fontWeight: 600, letterSpacing: '0.08em' }}>🔥 ЗАКРЫТАЯ ПЛАТФОРМА</div>
-          <h1 className="hero-title" style={{ fontSize: 'clamp(38px, 9vw, 64px)', fontWeight: 900, lineHeight: 1.05, marginBottom: 20, letterSpacing: '-0.03em' }}>
+          <h1 className="hero-title" style={{ fontSize: 'clamp(44px, 10vw, 72px)', fontWeight: 900, lineHeight: 0.98, marginBottom: 22, letterSpacing: '-0.04em' }}>
             НАЙДИ <span style={{ background: 'linear-gradient(135deg, #FF4D8D, #A855F7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>ПАРУ</span>
           </h1>
           <p style={{ fontSize: 18, color: '#D4D4E8', lineHeight: 1.5, maxWidth: 560, margin: '0 auto 14px', fontWeight: 500 }}>
