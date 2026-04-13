@@ -196,6 +196,28 @@ export default function MainLanding() {
           </section>
         </Reveal>
 
+        {/* DIFFERENCES */}
+        <Reveal>
+          <section style={{ padding: '40px 0' }}>
+            <SectionTitle icon="👑" label="Чем мы отличаемся" />
+            <Card>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                {['нет случайных девушек', 'нет «охотниц за деньгами»', 'нет замужних', 'нет фальши'].map(t => (
+                  <div key={t} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 15 }}>
+                    <div style={{ width: 24, height: 24, borderRadius: 8, background: 'rgba(239,68,68,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F87171" strokeWidth="3"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                    </div>
+                    <span style={{ color: '#D4D4E8' }}>{t}</span>
+                  </div>
+                ))}
+              </div>
+              <p style={{ marginTop: 20, padding: 14, background: 'rgba(255,77,141,0.06)', borderRadius: 12, fontSize: 14, color: '#F9A8D4', fontStyle: 'italic', textAlign: 'center', lineHeight: 1.5 }}>
+                Только нормальные девушки, которые хотят найти своего мужчину.
+              </p>
+            </Card>
+          </section>
+        </Reveal>
+
         {/* FAQ */}
         <Reveal>
           <section style={{ padding: '40px 0' }}>
