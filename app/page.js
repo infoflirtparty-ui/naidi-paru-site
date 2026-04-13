@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Reveal, Counter, FAQItem, StickyCTA } from './components';
+import { FloatingBg, LoadingScreen, SectionSpark } from './FloatingBg';
 
 export const metadata = {
   title: 'Закрытый подбор отношений — агентство Асем',
@@ -11,10 +12,15 @@ const TALLY_URL = 'https://tally.so/r/VLJNAg';
 export default function AgencyLanding() {
   return (
     <div style={{ background: '#0A0A14', color: 'white', minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
+      <LoadingScreen />
+
       {/* Atmospheric blobs */}
       <div className="blob" style={{ top: '-10%', left: '-10%', width: 550, height: 550, background: 'radial-gradient(circle, rgba(212,175,55,0.22), transparent 70%)', zIndex: 0 }} />
       <div className="blob blob-2" style={{ top: '40%', right: '-20%', width: 600, height: 600, background: 'radial-gradient(circle, rgba(255,77,141,0.15), transparent 70%)', zIndex: 0 }} />
       <div className="blob" style={{ bottom: '10%', left: '15%', width: 500, height: 500, background: 'radial-gradient(circle, rgba(168,85,247,0.12), transparent 70%)', zIndex: 0, animationDelay: '-14s' }} />
+
+      {/* Floating thematic particles (hearts, sparkles, suits) */}
+      <FloatingBg density="normal" />
 
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 860, margin: '0 auto', padding: '0 20px' }}>
 
@@ -100,7 +106,8 @@ export default function AgencyLanding() {
 
         {/* 3. SOLUTION */}
         <Reveal>
-          <section style={{ padding: '50px 0' }}>
+          <section style={{ padding: '50px 0', position: 'relative' }}>
+            <SectionSpark variant="mix" />
             <SectionLabel accent="#D4AF37">Решение</SectionLabel>
             <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5vw, 34px)', fontWeight: 700, lineHeight: 1.2, marginBottom: 18, letterSpacing: '-0.02em', color: '#F5E9CF' }}>
               Мы формируем окружение,<br/>
@@ -255,7 +262,8 @@ export default function AgencyLanding() {
 
         {/* 6. CASES */}
         <Reveal>
-          <section style={{ padding: '50px 0' }}>
+          <section style={{ padding: '50px 0', position: 'relative' }}>
+            <SectionSpark variant="hearts" />
             <SectionLabel>Кейсы</SectionLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
@@ -335,7 +343,8 @@ export default function AgencyLanding() {
 
         {/* 9. FINAL CTA */}
         <Reveal>
-          <section style={{ padding: '60px 0 40px', textAlign: 'center' }}>
+          <section style={{ padding: '60px 0 40px', textAlign: 'center', position: 'relative' }}>
+            <SectionSpark variant="gold" />
             <h2 className="font-display" style={{ fontSize: 'clamp(24px, 5vw, 32px)', fontWeight: 700, lineHeight: 1.25, marginBottom: 16, color: '#F5E9CF', letterSpacing: '-0.02em' }}>
               Вы можете продолжать<br/>искать сами и тратить время
             </h2>
