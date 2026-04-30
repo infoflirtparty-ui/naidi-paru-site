@@ -3,11 +3,32 @@ import { Reveal, Counter, FAQItem, StickyCTA } from './components';
 import { FloatingBg, LoadingScreen, SectionSpark } from './FloatingBg';
 
 export const metadata = {
-  title: 'Закрытый подбор отношений — агентство Асем',
-  description: 'Подбор партнёра для мужчин 30+, которые не готовы на компромиссы. Работаем только с теми, кто проходит отбор.',
+  title: 'Агентство знакомств Асем Альмурзиевой',
+  description: 'Профессиональный подбор партнёра для успешных мужчин и женщин. Только проверенные кандидаты с серьёзными намерениями.',
 };
 
 const TALLY_URL = 'https://tally.so/r/VLJNAg';
+
+// Brand mark — interlocking rings (symbol of union)
+function BrandRings({ size = 36 }) {
+  const w = size, h = Math.round(size * 0.75);
+  return (
+    <svg width={w} height={h} viewBox="0 0 56 42" fill="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="brG1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#D4AF37"/>
+          <stop offset="1" stopColor="#B8860B"/>
+        </linearGradient>
+        <linearGradient id="brG2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#FF4D8D"/>
+          <stop offset="1" stopColor="#A855F7"/>
+        </linearGradient>
+      </defs>
+      <circle cx="18" cy="21" r="14" stroke="url(#brG1)" strokeWidth="3" fill="none"/>
+      <circle cx="38" cy="21" r="14" stroke="url(#brG2)" strokeWidth="3" fill="none"/>
+    </svg>
+  );
+}
 
 export default function AgencyLanding() {
   return (
@@ -19,137 +40,135 @@ export default function AgencyLanding() {
       <div className="blob blob-2" style={{ top: '40%', right: '-20%', width: 600, height: 600, background: 'radial-gradient(circle, rgba(255,77,141,0.15), transparent 70%)', zIndex: 0 }} />
       <div className="blob" style={{ bottom: '10%', left: '15%', width: 500, height: 500, background: 'radial-gradient(circle, rgba(168,85,247,0.12), transparent 70%)', zIndex: 0, animationDelay: '-14s' }} />
 
-      {/* Floating thematic particles (hearts, sparkles, suits) */}
       <FloatingBg density="normal" />
 
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 860, margin: '0 auto', padding: '0 20px' }}>
 
-        {/* Minimal nav */}
-        <nav style={{ padding: '22px 0', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12 }}>
-          <div style={{ width: 40, height: 40, borderRadius: 12, background: 'linear-gradient(135deg, #D4AF37, #B8860B)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, boxShadow: '0 8px 24px rgba(212,175,55,0.3)' }}>♠</div>
-          <span style={{ fontWeight: 700, fontSize: 16, letterSpacing: '0.15em' }}>АГЕНТСТВО АСЕМ</span>
-        </nav>
-
-        {/* 1. HERO */}
-        <section className="fade-in" style={{ padding: '40px 0 50px', textAlign: 'center' }}>
-          <div className="glow-pulse" style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 20, fontSize: 11, color: '#D4AF37', marginBottom: 28, fontWeight: 700, letterSpacing: '0.15em' }}>ЗАКРЫТЫЙ ПОДБОР</div>
-
-          <h1 className="hero-title font-display" style={{ fontSize: 'clamp(30px, 7vw, 52px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 24, letterSpacing: '-0.025em', color: '#F5E9CF' }}>
-            Закрытый подбор<br/>
-            отношений для мужчин,<br/>
-            <em style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontStyle: 'italic', fontWeight: 700 }}>которые не готовы на компромиссы</em>
-          </h1>
-
-          <p style={{ fontSize: 16, color: '#D4D4E8', lineHeight: 1.6, maxWidth: 580, margin: '0 auto 14px', fontWeight: 500 }}>
-            Мы не работаем со всеми.
-          </p>
-          <p style={{ fontSize: 14, color: '#A0A0C0', lineHeight: 1.7, maxWidth: 580, margin: '0 auto 16px' }}>
-            В нашей базе — только проверенные, адекватные и финансово состоявшиеся кандидаты, готовые к семье и серьёзным отношениям.
-          </p>
-          <p style={{ fontSize: 14, color: '#D4AF37', lineHeight: 1.6, maxWidth: 520, margin: '0 auto 40px', fontWeight: 600, fontStyle: 'italic' }}>
-            Если вы привыкли выбирать лучшее — вы по адресу.
-          </p>
-
-          {/* Filter block */}
-          <div className="glass" style={{ padding: 20, borderRadius: 16, maxWidth: 520, margin: '0 auto 36px', textAlign: 'left', borderColor: 'rgba(239,68,68,0.18)' }}>
-            <p style={{ fontSize: 12, color: '#F87171', fontWeight: 700, letterSpacing: '0.12em', marginBottom: 10, textTransform: 'uppercase' }}>Мы не подходим вам, если:</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              {['вы ищете несерьёзное общение', 'не готовы инвестировать в личную жизнь', 'не понимаете, какой формат отношений вам нужен'].map(t => (
-                <div key={t} style={{ fontSize: 13, color: '#D4D4E8', paddingLeft: 16, borderLeft: '2px solid rgba(239,68,68,0.35)' }}>{t}</div>
-              ))}
+        {/* Top nav: brand mark + name + subtitle */}
+        <nav style={{ padding: '20px 0 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+          <BrandRings size={44} />
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: 11, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.28em', textTransform: 'uppercase' }}>
+              Агентство знакомств
+            </div>
+            <div className="font-display" style={{ fontSize: 18, fontWeight: 600, color: '#F5E9CF', fontStyle: 'italic', letterSpacing: '0.01em', marginTop: 2 }}>
+              Асем Альмурзиева
             </div>
           </div>
+        </nav>
+
+        {/* 1. HERO — instantly clear positioning */}
+        <section className="fade-in" style={{ padding: '32px 0 50px', textAlign: 'center' }}>
+          {/* Asem photo as centerpiece */}
+          <div style={{ position: 'relative', width: 132, height: 132, margin: '0 auto 24px' }}>
+            <div style={{ position: 'absolute', inset: -8, borderRadius: '50%', background: 'conic-gradient(from 0deg, #D4AF37, #FF4D8D, #A855F7, #D4AF37)', filter: 'blur(10px)', opacity: 0.45 }} />
+            <div style={{ position: 'relative', width: 132, height: 132, borderRadius: '50%', overflow: 'hidden', border: '3px solid transparent', background: 'linear-gradient(135deg, #D4AF37, #FF4D8D) border-box', padding: 3, boxShadow: '0 12px 48px rgba(212,175,55,0.3)' }}>
+              <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', background: '#161630' }}>
+                <img src="/asem.jpg" alt="Асем Альмурзиева" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+            </div>
+          </div>
+
+          <div className="glow-pulse" style={{ display: 'inline-block', padding: '6px 16px', background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 20, fontSize: 11, color: '#D4AF37', marginBottom: 22, fontWeight: 700, letterSpacing: '0.15em' }}>♥ ПОДБОР ПАРТНЁРА</div>
+
+          {/* Clear, simple headline that ANY visitor understands in 3 seconds */}
+          <h1 className="hero-title font-display" style={{ fontSize: 'clamp(32px, 7vw, 50px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 20, letterSpacing: '-0.025em', color: '#F5E9CF' }}>
+            Знакомим серьёзных мужчин<br/>
+            с <em style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontStyle: 'italic', fontWeight: 700 }}>достойными женщинами</em>
+          </h1>
+
+          <p style={{ fontSize: 16, color: '#D4D4E8', lineHeight: 1.6, maxWidth: 540, margin: '0 auto 16px', fontWeight: 500 }}>
+            Профессиональное сватовство для тех, кто состоялся в жизни и хочет встретить свою половинку
+          </p>
+          <p style={{ fontSize: 14, color: '#A0A0C0', lineHeight: 1.7, maxWidth: 580, margin: '0 auto 36px' }}>
+            Каждую кандидатку мы отбираем лично: характер, ценности, серьёзность намерений. Вы тратите время только на встречи, а не на поиск.
+          </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, maxWidth: 360, margin: '0 auto' }}>
             <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
               style={{ display: 'inline-block', padding: '18px 36px', background: 'linear-gradient(135deg, #D4AF37, #B8860B)', color: '#1A1000', fontSize: 15, fontWeight: 800, borderRadius: 14, textDecoration: 'none', boxShadow: '0 12px 40px rgba(212,175,55,0.4)', letterSpacing: '0.01em' }}>
-              Получить кандидатов под мои критерии
+              Получить кандидаток под мои критерии
             </a>
-            <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
-              style={{ display: 'inline-block', padding: '16px 36px', background: 'rgba(255,255,255,0.04)', color: '#D4AF37', fontSize: 14, fontWeight: 700, borderRadius: 14, textDecoration: 'none', border: '1px solid rgba(212,175,55,0.3)' }}>
-              Пройти отбор
+            <a href="#about" className="btn-primary"
+              style={{ display: 'inline-block', padding: '14px 36px', background: 'rgba(255,255,255,0.04)', color: '#D4AF37', fontSize: 13, fontWeight: 600, borderRadius: 14, textDecoration: 'none', border: '1px solid rgba(212,175,55,0.3)' }}>
+              Узнать об эксперте ↓
             </a>
           </div>
         </section>
 
-        {/* 2. PAIN */}
+        {/* 2. PAIN — speak to the busy, successful man */}
         <Reveal>
-          <section style={{ padding: '50px 0' }}>
-            <SectionLabel>Если вам знакомо</SectionLabel>
-            <div className="glass" style={{ padding: 32, borderRadius: 24, borderColor: 'rgba(239,68,68,0.15)' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 24 }}>
-                {[
-                  'Вам 30+',
-                  'Вы реализованы в деньгах и статусе',
-                  'Но в личной жизни — случайные люди',
-                ].map(t => (
-                  <div key={t} className="font-display" style={{ fontSize: 'clamp(17px, 3.5vw, 20px)', color: '#F5E9CF', lineHeight: 1.35, fontWeight: 500 }}>{t}</div>
-                ))}
+          <section style={{ padding: '40px 0' }}>
+            <SectionLabel>Знакомо?</SectionLabel>
+            <div className="glass" style={{ padding: 30, borderRadius: 24 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <PainItem icon="💼" text="Вы успешны в бизнесе, но в личной жизни — пусто" />
+                <PainItem icon="⏱" text="Нет времени и места для нормальных знакомств" />
+                <PainItem icon="🚫" text="Лёгкие связи и охотницы за деньгами уже надоели" />
+                <PainItem icon="🤷" text="Хочется серьёзную, достойную, но где её найти?" />
               </div>
-              <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)', margin: '20px 0' }} />
-              <p className="font-display" style={{ fontSize: 'clamp(16px, 3.5vw, 19px)', color: '#F5E9CF', lineHeight: 1.4, fontStyle: 'italic', marginBottom: 6 }}>
-                Вы не привыкли к посредственности
-              </p>
-              <p style={{ fontSize: 15, color: '#A0A0C0', lineHeight: 1.55 }}>
-                Но именно её получаете в отношениях
-              </p>
 
-              <div style={{ marginTop: 28, padding: 20, background: 'linear-gradient(135deg, rgba(212,175,55,0.08), rgba(255,77,141,0.04))', border: '1px solid rgba(212,175,55,0.25)', borderRadius: 14 }}>
-                <p style={{ fontSize: 14, color: '#D4AF37', fontWeight: 700, marginBottom: 4 }}>Проблема не в вас.</p>
-                <p style={{ fontSize: 14, color: '#D4D4E8', lineHeight: 1.55 }}>
-                  Проблема в уровне людей, к которым у вас есть доступ.
+              <div style={{ marginTop: 22, padding: 18, background: 'linear-gradient(135deg, rgba(212,175,55,0.08), rgba(255,77,141,0.04))', border: '1px solid rgba(212,175,55,0.25)', borderRadius: 14 }}>
+                <p className="font-display" style={{ fontSize: 16, color: '#F5E9CF', fontStyle: 'italic', lineHeight: 1.5, marginBottom: 6 }}>
+                  Проблема не в вас.
+                </p>
+                <p style={{ fontSize: 14, color: '#D4D4E8', lineHeight: 1.6 }}>
+                  Проблема в том, что вокруг вас нет среды, где встречаются равные. Мы её создаём.
                 </p>
               </div>
             </div>
           </section>
         </Reveal>
 
-        {/* 3. SOLUTION */}
+        {/* 3. SOLUTION — what we do for you, in plain words */}
         <Reveal>
-          <section style={{ padding: '50px 0', position: 'relative' }}>
+          <section style={{ padding: '40px 0', position: 'relative' }}>
             <SectionSpark variant="mix" />
-            <SectionLabel accent="#D4AF37">Решение</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5vw, 34px)', fontWeight: 700, lineHeight: 1.2, marginBottom: 18, letterSpacing: '-0.02em', color: '#F5E9CF' }}>
-              Мы формируем окружение,<br/>
-              <em style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontStyle: 'italic' }}>где встречаются равные</em>
+            <SectionLabel accent="#D4AF37">Что мы делаем</SectionLabel>
+
+            <h2 className="font-display" style={{ fontSize: 'clamp(24px, 5vw, 30px)', fontWeight: 700, lineHeight: 1.25, marginBottom: 18, letterSpacing: '-0.02em', color: '#F5E9CF' }}>
+              Делаем за вас то, на что у вас<br/>
+              <em style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontStyle: 'italic' }}>нет времени</em>
             </h2>
-            <Card>
-              <p style={{ fontSize: 15, color: '#D4D4E8', lineHeight: 1.65, marginBottom: 18 }}>
-                Мы не просто знакомим. Мы создаём среду, где:
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 20 }}>
-                {[
-                  ['мужчины', 'финансово сильные и реализованные'],
-                  ['женщины', 'готовые к семье и осознанным отношениям'],
-                  ['отсутствуют', 'случайные люди'],
-                ].map(([k, v]) => (
-                  <div key={k} style={{ display: 'flex', gap: 10, fontSize: 14, color: '#D4D4E8', lineHeight: 1.55 }}>
-                    <span style={{ color: '#D4AF37', fontWeight: 700, flexShrink: 0, textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: 11, paddingTop: 2, minWidth: 100 }}>{k}</span>
-                    <span>{v}</span>
-                  </div>
-                ))}
-              </div>
-              <div style={{ padding: 16, background: 'rgba(212,175,55,0.06)', borderRadius: 12, border: '1px solid rgba(212,175,55,0.18)' }}>
-                <p style={{ fontSize: 14, color: '#F5E9CF', lineHeight: 1.55, fontWeight: 500, marginBottom: 4 }}>Каждый кандидат проходит отбор.</p>
-                <p style={{ fontSize: 14, color: '#A0A0C0', lineHeight: 1.55 }}>Вы знакомитесь только с теми, кто соответствует вашему уровню.</p>
-              </div>
-            </Card>
+
+            <div style={{ display: 'grid', gap: 12, gridTemplateColumns: '1fr' }}>
+              <Service
+                icon="🔍"
+                title="Находим достойных женщин"
+                desc="Красивых, умных, состоявшихся. Не выпускниц инстаграм-курсов и не охотниц за деньгами."
+              />
+              <Service
+                icon="✓"
+                title="Проверяем каждую"
+                desc="Характер, ценности, намерения. KYC, личное собеседование, психологическая совместимость."
+              />
+              <Service
+                icon="📅"
+                title="Организуем встречи"
+                desc="Под ваше расписание. Вы только приходите и общаетесь — без неудобной переписки и догадок."
+              />
+              <Service
+                icon="🤝"
+                title="Сопровождаем до результата"
+                desc="Не просто знакомим — помогаем построить отношения. До того момента, пока вы не скажете: «Я нашёл свою»."
+              />
+            </div>
           </section>
         </Reveal>
 
-        {/* 4. HOW WE WORK */}
+        {/* 4. HOW WE WORK — 8-step process */}
         <Reveal>
-          <section style={{ padding: '50px 0' }}>
+          <section style={{ padding: '40px 0' }}>
             <SectionLabel>Как мы работаем</SectionLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {[
                 'Вы оставляете заявку',
                 'Проходите предварительный отбор',
                 'Мы проводим интервью',
-                'Формируем портрет партнёра',
+                'Формируем портрет идеальной партнёрши',
                 'Выбираете формат работы',
-                'Подбираем кандидатов',
-                'Организуем знакомства',
+                'Подбираем кандидаток лично',
+                'Организуем встречи',
                 'Сопровождаем до результата',
               ].map((t, i) => (
                 <Reveal key={i} delay={i * 50}>
@@ -167,25 +186,24 @@ export default function AgencyLanding() {
 
         {/* 5. PACKAGES */}
         <Reveal>
-          <section style={{ padding: '50px 0' }}>
-            <SectionLabel>Пакеты услуг</SectionLabel>
+          <section style={{ padding: '40px 0' }}>
+            <SectionLabel>Форматы работы</SectionLabel>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
-              {/* 1. Individual full-service */}
               <Package
                 icon="👑"
                 tag="ПОД КЛЮЧ"
-                title="Индивидуальный подбор под ключ"
-                subtitle="Формат для мужчин, которые ценят своё время и хотят закрыть вопрос отношений на уровне результата"
+                title="Индивидуальный подбор"
+                subtitle="Для тех, кто хочет результат, а не процесс"
                 includes={[
-                  'индивидуальный подбор под ваши критерии',
-                  'анализ личности и совместимости',
-                  'неограниченное количество знакомств',
-                  'организация встреч',
-                  'сопровождение на всех этапах',
-                  'помощь в построении отношений',
+                  'Индивидуальный подбор под ваши критерии',
+                  'Анализ личности и совместимости',
+                  'Неограниченное число знакомств',
+                  'Организация встреч под ваше расписание',
+                  'Сопровождение на всех этапах',
+                  'Помощь в построении отношений',
                 ]}
-                highlight='«Мы работаем до результата — пока вы не скажете: "Я влюбился. Я встретил действительно своего человека."»'
+                highlight='«Работаем до результата — пока вы не скажете: "Я встретил свою."»'
                 price="от 2 500 000 тг"
                 cta="Начать подбор"
                 accent="#D4AF37"
@@ -193,78 +211,62 @@ export default function AgencyLanding() {
                 textColor="#1A1000"
               />
 
-              {/* 2. Personal with Asem — the premium */}
               <Package
                 vip
-                icon="♠"
+                icon="💎"
                 tag="ЛИЧНО С АСЕМ"
-                title="Личное сопровождение с Асем"
-                subtitle="Формат работы с главной свахой страны"
+                title="Личное сопровождение"
+                subtitle="Лично с Асем Альмурзиевой — главной свахой страны"
                 includes={[
-                  'вы работаете лично с Асем',
-                  'доступ к более сильным кандидатам',
-                  'более точный и глубокий подбор',
-                  'корректировка вашей стратегии в отношениях',
-                  'прямое участие эксперта в процессе',
+                  'Вы работаете лично с Асем',
+                  'Доступ к более сильным кандидаткам',
+                  'Точный и глубокий подбор',
+                  'Корректировка вашей стратегии в отношениях',
+                  'Прямое участие эксперта в процессе',
                 ]}
                 requires={[
-                  'готовность к честной обратной связи',
-                  'готовность работать над собой',
-                  'готовность принимать решения',
+                  'Готовность к честной обратной связи',
+                  'Готовность работать над собой',
+                  'Готовность принимать решения',
                 ]}
                 price="от 5 000 000 тг"
-                cta="Начать подбор с Асем"
+                cta="Начать с Асем"
                 accent="#D4AF37"
                 gradient="linear-gradient(135deg, #D4AF37, #FF4D8D)"
                 textColor="#1A1000"
               />
 
-              {/* 3. Pay-per-introduction */}
               <Package
-                icon="⚡"
+                icon="✦"
                 tag="ПО КОЛИЧЕСТВУ"
-                title="Знакомства (оплата за количество)"
-                subtitle="Формат для тех, кто хочет начать с конкретного количества знакомств"
+                title="Знакомства за фиксированную сумму"
+                subtitle="Для тех, кто хочет начать с пробного формата"
                 includes={[
-                  'вы даёте свои критерии',
-                  'мы подбираем 15–20 кандидатов',
-                  'вы выбираете, с кем хотите познакомиться',
-                  'мы организуем встречи',
+                  'Вы даёте свои критерии',
+                  'Мы подбираем 15–20 кандидаток',
+                  'Вы выбираете, с кем познакомиться',
+                  'Мы организуем встречи',
                 ]}
-                note="Качество кандидатов не меняется — вы платите именно за количество знакомств."
+                note="Качество кандидаток то же — вы платите за количество встреч."
                 tiers={[
                   { label: '3 знакомства', price: '255 000 тг' },
                   { label: '5 знакомств', price: '365 000 тг' },
                 ]}
-                extra="Работа лично с главной свахой Асем: +30% к стоимости пакета"
-                cta="Выбрать формат знакомств"
+                extra="Лично с Асем: +30% к стоимости пакета"
+                cta="Выбрать формат"
                 accent="#A855F7"
                 gradient="linear-gradient(135deg, #A855F7, #FF4D8D)"
                 textColor="white"
               />
-            </div>
-
-            {/* Closing pitch */}
-            <div className="glass" style={{ marginTop: 28, padding: 24, borderRadius: 20, borderColor: 'rgba(212,175,55,0.2)' }}>
-              <p style={{ fontSize: 13, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 12 }}>Почему выбирают формат под ключ</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 20 }}>
-                {['их время стоит дороже экспериментов', 'они не хотят разбираться в людях', 'им нужен результат, а не процесс'].map(t => (
-                  <div key={t} style={{ fontSize: 14, color: '#D4D4E8', paddingLeft: 18, borderLeft: '2px solid rgba(212,175,55,0.4)' }}>{t}</div>
-                ))}
-              </div>
-              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
-                style={{ display: 'block', padding: '14px 24px', background: 'linear-gradient(135deg, #D4AF37, #B8860B)', color: '#1A1000', fontSize: 14, fontWeight: 800, borderRadius: 12, textDecoration: 'none', textAlign: 'center', boxShadow: '0 10px 32px rgba(212,175,55,0.4)' }}>
-                Начать подбор →
-              </a>
             </div>
           </section>
         </Reveal>
 
         {/* 6. CASES */}
         <Reveal>
-          <section style={{ padding: '50px 0', position: 'relative' }}>
+          <section style={{ padding: '40px 0', position: 'relative' }}>
             <SectionSpark variant="hearts" />
-            <SectionLabel>Кейсы</SectionLabel>
+            <SectionLabel>Истории клиентов</SectionLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
                 { initial: 'А', color: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', name: 'Алия', age: 34, title: 'предприниматель', before: '5 лет не могла построить отношения', after: 'Через 2 месяца — знакомство с будущим мужем' },
@@ -293,50 +295,79 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        {/* 7. ABOUT ASEM */}
+        {/* 7. ABOUT ASEM — credentials, media, interviews */}
         <Reveal>
-          <section style={{ padding: '50px 0' }}>
-            <SectionLabel accent="#D4AF37">Об Асем</SectionLabel>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 24 }}>
-              <div style={{ width: 96, height: 96, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: '2px solid transparent', background: 'linear-gradient(135deg, #D4AF37, #FF4D8D) border-box', padding: 3, boxShadow: '0 12px 40px rgba(212,175,55,0.3)' }}>
-                <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', background: '#161630' }}>
-                  <img src="/asem.jpg" alt="Асем" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <section id="about" style={{ padding: '50px 0' }}>
+            <SectionLabel accent="#D4AF37">Об эксперте</SectionLabel>
+
+            <div className="glass" style={{ padding: 28, borderRadius: 24, borderColor: 'rgba(212,175,55,0.2)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginBottom: 22 }}>
+                <div style={{ width: 88, height: 88, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: '2px solid transparent', background: 'linear-gradient(135deg, #D4AF37, #FF4D8D) border-box', padding: 3, boxShadow: '0 10px 32px rgba(212,175,55,0.3)' }}>
+                  <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', background: '#161630' }}>
+                    <img src="/asem.jpg" alt="Асем Альмурзиева" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </div>
+                </div>
+                <div>
+                  <div style={{ fontSize: 10, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.15em', marginBottom: 4 }}>ОСНОВАТЕЛЬ АГЕНТСТВА</div>
+                  <h2 className="font-display" style={{ fontSize: 'clamp(20px, 4.5vw, 26px)', fontWeight: 700, lineHeight: 1.15, color: '#F5E9CF', letterSpacing: '-0.015em' }}>
+                    Асем Альмурзиева
+                  </h2>
+                  <div style={{ fontSize: 13, color: '#A0A0C0', marginTop: 4, fontStyle: 'italic' }}>главная сваха страны</div>
                 </div>
               </div>
-              <div>
-                <div style={{ fontSize: 11, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.12em', marginBottom: 6 }}>ГЛАВНАЯ СВАХА СТРАНЫ</div>
-                <h2 className="font-display" style={{ fontSize: 'clamp(20px, 4.5vw, 26px)', fontWeight: 700, lineHeight: 1.2, color: '#F5E9CF', letterSpacing: '-0.015em' }}>
-                  Я работаю только с теми,<br/>
-                  <em style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontStyle: 'italic' }}>кто готов к результату</em>
-                </h2>
-              </div>
-            </div>
 
-            <Card>
-              <p className="font-display" style={{ fontSize: 16, color: '#F5E9CF', lineHeight: 1.55, marginBottom: 14, fontWeight: 500 }}>
-                Я — главная сваха страны.
+              {/* Achievements grid */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 10, marginBottom: 22 }}>
+                <Achievement icon="📺" label="Признанный медиаэксперт" sub="СМИ Казахстана" />
+                <Achievement icon="⏳" label="10+ лет опыта" sub="в индустрии знакомств" />
+                <Achievement icon="💍" label="500+ пар" sub="успешных кейсов" />
+                <Achievement icon="🇰🇿" label="Казахстан" sub="и страны СНГ" />
+              </div>
+
+              <p className="font-display" style={{ fontSize: 16, color: '#F5E9CF', lineHeight: 1.55, marginBottom: 14, fontWeight: 500, fontStyle: 'italic' }}>
+                «Я работаю только с теми, кто готов к результату.»
               </p>
               <p style={{ fontSize: 14, color: '#D4D4E8', lineHeight: 1.7, marginBottom: 12 }}>
-                Я не беру всех подряд. Со мной работают мужчины, которые ценят уровень, время и результат.
+                Я не беру всех подряд. Со мной работают мужчины, которые ценят свой уровень, своё время и хотят серьёзный результат.
               </p>
               <p style={{ fontSize: 14, color: '#A0A0C0', lineHeight: 1.7 }}>
-                Моя задача — не просто познакомить вас, а привести к отношениям, которые соответствуют вашему статусу.
+                Моя задача — не просто познакомить вас, а привести к отношениям, которые соответствуют вашему статусу и ценностям.
               </p>
-            </Card>
+
+              {/* Media / interviews block */}
+              <div style={{ marginTop: 22, padding: 18, background: 'rgba(212,175,55,0.05)', border: '1px solid rgba(212,175,55,0.15)', borderRadius: 14 }}>
+                <div style={{ fontSize: 11, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.15em', marginBottom: 10, textTransform: 'uppercase' }}>📺 Интервью и публикации</div>
+                <p style={{ fontSize: 13, color: '#A0A0C0', lineHeight: 1.6, marginBottom: 12 }}>
+                  О работе агентства и подходе Асем рассказывают ведущие медиа Казахстана.
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  <MediaLink title="Интервью на телеканале" sub="о философии современного сватовства" />
+                  <MediaLink title="Публикация в Forbes Kazakhstan" sub="секреты успешного подбора пары" />
+                  <MediaLink title="Подкаст «Личное» — выпуск с Асем" sub="как находят свою половинку успешные люди" />
+                </div>
+                <p style={{ fontSize: 11, color: '#6B6B8D', lineHeight: 1.55, marginTop: 12, fontStyle: 'italic' }}>
+                  Ссылки на интервью обновляются. По запросу предоставим полный список публикаций.
+                </p>
+              </div>
+            </div>
           </section>
         </Reveal>
 
         {/* 8. FAQ */}
         <Reveal>
-          <section style={{ padding: '50px 0' }}>
+          <section style={{ padding: '40px 0' }}>
             <SectionLabel>Частые вопросы</SectionLabel>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <FAQItem accent="#D4AF37" q="Вы берёте всех клиентов?"
-                a="Нет. Мы работаем только с теми, кто проходит отбор." />
+                a="Нет. Мы работаем только с теми, кто проходит предварительный отбор. Это гарантирует качество с обеих сторон." />
               <FAQItem accent="#D4AF37" q="Вы гарантируете результат?"
-                a="Мы гарантируем подбор и сопровождение. Результат зависит от взаимной симпатии." />
+                a="Мы гарантируем профессиональный подбор и сопровождение. Сами отношения зависят от взаимной симпатии — но шансы на успех в нашей среде в разы выше." />
               <FAQItem accent="#D4AF37" q="Можно ли вернуть деньги?"
-                a="Нет. Услуга носит нематериальный характер." />
+                a="Услуга носит нематериальный характер. После начала работы возврат средств не производится — но мы работаем до результата." />
+              <FAQItem accent="#D4AF37" q="Конфиденциально ли это?"
+                a="Абсолютно. Все данные клиентов защищены. Информация о вас не передаётся никому, кроме отобранных под вас кандидаток." />
+              <FAQItem accent="#D4AF37" q="Как вы проверяете кандидаток?"
+                a="Личное интервью, проверка документов, оценка психологической стабильности и серьёзности намерений. Случайных людей у нас нет." />
             </div>
           </section>
         </Reveal>
@@ -346,15 +377,16 @@ export default function AgencyLanding() {
           <section style={{ padding: '60px 0 40px', textAlign: 'center', position: 'relative' }}>
             <SectionSpark variant="gold" />
             <h2 className="font-display" style={{ fontSize: 'clamp(24px, 5vw, 32px)', fontWeight: 700, lineHeight: 1.25, marginBottom: 16, color: '#F5E9CF', letterSpacing: '-0.02em' }}>
-              Вы можете продолжать<br/>искать сами и тратить время
+              Можно продолжать искать сами<br/>и тратить время
             </h2>
             <p className="font-display" style={{ fontSize: 'clamp(22px, 4.5vw, 28px)', fontWeight: 700, fontStyle: 'italic', marginBottom: 36, background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
-              Или зайти в среду,<br/>где уже есть люди вашего уровня
+              А можно — встретить ту самую<br/>уже в этом году
             </p>
             <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
               style={{ display: 'inline-block', padding: '22px 56px', background: 'linear-gradient(135deg, #D4AF37, #B8860B)', color: '#1A1000', fontSize: 17, fontWeight: 800, borderRadius: 18, textDecoration: 'none', boxShadow: '0 16px 56px rgba(212,175,55,0.45)', letterSpacing: '0.02em' }}>
-              👉 Пройти отбор
+              Пройти отбор →
             </a>
+            <p style={{ marginTop: 18, fontSize: 13, color: '#6B6B8D' }}>Заявка занимает 3 минуты · ответим в течение суток</p>
           </section>
         </Reveal>
 
@@ -364,7 +396,7 @@ export default function AgencyLanding() {
             <div style={{ textAlign: 'center', marginBottom: 20 }}>
               <div style={{ fontSize: 11, color: '#6B6B8D', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 8 }}>Дополнительные направления</div>
               <p style={{ fontSize: 14, color: '#A0A0C0', maxWidth: 500, margin: '0 auto', lineHeight: 1.55 }}>
-                Помимо закрытого подбора у нас есть ещё два направления
+                Помимо индивидуального подбора у нас есть ещё два направления
               </p>
             </div>
             <div style={{ display: 'grid', gap: 14, gridTemplateColumns: '1fr' }}>
@@ -372,8 +404,8 @@ export default function AgencyLanding() {
                 href="/men"
                 badge="ДЛЯ МУЖЧИН"
                 title="Найди Пару"
-                subtitle="Telegram Mini App · 10 000 ₸ за 30 анкет"
-                icon="🔥"
+                subtitle="Telegram-приложение · 10 000 ₸ за 30 анкет"
+                icon="♥"
                 gradient="linear-gradient(135deg, #FF4D8D, #A855F7)"
                 accent="#FF4D8D"
               />
@@ -382,7 +414,7 @@ export default function AgencyLanding() {
                 badge="ДЛЯ ДЕВУШЕК"
                 title="Программа Асем"
                 subtitle="Стать женщиной, которую выбирают · от 37 500 ₸/мес"
-                icon="✨"
+                icon="✦"
                 gradient="linear-gradient(135deg, #D4AF37, #FF4D8D)"
                 accent="#D4AF37"
               />
@@ -393,6 +425,12 @@ export default function AgencyLanding() {
         {/* FOOTER */}
         <footer style={{ padding: '40px 0 110px', borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: 40 }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20, textAlign: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+              <BrandRings size={32} />
+              <div style={{ fontSize: 11, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' }}>Агентство знакомств</div>
+              <div className="font-display" style={{ fontSize: 16, fontWeight: 600, color: '#F5E9CF', fontStyle: 'italic' }}>Асем Альмурзиева</div>
+            </div>
+
             <div>
               <div style={{ fontSize: 11, color: '#6B6B8D', fontWeight: 700, letterSpacing: '0.15em', marginBottom: 10, textTransform: 'uppercase' }}>Контакты</div>
               <div style={{ display: 'flex', justifyContent: 'center', gap: 14, flexWrap: 'wrap' }}>
@@ -415,12 +453,11 @@ export default function AgencyLanding() {
               <Link href="/privacy" style={{ color: '#6B6B8D', textDecoration: 'none' }}>Конфиденциальность</Link>
             </div>
 
-            <p style={{ fontSize: 11, color: '#6B6B8D', marginTop: 8 }}>© {new Date().getFullYear()} Агентство Асем. Все права защищены.</p>
+            <p style={{ fontSize: 11, color: '#6B6B8D' }}>© {new Date().getFullYear()} Агентство знакомств Асем Альмурзиевой</p>
           </div>
         </footer>
       </div>
 
-      {/* Sticky CTA on mobile */}
       <StickyCTA href={TALLY_URL} label="Пройти отбор" accent="#D4AF37" accentTo="#B8860B" textColor="#1A1000" />
     </div>
   );
@@ -435,10 +472,46 @@ function SectionLabel({ children, accent = '#A0A0C0' }) {
   );
 }
 
-function Card({ children, padding = 26, style = {} }) {
+function PainItem({ icon, text }) {
   return (
-    <div className="glass" style={{ borderRadius: 20, padding, ...style }}>
-      {children}
+    <div style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+      <div style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(255,77,141,0.1)', border: '1px solid rgba(255,77,141,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>{icon}</div>
+      <p className="font-display" style={{ fontSize: 'clamp(15px, 3.2vw, 17px)', color: '#F5E9CF', lineHeight: 1.4, fontWeight: 500, paddingTop: 6 }}>{text}</p>
+    </div>
+  );
+}
+
+function Service({ icon, title, desc }) {
+  return (
+    <div className="glass" style={{ padding: 20, borderRadius: 18, display: 'flex', gap: 16, alignItems: 'flex-start', borderColor: 'rgba(212,175,55,0.12)' }}>
+      <div style={{ width: 44, height: 44, borderRadius: 12, background: 'linear-gradient(135deg, rgba(212,175,55,0.18), rgba(255,77,141,0.1))', border: '1px solid rgba(212,175,55,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, flexShrink: 0 }}>{icon}</div>
+      <div>
+        <div style={{ fontSize: 16, fontWeight: 700, color: '#F5E9CF', marginBottom: 4 }}>{title}</div>
+        <p style={{ fontSize: 13, color: '#A0A0C0', lineHeight: 1.6 }}>{desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function Achievement({ icon, label, sub }) {
+  return (
+    <div style={{ padding: 14, borderRadius: 12, background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(212,175,55,0.12)', textAlign: 'center' }}>
+      <div style={{ fontSize: 22, marginBottom: 6 }}>{icon}</div>
+      <div style={{ fontSize: 12, fontWeight: 700, color: '#F5E9CF', lineHeight: 1.3 }}>{label}</div>
+      <div style={{ fontSize: 10, color: '#8B8BA8', marginTop: 2, lineHeight: 1.3 }}>{sub}</div>
+    </div>
+  );
+}
+
+function MediaLink({ title, sub }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', background: 'rgba(255,255,255,0.02)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.05)' }}>
+      <div style={{ width: 8, height: 8, borderRadius: 2, background: '#D4AF37', flexShrink: 0 }} />
+      <div style={{ flex: 1 }}>
+        <div style={{ fontSize: 13, color: '#F5E9CF', fontWeight: 500 }}>{title}</div>
+        <div style={{ fontSize: 11, color: '#8B8BA8', marginTop: 1 }}>{sub}</div>
+      </div>
+      <span style={{ fontSize: 10, color: '#6B6B8D', fontStyle: 'italic' }}>скоро</span>
     </div>
   );
 }
@@ -451,12 +524,7 @@ function ServiceLink({ href, badge, title, subtitle, icon, gradient, accent }) {
       borderColor: `${accent}22`,
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-        <div style={{
-          width: 48, height: 48, borderRadius: 14,
-          background: gradient, display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: 22, flexShrink: 0,
-          boxShadow: `0 8px 24px ${accent}55`,
-        }}>{icon}</div>
+        <div style={{ width: 48, height: 48, borderRadius: 14, background: gradient, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, flexShrink: 0, boxShadow: `0 8px 24px ${accent}55`, color: 'white' }}>{icon}</div>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontSize: 10, color: accent, fontWeight: 700, letterSpacing: '0.15em', marginBottom: 2 }}>{badge}</div>
           <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 2 }}>{title}</div>
@@ -478,24 +546,17 @@ function Package({ icon, tag, title, subtitle, includes, requires, highlight, no
       boxShadow: vip ? `0 20px 60px ${accent}20, 0 0 0 1px ${accent}30 inset` : '0 12px 40px rgba(0,0,0,0.3)',
       overflow: 'hidden',
     }}>
-      {/* Top gradient bar */}
       <div style={{ height: 3, background: gradient }} />
 
       {vip && (
         <div style={{ position: 'absolute', top: 18, right: 18, padding: '4px 12px', background: 'linear-gradient(135deg, #D4AF37, #B8860B)', color: '#1A1000', borderRadius: 20, fontSize: 9, fontWeight: 900, letterSpacing: '0.15em' }}>
-          👑 ПРЕМИУМ
+          ✦ ПРЕМИУМ
         </div>
       )}
 
       <div style={{ padding: 26 }}>
-        {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 16 }}>
-          <div style={{
-            width: 52, height: 52, borderRadius: 14, background: gradient,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: 24, flexShrink: 0,
-            boxShadow: `0 8px 24px ${accent}55`,
-          }}>{icon}</div>
+          <div style={{ width: 52, height: 52, borderRadius: 14, background: gradient, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, flexShrink: 0, boxShadow: `0 8px 24px ${accent}55`, color: 'white' }}>{icon}</div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: 10, color: accent, fontWeight: 800, letterSpacing: '0.2em', marginBottom: 4 }}>{tag}</div>
             <h3 className="font-display" style={{ fontSize: 'clamp(18px, 4vw, 22px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.2 }}>
@@ -506,7 +567,6 @@ function Package({ icon, tag, title, subtitle, includes, requires, highlight, no
 
         <p style={{ fontSize: 13, color: '#A0A0C0', lineHeight: 1.6, marginBottom: 20 }}>{subtitle}</p>
 
-        {/* Includes */}
         <div style={{ marginBottom: 18 }}>
           <div style={{ fontSize: 10, color: '#6B6B8D', fontWeight: 700, letterSpacing: '0.15em', marginBottom: 10, textTransform: 'uppercase' }}>Что вы получаете</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -518,7 +578,6 @@ function Package({ icon, tag, title, subtitle, includes, requires, highlight, no
           </div>
         </div>
 
-        {/* Requires (for VIP only) */}
         {requires && (
           <div style={{ marginBottom: 18, padding: 14, background: 'rgba(212,175,55,0.06)', borderRadius: 10, border: '1px solid rgba(212,175,55,0.15)' }}>
             <div style={{ fontSize: 10, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.12em', marginBottom: 8, textTransform: 'uppercase' }}>Главное с вашей стороны</div>
@@ -530,19 +589,16 @@ function Package({ icon, tag, title, subtitle, includes, requires, highlight, no
           </div>
         )}
 
-        {/* Highlight callout */}
         {highlight && (
           <div className="font-display" style={{ marginBottom: 18, padding: 16, background: 'rgba(212,175,55,0.06)', borderRadius: 12, border: '1px solid rgba(212,175,55,0.18)', fontSize: 13, color: '#F5E9CF', fontStyle: 'italic', lineHeight: 1.5 }}>
             {highlight}
           </div>
         )}
 
-        {/* Note */}
         {note && (
           <p style={{ fontSize: 12, color: '#8B8BA8', fontStyle: 'italic', marginBottom: 16, lineHeight: 1.55 }}>{note}</p>
         )}
 
-        {/* Pricing tiers (for pay-per-intro) */}
         {tiers && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 14 }}>
             {tiers.map(t => (
@@ -556,11 +612,10 @@ function Package({ icon, tag, title, subtitle, includes, requires, highlight, no
 
         {extra && (
           <div style={{ padding: 12, background: 'rgba(212,175,55,0.06)', border: '1px solid rgba(212,175,55,0.18)', borderRadius: 10, fontSize: 12, color: '#D4AF37', marginBottom: 18, fontWeight: 500 }}>
-            👑 {extra}
+            ✦ {extra}
           </div>
         )}
 
-        {/* Price (single) */}
         {price && (
           <div style={{ padding: '16px 20px', background: 'rgba(212,175,55,0.06)', borderRadius: 14, marginBottom: 16, textAlign: 'center', border: `1px solid ${accent}25` }}>
             <div style={{ fontSize: 10, color: '#6B6B8D', fontWeight: 700, letterSpacing: '0.15em', marginBottom: 4, textTransform: 'uppercase' }}>Стоимость</div>
@@ -568,7 +623,6 @@ function Package({ icon, tag, title, subtitle, includes, requires, highlight, no
           </div>
         )}
 
-        {/* CTA */}
         <a href={TALLY_URL} target="_blank" rel="noopener noreferrer"
           style={{ display: 'block', padding: '14px', textAlign: 'center', borderRadius: 14, background: gradient, color: textColor, fontSize: 14, fontWeight: 700, textDecoration: 'none', boxShadow: `0 10px 32px ${accent}55` }}>
           {cta} →

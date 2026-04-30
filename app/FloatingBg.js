@@ -1,16 +1,16 @@
 'use client';
 import { useEffect, useState, useMemo } from 'react';
 
-// Thematic symbols for agency — suits, hearts, sparkles
+// Romantic, matchmaking-themed symbols (no playing card suits)
 const SYMBOLS = [
-  { char: '♥', color: '#FF4D8D', weight: 3 },   // heart (most common)
-  { char: '♥', color: '#F9A8D4', weight: 2 },
-  { char: '✦', color: '#D4AF37', weight: 3 },   // 4-point star / gold sparkle
+  { char: '♥', color: '#FF4D8D', weight: 4 },   // heart (most common)
+  { char: '♥', color: '#F9A8D4', weight: 3 },
+  { char: '❤', color: '#FF4D8D', weight: 2 },
+  { char: '✦', color: '#D4AF37', weight: 3 },   // 4-point gold sparkle
   { char: '✧', color: '#D4AF37', weight: 2 },
-  { char: '♠', color: '#D4AF37', weight: 1 },   // brand mark
-  { char: '♦', color: '#FF4D8D', weight: 1 },
-  { char: '✨', color: '#D4AF37', weight: 1 },
-  { char: '·', color: '#D4AF37', weight: 2 },
+  { char: '✨', color: '#D4AF37', weight: 2 },
+  { char: '·', color: '#D4AF37', weight: 3 },
+  { char: '·', color: '#FF4D8D', weight: 2 },
 ];
 
 // Weighted random picker
@@ -123,12 +123,12 @@ export function LoadingScreen() {
       {/* Floating background decorations inside loader */}
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
         {[
-          { char: '♥', color: '#FF4D8D', top: '20%', left: '15%', size: 28, delay: '0s' },
-          { char: '✦', color: '#D4AF37', top: '25%', right: '18%', size: 20, delay: '0.3s' },
-          { char: '♥', color: '#F9A8D4', bottom: '25%', left: '20%', size: 18, delay: '0.6s' },
-          { char: '✧', color: '#D4AF37', bottom: '22%', right: '22%', size: 24, delay: '0.2s' },
-          { char: '·', color: '#D4AF37', top: '50%', left: '8%', size: 14, delay: '0.5s' },
-          { char: '·', color: '#FF4D8D', top: '50%', right: '10%', size: 14, delay: '0.8s' },
+          { char: '♥', color: '#FF4D8D', top: '18%', left: '14%', size: 30, delay: '0s' },
+          { char: '✦', color: '#D4AF37', top: '24%', right: '16%', size: 22, delay: '0.3s' },
+          { char: '♥', color: '#F9A8D4', bottom: '24%', left: '18%', size: 20, delay: '0.6s' },
+          { char: '✧', color: '#D4AF37', bottom: '20%', right: '20%', size: 26, delay: '0.2s' },
+          { char: '✨', color: '#D4AF37', top: '50%', left: '8%', size: 16, delay: '0.5s' },
+          { char: '✨', color: '#FF4D8D', top: '50%', right: '10%', size: 16, delay: '0.8s' },
         ].map((p, i) => (
           <span key={i} style={{
             position: 'absolute',
@@ -169,36 +169,55 @@ export function LoadingScreen() {
           border: '1px solid rgba(212,175,55,0.2)',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
-          {/* Brand mark — spade suit with glow */}
-          <span className="font-display" style={{
-            fontSize: 46, fontWeight: 800,
-            background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            filter: 'drop-shadow(0 0 16px rgba(212,175,55,0.5))',
-            animation: 'loaderPulse 1.6s ease-in-out infinite',
-          }}>♠</span>
+          {/* Brand mark — interlocking rings (symbol of union) */}
+          <svg width="56" height="42" viewBox="0 0 56 42" fill="none" style={{
+            filter: 'drop-shadow(0 0 16px rgba(212,175,55,0.55))',
+            animation: 'loaderPulse 1.8s ease-in-out infinite',
+          }}>
+            <defs>
+              <linearGradient id="ringG1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stopColor="#D4AF37"/>
+                <stop offset="1" stopColor="#B8860B"/>
+              </linearGradient>
+              <linearGradient id="ringG2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stopColor="#FF4D8D"/>
+                <stop offset="1" stopColor="#A855F7"/>
+              </linearGradient>
+            </defs>
+            <circle cx="18" cy="21" r="14" stroke="url(#ringG1)" strokeWidth="3" fill="none"/>
+            <circle cx="38" cy="21" r="14" stroke="url(#ringG2)" strokeWidth="3" fill="none"/>
+          </svg>
         </div>
       </div>
 
       {/* Brand label */}
       <div style={{
-        fontSize: 13, fontWeight: 700, color: '#D4AF37',
-        letterSpacing: '0.3em', textTransform: 'uppercase',
-        marginBottom: 14,
+        fontSize: 12, fontWeight: 700, color: '#D4AF37',
+        letterSpacing: '0.28em', textTransform: 'uppercase',
+        marginBottom: 8,
         opacity: 0,
         animation: 'loaderFade 0.8s ease 0.3s forwards',
+        textAlign: 'center',
       }}>
-        АГЕНТСТВО АСЕМ
+        Агентство знакомств
+      </div>
+      <div className="font-display" style={{
+        fontSize: 16, fontWeight: 600, color: '#F5E9CF',
+        marginBottom: 14, fontStyle: 'italic',
+        opacity: 0,
+        animation: 'loaderFade 0.8s ease 0.45s forwards',
+        letterSpacing: '0.02em',
+      }}>
+        Асем Альмурзиева
       </div>
 
-      {/* Tagline with typewriter effect */}
-      <div className="font-display" style={{
-        fontSize: 14, color: '#A0A0C0', fontStyle: 'italic',
+      {/* Tagline */}
+      <div style={{
+        fontSize: 13, color: '#8B8BA8',
         opacity: 0,
-        animation: 'loaderFade 0.8s ease 0.6s forwards',
+        animation: 'loaderFade 0.8s ease 0.7s forwards',
       }}>
-        подбираем пары...
+        подбираем достойных...
       </div>
 
       {/* Progress dots */}
