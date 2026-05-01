@@ -242,6 +242,25 @@ img {
   30% { transform: scale(1); opacity: 1; }
 }
 
+/* Video card hover */
+.video-thumb {
+  transition: filter 0.3s ease;
+}
+.video-thumb:hover {
+  filter: brightness(1.08);
+}
+.video-thumb:hover .play-btn {
+  transform: translate(-50%, -50%) scale(1.12) !important;
+  box-shadow: 0 16px 56px rgba(212,175,55,0.7), 0 0 0 10px rgba(255,255,255,0.08) !important;
+}
+.video-thumb:hover img {
+  transform: scale(1.04);
+  transition: transform 0.6s ease;
+}
+.video-thumb img {
+  transition: transform 0.6s ease;
+}
+
 /* Reduce animations for users who prefer less motion */
 @media (prefers-reduced-motion: reduce) {
   .blob, .glow-pulse, .float-y, .shimmer {

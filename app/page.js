@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Reveal, Counter, FAQItem, StickyCTA } from './components';
 import { FloatingBg, LoadingScreen, SectionSpark } from './FloatingBg';
+import { VideoCard, PressCardLink } from './VideoCard';
 
 export const metadata = {
   title: 'Агентство знакомств Асем Альмурзиевой',
@@ -338,51 +339,90 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        {/* TV INTERVIEWS gallery */}
+        {/* VIDEO INTERVIEWS — main proof */}
         <Reveal>
-          <section style={{ padding: '40px 0' }}>
-            <SectionLabel accent="#D4AF37">📺 На телевидении</SectionLabel>
-            <p style={{ fontSize: 13, color: '#A0A0C0', lineHeight: 1.6, marginBottom: 20, maxWidth: 580 }}>
-              Об Асем рассказывают ведущие телеканалы Казахстана. Её приглашают как эксперта по теме современных знакомств и брака.
-            </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 12 }}>
-              <TvCard src="/media/tv-almaty.jpg" channel="Almaty TV" show='«Таңғы Studio»' caption="Сваха" />
-              <TvCard src="/media/tv-khabar.jpg" channel="Хабар" show="Утреннее шоу" caption="О современном сватовстве" />
-              <TvCard src="/media/tv-ntk.jpg" channel="НТК" show="Студийное интервью" caption="Эксперт по знакомствам" />
-              <TvCard src="/media/tv-almaty-2.jpg" channel="Almaty TV" show='«Таңғы Studio»' caption="Главная сваха страны" />
+          <section style={{ padding: '50px 0', position: 'relative' }}>
+            <SectionSpark variant="gold" />
+            <div style={{ marginBottom: 22 }}>
+              <SectionLabel accent="#D4AF37">🎥 Видеоинтервью</SectionLabel>
+              <p style={{ fontSize: 14, color: '#A0A0C0', lineHeight: 1.65, maxWidth: 600 }}>
+                Об агентстве и подходе Асем рассказывают ведущие телеканалы и подкасты Казахстана. Нажмите, чтобы посмотреть.
+              </p>
+            </div>
+
+            {/* Featured big video on top */}
+            <div style={{ marginBottom: 16 }}>
+              <VideoCard
+                big
+                id="UMpcqWd2z5c"
+                channel="Аман Есен · подкаст"
+                title="Сваха №1 в Казахстане. Асем Альмурзиева — как перестать выбирать абьюзеров"
+              />
+            </div>
+
+            {/* Other videos in grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 14 }}>
+              <VideoCard
+                id="B3eEIb5dxlw"
+                channel="Almaty TV"
+                title="Каково быть свахой в Казахстане?"
+              />
+              <VideoCard
+                id="hcvzPsigwxM"
+                channel="Агентство Знакомств"
+                title="Агентство эксклюзивных знакомств Асем Альмурзиевой"
+              />
+              <VideoCard
+                id="z5yrWPIp0n4"
+                channel="Адина Сабирова · подкаст"
+                title="Где познакомиться с достойным/ой партнёром в Алматы?"
+              />
+              <VideoCard
+                id="tTj5EzRysq4"
+                channel="Адина Сабирова · подкаст"
+                title="Вечеринки знакомств в Алматы — Flirt Party"
+              />
             </div>
           </section>
         </Reveal>
 
         {/* PRESS coverage */}
         <Reveal>
-          <section style={{ padding: '40px 0' }}>
-            <SectionLabel accent="#D4AF37">🗞 Публикации в СМИ</SectionLabel>
-            <p style={{ fontSize: 13, color: '#A0A0C0', lineHeight: 1.6, marginBottom: 20, maxWidth: 580 }}>
-              Ведущие издания Казахстана пишут об агентстве Асем как о флагмане индустрии профессиональных знакомств.
-            </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              <PressCard
+          <section style={{ padding: '50px 0' }}>
+            <div style={{ marginBottom: 22 }}>
+              <SectionLabel accent="#D4AF37">🗞 Публикации в СМИ</SectionLabel>
+              <p style={{ fontSize: 14, color: '#A0A0C0', lineHeight: 1.65, maxWidth: 600 }}>
+                Ведущие издания Казахстана пишут об агентстве Асем как о флагмане индустрии профессиональных знакомств. Нажмите на статью, чтобы прочитать.
+              </p>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <PressCardLink
+                href="https://www.nur.kz/society/1781811-kazahstanskaa-svaha-rasskazala-kakie-devuski-nravatsa-millioneram/"
                 src="/media/press-nur.jpg"
                 outlet="NUR.KZ"
                 title="«Главная сваха страны Асем Альмурзиева рассказала, какие девушки нравятся миллионерам»"
               />
-              <PressCard
+              <PressCardLink
+                href="https://www.zakon.kz/sovety/4960582-kak-nayti-muzha-millionera.html"
                 src="/media/press-zakon.jpg"
                 outlet="zakon.kz"
                 title="«Как найти мужа-миллионера. Казахстанские реалии»"
                 sub="Сваха, которой доверяют свою судьбу крупные миллионеры Казахстана"
               />
-              <PressCard
+              <PressCardLink
+                href="https://www.styleofeurasia.com/news/item/1762-marry-a-millionaire"
                 src="/media/press-eurasia.jpg"
                 outlet="Style of Eurasia"
                 title="«Marry a Millionaire»"
                 sub="Казахстанская сваха нашла эксклюзивный способ выдачи невест замуж за миллионеров"
               />
+              <PressCardLink
+                href="https://the-steppe.com/lyudi/brachnoe-agentsvo"
+                outlet="The Steppe"
+                title="«Свахи 80 lvl: Найти свою любовь через агентство знакомств»"
+                sub="Большое интервью о том, как работает агентство эксклюзивных знакомств"
+              />
             </div>
-            <p style={{ fontSize: 11, color: '#6B6B8D', lineHeight: 1.55, marginTop: 16, fontStyle: 'italic', textAlign: 'center' }}>
-              По запросу предоставим полный список публикаций и ссылки на оригиналы статей.
-            </p>
           </section>
         </Reveal>
 
@@ -532,54 +572,6 @@ function Achievement({ icon, label, sub }) {
       <div style={{ fontSize: 22, marginBottom: 6 }}>{icon}</div>
       <div style={{ fontSize: 12, fontWeight: 700, color: '#F5E9CF', lineHeight: 1.3 }}>{label}</div>
       <div style={{ fontSize: 10, color: '#8B8BA8', marginTop: 2, lineHeight: 1.3 }}>{sub}</div>
-    </div>
-  );
-}
-
-function TvCard({ src, channel, show, caption }) {
-  return (
-    <div className="glass switcher-link" style={{
-      borderRadius: 16, overflow: 'hidden',
-      borderColor: 'rgba(212,175,55,0.18)',
-      cursor: 'default',
-    }}>
-      <div style={{ position: 'relative', aspectRatio: '4 / 3', overflow: 'hidden', background: '#0E0D17' }}>
-        <img src={src} alt={`${channel} — ${show}`}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-        {/* gradient overlay for legibility */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.0) 50%, rgba(10,10,20,0.8) 100%)', pointerEvents: 'none' }} />
-        {/* TV badge */}
-        <div style={{ position: 'absolute', top: 10, left: 10, padding: '3px 10px', background: 'rgba(212,175,55,0.9)', color: '#1A1000', borderRadius: 14, fontSize: 9, fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-          📺 ТВ
-        </div>
-      </div>
-      <div style={{ padding: '12px 14px' }}>
-        <div style={{ fontSize: 11, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 3 }}>{channel}</div>
-        <div style={{ fontSize: 13, color: '#F5E9CF', fontWeight: 600, lineHeight: 1.3 }}>{show}</div>
-        {caption && <div style={{ fontSize: 11, color: '#8B8BA8', marginTop: 4, lineHeight: 1.4 }}>{caption}</div>}
-      </div>
-    </div>
-  );
-}
-
-function PressCard({ src, outlet, title, sub }) {
-  return (
-    <div className="glass switcher-link" style={{
-      borderRadius: 18, overflow: 'hidden',
-      borderColor: 'rgba(212,175,55,0.16)',
-      display: 'flex', gap: 0, cursor: 'default',
-    }}>
-      <div style={{ width: 130, flexShrink: 0, background: '#0E0D17', position: 'relative', overflow: 'hidden' }}>
-        <img src={src} alt={outlet} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-      </div>
-      <div style={{ flex: 1, padding: 16, display: 'flex', flexDirection: 'column', justifyContent: 'center', minWidth: 0 }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, marginBottom: 6 }}>
-          <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#D4AF37', flexShrink: 0 }} />
-          <span style={{ fontSize: 10, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' }}>{outlet}</span>
-        </div>
-        <div className="font-display" style={{ fontSize: 14, color: '#F5E9CF', fontWeight: 600, lineHeight: 1.35, marginBottom: sub ? 4 : 0 }}>{title}</div>
-        {sub && <div style={{ fontSize: 11, color: '#8B8BA8', lineHeight: 1.45 }}>{sub}</div>}
-      </div>
     </div>
   );
 }
