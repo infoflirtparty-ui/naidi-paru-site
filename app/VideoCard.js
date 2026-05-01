@@ -5,8 +5,18 @@ import { useState } from 'react';
 export function VideoCard({ id, title, channel, big = false }) {
   const [active, setActive] = useState(false);
 
-  // Try maxresdefault first, fallback to hqdefault
+  // Try maxresdefault first, fallback to hqdefault.
+  // Note: YouTube returns a 120x90 grey placeholder (HTTP 200) when maxres
+  // isn't available, so we detect this via naturalWidth in onLoad.
   const [src, setSrc] = useState(`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`);
+  const handleImgLoad = (e) => {
+    if (e.target.naturalWidth <= 120) {
+      setSrc(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
+    }
+  };
+  const handleImgError = () => {
+    setSrc(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
+  };
 
   return (
     <div className="glass" style={{
@@ -24,7 +34,8 @@ export function VideoCard({ id, title, channel, big = false }) {
             <img
               src={src}
               alt={title}
-              onError={() => setSrc(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`)}
+              onLoad={handleImgLoad}
+              onError={handleImgError}
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               loading="lazy"
             />
