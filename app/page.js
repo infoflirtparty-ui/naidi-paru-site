@@ -46,13 +46,28 @@ function InstagramIcon({ size = 18, color = '#E8D9B8' }) {
   );
 }
 
-// Reusable luxury ornament — line · diamond · line
+// Reusable luxury ornament — small inline (line · diamond · line)
 function Ornament({ width = 'auto', mb = 28, mt = 0 }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, marginTop: mt, marginBottom: mb, opacity: 0.85 }}>
       <div style={{ width: width === 'auto' ? 80 : width / 2 - 14, height: 1, background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.55))' }} />
       <div style={{ width: 7, height: 7, background: '#D4AF37', transform: 'rotate(45deg)' }} />
       <div style={{ width: width === 'auto' ? 80 : width / 2 - 14, height: 1, background: 'linear-gradient(90deg, rgba(212,175,55,0.55), transparent)' }} />
+    </div>
+  );
+}
+
+// Strong full-width section divider — separates major blocks
+function SectionDivider({ mb = 40, mt = 40 }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 18, marginTop: mt, marginBottom: mb }}>
+      <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.35) 50%, rgba(212,175,55,0.55) 100%)' }} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div style={{ width: 5, height: 5, background: 'rgba(212,175,55,0.5)', transform: 'rotate(45deg)' }} />
+        <div style={{ width: 9, height: 9, background: 'linear-gradient(135deg, #FAE5A1, #B8932F)', transform: 'rotate(45deg)', boxShadow: '0 0 12px rgba(212,175,55,0.6)' }} />
+        <div style={{ width: 5, height: 5, background: 'rgba(212,175,55,0.5)', transform: 'rotate(45deg)' }} />
+      </div>
+      <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg, rgba(212,175,55,0.55) 0%, rgba(212,175,55,0.35) 50%, transparent 100%)' }} />
     </div>
   );
 }
@@ -120,36 +135,36 @@ export default function AgencyLanding() {
           </div>
 
           {/* MEGA HEADLINE — bold sans caps with gold-white shimmer */}
-          <h1 className="hero-title" style={{ fontSize: 'clamp(34px, 8vw, 60px)', fontWeight: 800, lineHeight: 1.02, letterSpacing: '0.005em', textTransform: 'uppercase', marginBottom: 18 }}>
+          <h1 className="hero-title" style={{ fontSize: 'clamp(28px, 6vw, 44px)', fontWeight: 800, lineHeight: 1.02, letterSpacing: '0.005em', textTransform: 'uppercase', marginBottom: 18 }}>
             <span className="headline-shine">
               Персональный<br/>подбор пары
             </span>
           </h1>
-          <h2 className="hero-title" style={{ fontSize: 'clamp(28px, 6.5vw, 48px)', fontWeight: 800, lineHeight: 1.04, letterSpacing: '0.005em', textTransform: 'uppercase', marginBottom: 28 }}>
+          <h2 className="hero-title" style={{ fontSize: 'clamp(24px, 5vw, 38px)', fontWeight: 800, lineHeight: 1.04, letterSpacing: '0.005em', textTransform: 'uppercase', marginBottom: 28 }}>
             <span className="headline-shine">
               для серьёзных<br/>отношений
             </span>
           </h2>
 
           {/* Gold caps subtitle (agency name) */}
-          <div className="gold-text-strong" style={{ fontSize: 'clamp(15px, 3.4vw, 19px)', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 32 }}>
+          <div className="gold-text-strong" style={{ fontSize: 'clamp(13px, 2.6vw, 16px)', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 32 }}>
             Агентство знакомств<br/>Асем Альмурзиевой
           </div>
 
           <Ornament mb={28} />
 
           {/* Audience caps */}
-          <div style={{ fontSize: 'clamp(13px, 2.8vw, 15px)', color: '#C8C8D0', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', lineHeight: 1.55, marginBottom: 18 }}>
+          <div style={{ fontSize: 'clamp(12px, 2.4vw, 14px)', color: '#C8C8D0', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', lineHeight: 1.55, marginBottom: 18 }}>
             Для мужчин-бизнесменов<br/>с высоким статусом
           </div>
 
           {/* Bold subtitle */}
-          <div style={{ fontSize: 'clamp(20px, 4.6vw, 28px)', color: '#F5F2E8', fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase', lineHeight: 1.15, marginBottom: 30 }}>
+          <div style={{ fontSize: 'clamp(17px, 3.6vw, 22px)', color: '#F5F2E8', fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase', lineHeight: 1.15, marginBottom: 30 }}>
             Под ваш уровень жизни
           </div>
 
           {/* Three-line tagline */}
-          <div style={{ fontSize: 'clamp(13px, 2.8vw, 15px)', color: '#9A9AA5', fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase', lineHeight: 1.7, marginBottom: 48 }}>
+          <div style={{ fontSize: 'clamp(12px, 2.4vw, 14px)', color: '#9A9AA5', fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase', lineHeight: 1.7, marginBottom: 48 }}>
             Мы экономим ваше время<br/>
             <span style={{ color: '#D4AF37' }}>·</span>
             <span style={{ margin: '0 12px' }}>Результаты</span>
@@ -165,7 +180,7 @@ export default function AgencyLanding() {
               { value: 344, suffix: '', label: 'судьбы', sub: 'соединены' },
             ].map((s, i) => (
               <div key={i} className="gold-emboss" style={{ padding: '24px 8px 20px', textAlign: 'center' }}>
-                <div className="font-display gold-text-strong" style={{ fontSize: 'clamp(36px, 9vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 0.95, marginBottom: 6, position: 'relative' }}>
+                <div className="font-display gold-text-strong" style={{ fontSize: 'clamp(28px, 6vw, 42px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 0.95, marginBottom: 6, position: 'relative' }}>
                   <Counter value={s.value} suffix={s.suffix} />
                 </div>
                 <div style={{ fontSize: 10, color: '#8B6914', fontWeight: 700, letterSpacing: '0.28em', textTransform: 'uppercase', position: 'relative' }}>
@@ -186,14 +201,14 @@ export default function AgencyLanding() {
           <p style={{ marginTop: 18, fontSize: 12, color: '#9A9AA5', letterSpacing: '0.22em' }}>WHATSAPP · ОТВЕТ В ТЕЧЕНИЕ ЧАСА</p>
         </section>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === STATUS BLOCK === */}
         <Reveal>
           <section style={{ padding: '0 0 50px', position: 'relative', textAlign: 'center' }}>
             <SectionLabel center>Статус эксперта</SectionLabel>
             <div className="surface" style={{ padding: 38, textAlign: 'left' }}>
-              <h2 className="font-display" style={{ fontSize: 'clamp(24px, 5.2vw, 32px)', fontWeight: 600, color: '#F5F2E8', lineHeight: 1.18, letterSpacing: '-0.02em', textAlign: 'center', marginBottom: 22 }}>
+              <h2 className="font-display" style={{ fontSize: 'clamp(20px, 3.8vw, 26px)', fontWeight: 600, color: '#F5F2E8', lineHeight: 1.18, letterSpacing: '-0.02em', textAlign: 'center', marginBottom: 22 }}>
                 Главная сваха <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Казахстана</em>
               </h2>
 
@@ -210,13 +225,13 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === PRESS / VIDEO === */}
         <Reveal>
           <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
             <SectionLabel center>О нас пишут и говорят</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 14 }}>
+            <h2 className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 14 }}>
               Видеоинтервью и публикации в СМИ
             </h2>
             <p style={{ fontSize: 14, color: '#9A9AA5', lineHeight: 1.65, maxWidth: 560, margin: '0 auto 32px' }}>
@@ -247,13 +262,13 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === HOW IT WORKS === */}
         <Reveal>
           <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
             <SectionLabel center>Как это работает</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 14 }}>
+            <h2 className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 14 }}>
               Без воды. Только результат.
             </h2>
             <p style={{ fontSize: 14, color: '#9A9AA5', lineHeight: 1.65, maxWidth: 560, margin: '0 auto 32px' }}>
@@ -274,20 +289,20 @@ export default function AgencyLanding() {
                 </div>
               ))}
             </div>
-            <p className="font-display" style={{ marginTop: 36, fontSize: 'clamp(20px, 4.4vw, 26px)', color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500 }}>
+            <p className="font-display" style={{ marginTop: 36, fontSize: 'clamp(18px, 3.6vw, 22px)', color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500 }}>
               Вы не ищете. <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Мы делаем всё за вас.</em>
             </p>
           </section>
         </Reveal>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === RESULTS === */}
         <Reveal>
           <section style={{ padding: '0 0 60px', position: 'relative', textAlign: 'center' }}>
             <SectionSpark />
             <SectionLabel center>Результаты</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(28px, 5.6vw, 38px)', fontWeight: 600, lineHeight: 1.12, marginBottom: 34, letterSpacing: '-0.02em', color: '#F5F2E8' }}>
+            <h2 className="font-display" style={{ fontSize: 'clamp(24px, 4.4vw, 32px)', fontWeight: 600, lineHeight: 1.12, marginBottom: 34, letterSpacing: '-0.02em', color: '#F5F2E8' }}>
               Результаты, за которыми<br/>
               <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>к нам приходят</em>
             </h2>
@@ -301,7 +316,7 @@ export default function AgencyLanding() {
                   ['тысячи', 'проведённых знакомств'],
                 ].map(([num, text], i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: 26, paddingBottom: i < 2 ? 22 : 0, borderBottom: i < 2 ? '1px solid rgba(212,175,55,0.12)' : 'none' }}>
-                    <div className="font-display" style={{ fontSize: 'clamp(36px, 7vw, 50px)', fontWeight: 600, color: '#D4AF37', letterSpacing: '-0.03em', minWidth: 110, lineHeight: 1, fontStyle: 'italic' }}>{num}</div>
+                    <div className="font-display" style={{ fontSize: 'clamp(28px, 5vw, 38px)', fontWeight: 600, color: '#D4AF37', letterSpacing: '-0.03em', minWidth: 110, lineHeight: 1, fontStyle: 'italic' }}>{num}</div>
                     <div style={{ fontSize: 16, color: '#F5F2E8', lineHeight: 1.5, fontWeight: 400 }}>{text}</div>
                   </div>
                 ))}
@@ -320,10 +335,10 @@ export default function AgencyLanding() {
             </div>
 
             <div style={{ marginTop: 22, padding: 32, background: 'linear-gradient(135deg, rgba(212,175,55,0.06), transparent)', border: '1px solid rgba(212,175,55,0.22)' }}>
-              <p className="font-display" style={{ fontSize: 'clamp(17px, 3.8vw, 20px)', color: '#F5F2E8', lineHeight: 1.5, marginBottom: 12, fontWeight: 500 }}>
+              <p className="font-display" style={{ fontSize: 'clamp(15px, 3vw, 17px)', color: '#F5F2E8', lineHeight: 1.5, marginBottom: 12, fontWeight: 500 }}>
                 Нас выбирают не потому что «интересно».
               </p>
-              <p className="font-display" style={{ fontSize: 'clamp(18px, 4vw, 22px)', color: '#D4AF37', fontStyle: 'italic', fontWeight: 600, lineHeight: 1.4, marginBottom: 18 }}>
+              <p className="font-display" style={{ fontSize: 'clamp(16px, 3.2vw, 19px)', color: '#D4AF37', fontStyle: 'italic', fontWeight: 600, lineHeight: 1.4, marginBottom: 18 }}>
                 Нас выбирают потому что это работает.
               </p>
               <p style={{ fontSize: 14, color: '#9A9AA5', lineHeight: 1.7, maxWidth: 580, margin: '0 auto' }}>
@@ -333,17 +348,17 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === MAIN MEANING === */}
         <Reveal>
           <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
             <SectionLabel center>Главный смысл</SectionLabel>
             <div className="surface" style={{ padding: 38, textAlign: 'center' }}>
-              <p className="font-display" style={{ fontSize: 'clamp(24px, 5vw, 30px)', fontWeight: 600, lineHeight: 1.25, color: '#F5F2E8', marginBottom: 10, letterSpacing: '-0.02em' }}>
+              <p className="font-display" style={{ fontSize: 'clamp(20px, 3.8vw, 26px)', fontWeight: 600, lineHeight: 1.25, color: '#F5F2E8', marginBottom: 10, letterSpacing: '-0.02em' }}>
                 Вы платите не за знакомства.
               </p>
-              <p className="font-display" style={{ fontSize: 'clamp(20px, 4.4vw, 24px)', fontWeight: 500, color: '#9A9AA5', marginBottom: 36, lineHeight: 1.35 }}>
+              <p className="font-display" style={{ fontSize: 'clamp(17px, 3.4vw, 20px)', fontWeight: 500, color: '#9A9AA5', marginBottom: 36, lineHeight: 1.35 }}>
                 Вы платите за:
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 1, background: 'rgba(212,175,55,0.22)', border: '1px solid rgba(212,175,55,0.28)' }}>
@@ -363,13 +378,13 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === PACKAGES === */}
         <Reveal>
           <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
             <SectionLabel center>Пакеты услуг</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 32 }}>
+            <h2 className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 32 }}>
               Три формата работы
             </h2>
 
@@ -394,13 +409,13 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === ABOUT WOMEN === */}
         <Reveal>
           <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
             <SectionLabel center>Про девушек</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(24px, 5vw, 30px)', fontWeight: 600, lineHeight: 1.25, marginBottom: 32, color: '#F5F2E8', letterSpacing: '-0.02em' }}>
+            <h2 className="font-display" style={{ fontSize: 'clamp(20px, 3.8vw, 26px)', fontWeight: 600, lineHeight: 1.25, marginBottom: 32, color: '#F5F2E8', letterSpacing: '-0.02em' }}>
               Все женщины в нашей базе:
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 1, background: 'rgba(212,175,55,0.22)', border: '1px solid rgba(212,175,55,0.28)' }}>
@@ -419,19 +434,19 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === FOR WHOM === */}
         <Reveal>
           <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
             <SectionLabel center>Для кого</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(24px, 5vw, 30px)', fontWeight: 600, lineHeight: 1.25, marginBottom: 32, color: '#F5F2E8', letterSpacing: '-0.02em' }}>
+            <h2 className="font-display" style={{ fontSize: 'clamp(20px, 3.8vw, 26px)', fontWeight: 600, lineHeight: 1.25, marginBottom: 32, color: '#F5F2E8', letterSpacing: '-0.02em' }}>
               Для мужчин, которые:
             </h2>
             <div className="surface" style={{ padding: 38, maxWidth: 720, margin: '0 auto' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 {['Ценят своё время', 'Хотят серьёзные отношения', 'Не готовы тратить месяцы на поиск'].map(t => (
-                  <div key={t} className="font-display" style={{ display: 'flex', gap: 18, fontSize: 'clamp(18px, 4vw, 22px)', color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500, alignItems: 'baseline', justifyContent: 'center' }}>
+                  <div key={t} className="font-display" style={{ display: 'flex', gap: 18, fontSize: 'clamp(16px, 3.2vw, 19px)', color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500, alignItems: 'baseline', justifyContent: 'center' }}>
                     <span style={{ color: '#D4AF37', flexShrink: 0, fontStyle: 'italic', fontSize: 22 }}>—</span>{t}
                   </div>
                 ))}
@@ -440,14 +455,14 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === STORIES === */}
         <Reveal>
           <section style={{ padding: '0 0 60px', textAlign: 'center', position: 'relative' }}>
             <SectionSpark />
             <SectionLabel center>Истории клиентов</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 36 }}>
+            <h2 className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 36 }}>
               Что говорят наши клиенты
             </h2>
 
@@ -461,13 +476,13 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === FAQ === */}
         <Reveal>
           <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
             <SectionLabel center>Частые вопросы</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 32 }}>
+            <h2 className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 32 }}>
               Что важно знать
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, textAlign: 'left' }}>
@@ -480,16 +495,16 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === CLOSING CTA === */}
         <Reveal>
           <section style={{ padding: '20px 0 60px', textAlign: 'center', position: 'relative' }}>
             <SectionSpark />
-            <h2 className="font-display" style={{ fontSize: 'clamp(28px, 5.4vw, 38px)', fontWeight: 600, lineHeight: 1.2, marginBottom: 22, color: '#F5F2E8', letterSpacing: '-0.025em' }}>
+            <h2 className="font-display" style={{ fontSize: 'clamp(24px, 4.4vw, 32px)', fontWeight: 600, lineHeight: 1.2, marginBottom: 22, color: '#F5F2E8', letterSpacing: '-0.025em' }}>
               Вы можете продолжать<br/>искать сами
             </h2>
-            <p className="font-display" style={{ fontSize: 'clamp(26px, 5vw, 32px)', fontWeight: 600, fontStyle: 'italic', marginBottom: 18, color: '#D4AF37', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+            <p className="font-display" style={{ fontSize: 'clamp(22px, 4.2vw, 28px)', fontWeight: 600, fontStyle: 'italic', marginBottom: 18, color: '#D4AF37', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               Или доверить это профессионалам
             </p>
             <p style={{ fontSize: 16, color: '#9A9AA5', marginBottom: 44, lineHeight: 1.6 }}>
@@ -504,7 +519,7 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        <Ornament mb={50} />
+        <SectionDivider />
 
         {/* === CROSS-LINKS === */}
         <Reveal>
@@ -683,7 +698,7 @@ function Package({ tag, title, subtitle, includes, guarantee, guaranteeFoot, tie
       <div style={{ padding: 36 }}>
         <div style={{ marginBottom: 26, textAlign: 'center' }}>
           <div style={{ fontSize: 11, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.28em', marginBottom: 14, textTransform: 'uppercase' }}>{tag}</div>
-          <h3 className="font-display" style={{ fontSize: 'clamp(22px, 4.6vw, 28px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.2, color: '#F5F2E8', marginBottom: 10 }}>
+          <h3 className="font-display" style={{ fontSize: 'clamp(20px, 3.8vw, 24px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.2, color: '#F5F2E8', marginBottom: 10 }}>
             {title}
           </h3>
           <p style={{ fontSize: 15, color: '#9A9AA5', lineHeight: 1.6 }}>{subtitle}</p>
@@ -736,7 +751,7 @@ function Package({ tag, title, subtitle, includes, guarantee, guaranteeFoot, tie
         {price && (
           <div style={{ padding: '22px 24px', background: 'rgba(212,175,55,0.04)', borderTop: '1px solid rgba(212,175,55,0.22)', borderBottom: '1px solid rgba(212,175,55,0.22)', marginBottom: 26, textAlign: 'center' }}>
             <div style={{ fontSize: 11, color: '#9A9AA5', fontWeight: 700, letterSpacing: '0.24em', marginBottom: 8, textTransform: 'uppercase' }}>Стоимость</div>
-            <div className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, color: '#D4AF37', letterSpacing: '-0.02em', fontStyle: 'italic' }}>{price}</div>
+            <div className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, color: '#D4AF37', letterSpacing: '-0.02em', fontStyle: 'italic' }}>{price}</div>
           </div>
         )}
 
