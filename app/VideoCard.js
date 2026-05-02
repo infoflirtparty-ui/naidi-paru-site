@@ -5,17 +5,19 @@ import { useState } from 'react';
 export function VideoCard({ id, title, channel, big = false }) {
   const [active, setActive] = useState(false);
 
-  // Try maxresdefault first, fallback to hqdefault.
-  // Note: YouTube returns a 120x90 grey placeholder (HTTP 200) when maxres
-  // isn't available, so we detect this via naturalWidth in onLoad.
-  const [src, setSrc] = useState(`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`);
+  // Use hqdefault — exists for ALL YouTube videos, reliable.
+  // Try maxres first only if explicitly enabled, fall back on any failure.
+  const [src, setSrc] = useState(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
   const handleImgLoad = (e) => {
+    // If for any reason we got the 120x90 placeholder, we already have
+    // hqdefault as src, so this should never trigger. Kept as safety.
     if (e.target.naturalWidth <= 120) {
-      setSrc(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
+      setSrc(`https://i.ytimg.com/vi/${id}/mqdefault.jpg`);
     }
   };
   const handleImgError = () => {
-    setSrc(`https://i.ytimg.com/vi/${id}/hqdefault.jpg`);
+    // Last resort
+    setSrc(`https://i.ytimg.com/vi/${id}/default.jpg`);
   };
 
   return (
@@ -98,18 +100,19 @@ export function PressCardLink({ src, outlet, title, sub, href, gradient }) {
       display: 'flex', gap: 0, color: 'white', textDecoration: 'none',
       transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.25s ease, box-shadow 0.3s ease',
     }}>
-      <div style={{
-        width: 160, flexShrink: 0, position: 'relative', overflow: 'hidden',
+      <div className="press-thumb" style={{
+        flexShrink: 0, position: 'relative', overflow: 'hidden',
         background: src ? '#0E0D17' : (gradient || 'linear-gradient(135deg, #1A1825, #2A1F35)'),
+        alignSelf: 'stretch',
       }}>
         {src ? (
           <img src={src} alt={outlet} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
         ) : (
-          <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-            <span className="font-display" style={{ fontSize: 64, fontWeight: 800, fontStyle: 'italic', background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.05em', opacity: 0.85 }}>
+          <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', minHeight: 140 }}>
+            <span className="font-display" style={{ fontSize: 64, fontWeight: 800, fontStyle: 'italic', background: 'linear-gradient(135deg, #D4AF37, #B8932F)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.05em', opacity: 0.85 }}>
               {outlet[0]}
             </span>
-            <div style={{ position: 'absolute', bottom: 10, left: 12, fontSize: 9, color: 'rgba(255,255,255,0.4)', letterSpacing: '0.15em', fontWeight: 700 }}>{outlet}</div>
+            <div style={{ position: 'absolute', bottom: 10, left: 12, fontSize: 9, color: 'rgba(212,175,55,0.5)', letterSpacing: '0.15em', fontWeight: 700 }}>{outlet}</div>
           </div>
         )}
       </div>
