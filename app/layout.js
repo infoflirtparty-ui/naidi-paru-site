@@ -18,23 +18,23 @@ const playfair = Playfair_Display({
 
 export const metadata = {
   metadataBase: new URL('https://naidi-paru-site.vercel.app'),
-  title: 'Найди Пару — два пути к отношениям',
-  description: 'Закрытая платформа знакомств для мужчин · Программа трансформации для женщин от Асем.',
+  title: 'Агентство знакомств Асем Альмурзиевой',
+  description: 'Закрытая система подбора пары для серьёзных отношений. 10 лет на рынке. 172 созданные пары.',
   openGraph: {
-    title: 'Найди Пару',
-    description: 'Два пути к счастью: знакомства для мужчин и программа для женщин',
+    title: 'Агентство знакомств Асем Альмурзиевой',
+    description: 'Персональный подбор пары для мужчин-бизнесменов. 10 лет · 172 пары · 344 судьбы.',
     type: 'website',
     locale: 'ru_RU',
-    siteName: 'Найди Пару',
+    siteName: 'Агентство Асем Альмурзиевой',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Найди Пару',
-    description: 'Закрытая платформа знакомств',
+    title: 'Агентство знакомств Асем Альмурзиевой',
+    description: 'Закрытая система подбора пары',
   },
   icons: {
     icon: [
-      { url: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23FF4D8D%22/%3E%3Cstop offset=%221%22 stop-color=%22%23A855F7%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22url(%23g)%22/%3E%3Cpath fill=%22white%22 d=%22M50 76L48 74Q21 52 21 34 21 23 30 23 37 23 42 28 46 24 50 24 54 24 58 28 63 23 70 23 79 23 79 34 79 52 52 74Z%22/%3E%3C/svg%3E' },
+      { url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23E5C158'/%3E%3Cstop offset='1' stop-color='%238B6914'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='18' fill='%2308080B'/%3E%3Ccircle cx='38' cy='50' r='20' fill='none' stroke='url(%23g)' stroke-width='5'/%3E%3Ccircle cx='62' cy='50' r='20' fill='none' stroke='url(%23g)' stroke-width='5'/%3E%3C/svg%3E" },
     ],
   },
 };
@@ -42,7 +42,7 @@ export const metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0C0C1D',
+  themeColor: '#08080B',
 };
 
 export default function RootLayout({ children }) {
