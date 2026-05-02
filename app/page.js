@@ -76,104 +76,114 @@ export default function AgencyLanding() {
 
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 920, margin: '0 auto', padding: '0 24px' }}>
 
-        {/* === BRAND CROWN (top center, no sticky bar) === */}
-        <div style={{ padding: '46px 0 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18 }}>
-          <BrandRings size={52} />
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 11, color: '#B8932F', fontWeight: 600, letterSpacing: '0.32em', textTransform: 'uppercase', marginBottom: 8 }}>
-              Агентство знакомств · est. с 2015
-            </div>
-            <div className="font-display" style={{ fontSize: 24, fontWeight: 500, color: '#F5F2E8', letterSpacing: '0.02em' }}>
-              Асем Альмурзиева
-            </div>
+        {/* === BRAND CROWN (top center) === */}
+        <div style={{ padding: '50px 0 32px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
+          <BrandRings size={50} />
+          <div style={{ fontSize: 11, color: '#B8932F', fontWeight: 700, letterSpacing: '0.42em', textTransform: 'uppercase' }}>
+            Агентство закрытых знакомств
           </div>
-          <Ornament mb={0} mt={4} />
         </div>
 
-        {/* === HERO with portrait === */}
-        <section className="fade-in" style={{ padding: '24px 0 80px', textAlign: 'center' }}>
-          <div style={{ display: 'inline-block', padding: '8px 22px', background: 'rgba(212,175,55,0.06)', border: '1px solid rgba(212,175,55,0.3)', fontSize: 12, color: '#D4AF37', marginBottom: 32, fontWeight: 600, letterSpacing: '0.32em' }}>
-            ЗАКРЫТАЯ СИСТЕМА
-          </div>
+        {/* === HERO === */}
+        <section className="fade-in" style={{ padding: '0 0 70px', textAlign: 'center' }}>
 
-          <h1 className="hero-title font-display" style={{ fontSize: 'clamp(34px, 7.5vw, 56px)', fontWeight: 600, lineHeight: 1.06, marginBottom: 32, letterSpacing: '-0.025em', color: '#F5F2E8' }}>
-            Персональный подбор пары<br/>
-            для <em style={{ color: '#D4AF37', fontStyle: 'italic', fontWeight: 600 }}>серьёзных отношений</em>
-          </h1>
-
-          {/* PORTRAIT — centerpiece */}
-          <div style={{ position: 'relative', width: 'min(280px, 70vw)', aspectRatio: '1', margin: '0 auto 40px' }}>
-            {/* Outer rotating glow */}
+          {/* PORTRAIT — centerpiece, with dark gradient mask at bottom */}
+          <div style={{ position: 'relative', width: 'min(300px, 75vw)', aspectRatio: '1', margin: '0 auto 28px' }}>
             <div style={{
-              position: 'absolute', inset: -14, borderRadius: '50%',
-              background: 'conic-gradient(from 0deg, rgba(212,175,55,0.4) 0deg, rgba(184,131,11,0.15) 90deg, rgba(212,175,55,0.5) 180deg, rgba(184,131,11,0.15) 270deg, rgba(212,175,55,0.4) 360deg)',
-              filter: 'blur(14px)', opacity: 0.7, animation: 'loaderRotate 30s linear infinite',
+              position: 'absolute', inset: -16, borderRadius: '50%',
+              background: 'conic-gradient(from 0deg, rgba(229,193,88,0.5) 0deg, rgba(184,131,11,0.15) 90deg, rgba(229,193,88,0.6) 180deg, rgba(184,131,11,0.15) 270deg, rgba(229,193,88,0.5) 360deg)',
+              filter: 'blur(16px)', opacity: 0.75, animation: 'loaderRotate 30s linear infinite',
             }} />
-            {/* Decorative ring */}
             <div style={{
               position: 'absolute', inset: -4, borderRadius: '50%',
-              border: '1px solid rgba(212,175,55,0.4)',
+              border: '1px solid rgba(212,175,55,0.5)',
             }} />
-            {/* Photo with gold border */}
             <div style={{
               position: 'absolute', inset: 4, borderRadius: '50%', overflow: 'hidden',
-              border: '2px solid transparent',
-              background: 'linear-gradient(135deg, #E5C158, #8B6914) border-box',
+              background: 'linear-gradient(135deg, #FAE5A1 0%, #E5C158 30%, #B8932F 70%, #8B6914 100%) border-box',
               padding: 3,
-              boxShadow: '0 24px 80px rgba(212,175,55,0.4), inset 0 0 0 1px rgba(0,0,0,0.4)',
+              boxShadow: '0 28px 90px rgba(212,175,55,0.5), inset 0 0 0 1px rgba(0,0,0,0.5)',
             }}>
-              <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', background: '#0E0E13' }}>
-                <img src="/asem.jpg" alt="Асем Альмурзиева" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.92) contrast(1.05) brightness(1.02)' }} />
+              <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', background: '#0E0E13', position: 'relative' }}>
+                <img src="/asem.jpg" alt="Асем Альмурзиева" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.9) contrast(1.08) brightness(1.0)' }} />
+                {/* Subtle bottom gradient inside the photo */}
+                <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%', background: 'linear-gradient(180deg, transparent 0%, rgba(8,8,11,0.6) 100%)', pointerEvents: 'none' }} />
               </div>
             </div>
-            {/* Top diamond marker */}
-            <div style={{ position: 'absolute', top: -6, left: '50%', transform: 'translateX(-50%) rotate(45deg)', width: 10, height: 10, background: '#D4AF37', boxShadow: '0 0 16px rgba(212,175,55,0.7)' }} />
-            {/* Bottom diamond marker */}
-            <div style={{ position: 'absolute', bottom: -6, left: '50%', transform: 'translateX(-50%) rotate(45deg)', width: 10, height: 10, background: '#D4AF37', boxShadow: '0 0 16px rgba(212,175,55,0.7)' }} />
+            <div style={{ position: 'absolute', top: -7, left: '50%', transform: 'translateX(-50%) rotate(45deg)', width: 11, height: 11, background: 'linear-gradient(135deg, #FAE5A1, #B8932F)', boxShadow: '0 0 18px rgba(212,175,55,0.8)' }} />
+            <div style={{ position: 'absolute', bottom: -7, left: '50%', transform: 'translateX(-50%) rotate(45deg)', width: 11, height: 11, background: 'linear-gradient(135deg, #FAE5A1, #B8932F)', boxShadow: '0 0 18px rgba(212,175,55,0.8)' }} />
           </div>
 
-          <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 600, letterSpacing: '0.32em', textTransform: 'uppercase', marginBottom: 12 }}>
-            Главная сваха Казахстана
+          {/* Pill badge under photo */}
+          <div className="gold-pill gold-shimmer" style={{ marginBottom: 36 }}>
+            Закрытая система подбора
           </div>
 
-          <Ornament mb={32} />
+          {/* MEGA HEADLINE — bold sans caps with gold-white shimmer */}
+          <h1 className="hero-title" style={{ fontSize: 'clamp(34px, 8vw, 60px)', fontWeight: 800, lineHeight: 1.02, letterSpacing: '0.005em', textTransform: 'uppercase', marginBottom: 18 }}>
+            <span className="headline-shine">
+              Персональный<br/>подбор пары
+            </span>
+          </h1>
+          <h2 className="hero-title" style={{ fontSize: 'clamp(28px, 6.5vw, 48px)', fontWeight: 800, lineHeight: 1.04, letterSpacing: '0.005em', textTransform: 'uppercase', marginBottom: 28 }}>
+            <span className="headline-shine">
+              для серьёзных<br/>отношений
+            </span>
+          </h2>
 
-          <p style={{ fontSize: 18, color: '#F5F2E8', lineHeight: 1.55, maxWidth: 620, margin: '0 auto 16px', fontWeight: 500 }}>
-            Это не сайт знакомств.
-          </p>
-          <p style={{ fontSize: 16, color: '#C8C8D0', lineHeight: 1.7, maxWidth: 640, margin: '0 auto 16px' }}>
-            Это закрытая система подбора <span style={{ color: '#F5F2E8', fontWeight: 500 }}>идеальной пары под ваш уровень жизни</span> с гарантией.
-          </p>
-          <p style={{ fontSize: 15, color: '#9A9AA5', lineHeight: 1.7, maxWidth: 580, margin: '0 auto 44px' }}>
-            Мы экономим вам месяцы жизни и приводим к результату быстрее.
-          </p>
+          {/* Gold caps subtitle (agency name) */}
+          <div className="gold-text-strong" style={{ fontSize: 'clamp(15px, 3.4vw, 19px)', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 32 }}>
+            Агентство знакомств<br/>Асем Альмурзиевой
+          </div>
 
-          {/* Hero stats — symmetric grid with even cells */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, maxWidth: 680, margin: '0 auto 48px', background: 'rgba(212,175,55,0.22)', border: '1px solid rgba(212,175,55,0.28)' }}>
+          <Ornament mb={28} />
+
+          {/* Audience caps */}
+          <div style={{ fontSize: 'clamp(13px, 2.8vw, 15px)', color: '#C8C8D0', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', lineHeight: 1.55, marginBottom: 18 }}>
+            Для мужчин-бизнесменов<br/>с высоким статусом
+          </div>
+
+          {/* Bold subtitle */}
+          <div style={{ fontSize: 'clamp(20px, 4.6vw, 28px)', color: '#F5F2E8', fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase', lineHeight: 1.15, marginBottom: 30 }}>
+            Под ваш уровень жизни
+          </div>
+
+          {/* Three-line tagline */}
+          <div style={{ fontSize: 'clamp(13px, 2.8vw, 15px)', color: '#9A9AA5', fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase', lineHeight: 1.7, marginBottom: 48 }}>
+            Мы экономим ваше время<br/>
+            <span style={{ color: '#D4AF37' }}>·</span>
+            <span style={{ margin: '0 12px' }}>Результаты</span>
+            <span style={{ color: '#D4AF37' }}>·</span>
+            <span style={{ marginLeft: 12 }}>Гарантия</span>
+          </div>
+
+          {/* EMBOSSED GOLD STAT BOXES — 3D look */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12, maxWidth: 680, margin: '0 auto 48px' }}>
             {[
-              { value: 10, suffix: ' лет', label: 'на рынке' },
-              { value: 172, suffix: '', label: 'созданные пары' },
-              { value: 344, suffix: '', label: 'соединённые судьбы' },
+              { value: 10, suffix: '', label: 'лет', sub: 'на рынке' },
+              { value: 172, suffix: '', label: 'пары', sub: 'созданы' },
+              { value: 344, suffix: '', label: 'судьбы', sub: 'соединены' },
             ].map((s, i) => (
-              <div key={i} style={{
-                padding: '32px 14px 26px', textAlign: 'center', background: '#0E0E13',
-              }}>
-                <div className="font-display" style={{ fontSize: 'clamp(38px, 9vw, 56px)', fontWeight: 600, color: '#D4AF37', letterSpacing: '-0.025em', lineHeight: 0.95 }}>
+              <div key={i} className="gold-emboss" style={{ padding: '24px 8px 20px', textAlign: 'center' }}>
+                <div className="font-display gold-text-strong" style={{ fontSize: 'clamp(36px, 9vw, 56px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 0.95, marginBottom: 6, position: 'relative' }}>
                   <Counter value={s.value} suffix={s.suffix} />
                 </div>
-                <div style={{ fontSize: 11, color: '#B8932F', marginTop: 14, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 600 }}>
+                <div style={{ fontSize: 10, color: '#8B6914', fontWeight: 700, letterSpacing: '0.28em', textTransform: 'uppercase', position: 'relative' }}>
                   {s.label}
+                </div>
+                <div style={{ fontSize: 9, color: 'rgba(139,105,20,0.7)', letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 4, position: 'relative' }}>
+                  {s.sub}
                 </div>
               </div>
             ))}
           </div>
 
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 14, padding: '22px 52px', background: 'linear-gradient(180deg, #E5C158, #B8932F)', color: '#08080B', fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: '0 16px 56px rgba(212,175,55,0.4)', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 14, padding: '22px 52px', background: 'linear-gradient(180deg, #FAE5A1, #E5C158 30%, #B8932F 70%, #8B6914)', color: '#08080B', fontSize: 15, fontWeight: 800, textDecoration: 'none', boxShadow: '0 18px 64px rgba(212,175,55,0.5), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -2px 0 rgba(0,0,0,0.3)', letterSpacing: '0.2em', textTransform: 'uppercase', border: '1px solid rgba(229,193,88,0.6)' }}>
             <WhatsAppIcon size={18} />
             Написать менеджеру
           </a>
-          <p style={{ marginTop: 18, fontSize: 12, color: '#9A9AA5', letterSpacing: '0.2em' }}>WHATSAPP · ОТВЕТ В ТЕЧЕНИЕ ЧАСА</p>
+          <p style={{ marginTop: 18, fontSize: 12, color: '#9A9AA5', letterSpacing: '0.22em' }}>WHATSAPP · ОТВЕТ В ТЕЧЕНИЕ ЧАСА</p>
         </section>
 
         <Ornament mb={50} />
