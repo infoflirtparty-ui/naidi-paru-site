@@ -48,30 +48,65 @@ function InstagramIcon({ size = 18, color = '#E8D9B8' }) {
 
 export default function AgencyLanding() {
   return (
-    <div style={{ background: '#08080B', color: '#E8D9B8', minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ color: '#E8D9B8', minHeight: '100vh', position: 'relative', overflowX: 'hidden' }}>
       <LoadingScreen />
 
-      {/* Ambient glow */}
-      <div className="ambient" style={{ top: '-10%', left: '-10%', width: 600, height: 600, background: 'radial-gradient(circle, rgba(212,175,55,0.18), transparent 70%)', zIndex: 0 }} />
-      <div className="ambient" style={{ top: '40%', right: '-15%', width: 600, height: 600, background: 'radial-gradient(circle, rgba(212,175,55,0.12), transparent 70%)', zIndex: 0, animationDelay: '-10s' }} />
-      <div className="ambient" style={{ bottom: '0%', left: '15%', width: 500, height: 500, background: 'radial-gradient(circle, rgba(139,105,20,0.18), transparent 70%)', zIndex: 0, animationDelay: '-16s' }} />
+      {/* Ambient golden orbs */}
+      <div className="ambient" style={{ top: '-10%', left: '-10%', width: 700, height: 700, background: 'radial-gradient(circle, rgba(212,175,55,0.22), transparent 70%)', zIndex: 0 }} />
+      <div className="ambient" style={{ top: '30%', right: '-15%', width: 650, height: 650, background: 'radial-gradient(circle, rgba(184,131,11,0.18), transparent 70%)', zIndex: 0, animationDelay: '-10s' }} />
+      <div className="ambient" style={{ top: '60%', left: '-10%', width: 550, height: 550, background: 'radial-gradient(circle, rgba(229,193,88,0.12), transparent 70%)', zIndex: 0, animationDelay: '-16s' }} />
+      <div className="ambient" style={{ bottom: '0%', right: '10%', width: 600, height: 600, background: 'radial-gradient(circle, rgba(139,105,20,0.18), transparent 70%)', zIndex: 0, animationDelay: '-22s' }} />
 
       <FloatingBg density="low" />
 
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: 920, margin: '0 auto', padding: '0 24px' }}>
+      {/* Decorative gold edge frame (desktop only) */}
+      <div className="gold-edge left" />
+      <div className="gold-edge right" />
 
-        {/* Top nav */}
-        <nav style={{ padding: '32px 0 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
-          <BrandRings size={48} />
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase' }}>
-              Агентство знакомств
+      {/* === LUXURY STICKY HEADER === */}
+      <header className="lux-header">
+        <div className="lux-header-inner">
+          <a href="#top" className="lux-brand">
+            <BrandRings size={36} />
+            <div className="lux-brand-text">
+              <span className="lux-brand-tag">Агентство знакомств</span>
+              <span className="lux-brand-name">Асем Альмурзиева</span>
             </div>
-            <div className="font-display" style={{ fontSize: 22, fontWeight: 500, color: '#F5F2E8', letterSpacing: '0.01em', marginTop: 6 }}>
+          </a>
+          <div className="lux-contact">
+            <a href={`tel:+77016746622`} className="lux-phone">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+              +7 701 674 66 22
+            </a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="lux-cta">
+              <WhatsAppIcon size={13} />
+              Написать
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: 920, margin: '0 auto', padding: '0 24px' }} id="top">
+
+        {/* Hero brand intro (centered, ceremonial) */}
+        <div style={{ padding: '40px 0 8px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+          <BrandRings size={58} />
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 600, letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 8 }}>
+              Агентство знакомств · est. с 2015
+            </div>
+            <div className="font-display" style={{ fontSize: 26, fontWeight: 500, color: '#F5F2E8', letterSpacing: '0.01em' }}>
               Асем Альмурзиева
             </div>
           </div>
-        </nav>
+          <div className="ornament" style={{ marginTop: 8 }}>
+            <div className="line" />
+            <div className="diamond" />
+            <div className="line right" />
+          </div>
+        </div>
 
         {/* 1. HERO */}
         <section className="fade-in" style={{ padding: '40px 0 72px', textAlign: 'center' }}>
