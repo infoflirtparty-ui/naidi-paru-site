@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Закрытая система подбора пары для серьёзных отношений. 10 лет на рынке. 172 созданные пары. Гарантия результата.',
 };
 
-const WHATSAPP_URL = 'https://wa.me/77016746622?text=Здравствуйте!%20Хочу%20узнать%20о%20подборе%20пары';
+const WHATSAPP_URL = 'https://wa.me/77014681100?text=Здравствуйте!%20Хочу%20узнать%20о%20подборе%20пары';
 const TALLY_URL = 'https://tally.so/r/VLJNAg';
 
 // Brand mark — interlocking rings
@@ -506,7 +506,7 @@ export default function AgencyLanding() {
               <WhatsAppIcon size={20} />
               Написать менеджеру
             </a>
-            <p style={{ marginTop: 14, fontSize: 12, color: '#6B6B8D' }}>+7 701 674 66 22 · WhatsApp</p>
+            <p style={{ marginTop: 14, fontSize: 12, color: '#6B6B8D' }}>+7 701 468 1100 · WhatsApp</p>
           </section>
         </Reveal>
 
