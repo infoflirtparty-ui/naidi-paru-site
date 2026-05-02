@@ -46,6 +46,17 @@ function InstagramIcon({ size = 18, color = '#E8D9B8' }) {
   );
 }
 
+// Reusable luxury ornament — line · diamond · line
+function Ornament({ width = 'auto', mb = 28, mt = 0 }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14, marginTop: mt, marginBottom: mb, opacity: 0.85 }}>
+      <div style={{ width: width === 'auto' ? 80 : width / 2 - 14, height: 1, background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.55))' }} />
+      <div style={{ width: 7, height: 7, background: '#D4AF37', transform: 'rotate(45deg)' }} />
+      <div style={{ width: width === 'auto' ? 80 : width / 2 - 14, height: 1, background: 'linear-gradient(90deg, rgba(212,175,55,0.55), transparent)' }} />
+    </div>
+  );
+}
+
 export default function AgencyLanding() {
   return (
     <div style={{ color: '#E8D9B8', minHeight: '100vh', position: 'relative', overflowX: 'hidden' }}>
@@ -63,88 +74,94 @@ export default function AgencyLanding() {
       <div className="gold-edge left" />
       <div className="gold-edge right" />
 
-      {/* === LUXURY STICKY HEADER === */}
-      <header className="lux-header">
-        <div className="lux-header-inner">
-          <a href="#top" className="lux-brand">
-            <BrandRings size={36} />
-            <div className="lux-brand-text">
-              <span className="lux-brand-tag">Агентство знакомств</span>
-              <span className="lux-brand-name">Асем Альмурзиева</span>
-            </div>
-          </a>
-          <div className="lux-contact">
-            <a href={`tel:+77016746622`} className="lux-phone">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-              </svg>
-              +7 701 674 66 22
-            </a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="lux-cta">
-              <WhatsAppIcon size={13} />
-              Написать
-            </a>
-          </div>
-        </div>
-      </header>
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: 920, margin: '0 auto', padding: '0 24px' }}>
 
-      <div style={{ position: 'relative', zIndex: 1, maxWidth: 920, margin: '0 auto', padding: '0 24px' }} id="top">
-
-        {/* Hero brand intro (centered, ceremonial) */}
-        <div style={{ padding: '40px 0 8px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
-          <BrandRings size={58} />
+        {/* === BRAND CROWN (top center, no sticky bar) === */}
+        <div style={{ padding: '46px 0 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18 }}>
+          <BrandRings size={52} />
           <div style={{ textAlign: 'center' }}>
-            <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 600, letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 8 }}>
+            <div style={{ fontSize: 11, color: '#B8932F', fontWeight: 600, letterSpacing: '0.32em', textTransform: 'uppercase', marginBottom: 8 }}>
               Агентство знакомств · est. с 2015
             </div>
-            <div className="font-display" style={{ fontSize: 26, fontWeight: 500, color: '#F5F2E8', letterSpacing: '0.01em' }}>
+            <div className="font-display" style={{ fontSize: 24, fontWeight: 500, color: '#F5F2E8', letterSpacing: '0.02em' }}>
               Асем Альмурзиева
             </div>
           </div>
-          <div className="ornament" style={{ marginTop: 8 }}>
-            <div className="line" />
-            <div className="diamond" />
-            <div className="line right" />
-          </div>
+          <Ornament mb={0} mt={4} />
         </div>
 
-        {/* 1. HERO */}
-        <section className="fade-in" style={{ padding: '40px 0 72px', textAlign: 'center' }}>
-          <div style={{ display: 'inline-block', padding: '8px 22px', background: 'rgba(212,175,55,0.06)', border: '1px solid rgba(212,175,55,0.3)', fontSize: 13, color: '#D4AF37', marginBottom: 36, fontWeight: 600, letterSpacing: '0.22em' }}>
+        {/* === HERO with portrait === */}
+        <section className="fade-in" style={{ padding: '24px 0 80px', textAlign: 'center' }}>
+          <div style={{ display: 'inline-block', padding: '8px 22px', background: 'rgba(212,175,55,0.06)', border: '1px solid rgba(212,175,55,0.3)', fontSize: 12, color: '#D4AF37', marginBottom: 32, fontWeight: 600, letterSpacing: '0.32em' }}>
             ЗАКРЫТАЯ СИСТЕМА
           </div>
 
-          <h1 className="hero-title font-display" style={{ fontSize: 'clamp(36px, 8vw, 60px)', fontWeight: 600, lineHeight: 1.05, marginBottom: 28, letterSpacing: '-0.025em', color: '#F5F2E8' }}>
+          <h1 className="hero-title font-display" style={{ fontSize: 'clamp(34px, 7.5vw, 56px)', fontWeight: 600, lineHeight: 1.06, marginBottom: 32, letterSpacing: '-0.025em', color: '#F5F2E8' }}>
             Персональный подбор пары<br/>
             для <em style={{ color: '#D4AF37', fontStyle: 'italic', fontWeight: 600 }}>серьёзных отношений</em>
           </h1>
 
-          <hr className="gold-divider" style={{ maxWidth: 100, margin: '0 auto 32px' }} />
+          {/* PORTRAIT — centerpiece */}
+          <div style={{ position: 'relative', width: 'min(280px, 70vw)', aspectRatio: '1', margin: '0 auto 40px' }}>
+            {/* Outer rotating glow */}
+            <div style={{
+              position: 'absolute', inset: -14, borderRadius: '50%',
+              background: 'conic-gradient(from 0deg, rgba(212,175,55,0.4) 0deg, rgba(184,131,11,0.15) 90deg, rgba(212,175,55,0.5) 180deg, rgba(184,131,11,0.15) 270deg, rgba(212,175,55,0.4) 360deg)',
+              filter: 'blur(14px)', opacity: 0.7, animation: 'loaderRotate 30s linear infinite',
+            }} />
+            {/* Decorative ring */}
+            <div style={{
+              position: 'absolute', inset: -4, borderRadius: '50%',
+              border: '1px solid rgba(212,175,55,0.4)',
+            }} />
+            {/* Photo with gold border */}
+            <div style={{
+              position: 'absolute', inset: 4, borderRadius: '50%', overflow: 'hidden',
+              border: '2px solid transparent',
+              background: 'linear-gradient(135deg, #E5C158, #8B6914) border-box',
+              padding: 3,
+              boxShadow: '0 24px 80px rgba(212,175,55,0.4), inset 0 0 0 1px rgba(0,0,0,0.4)',
+            }}>
+              <div style={{ width: '100%', height: '100%', borderRadius: '50%', overflow: 'hidden', background: '#0E0E13' }}>
+                <img src="/asem.jpg" alt="Асем Альмурзиева" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.92) contrast(1.05) brightness(1.02)' }} />
+              </div>
+            </div>
+            {/* Top diamond marker */}
+            <div style={{ position: 'absolute', top: -6, left: '50%', transform: 'translateX(-50%) rotate(45deg)', width: 10, height: 10, background: '#D4AF37', boxShadow: '0 0 16px rgba(212,175,55,0.7)' }} />
+            {/* Bottom diamond marker */}
+            <div style={{ position: 'absolute', bottom: -6, left: '50%', transform: 'translateX(-50%) rotate(45deg)', width: 10, height: 10, background: '#D4AF37', boxShadow: '0 0 16px rgba(212,175,55,0.7)' }} />
+          </div>
 
-          <p style={{ fontSize: 18, color: '#F5F2E8', lineHeight: 1.55, maxWidth: 620, margin: '0 auto 16px', fontWeight: 500, letterSpacing: '0.005em' }}>
+          <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 600, letterSpacing: '0.32em', textTransform: 'uppercase', marginBottom: 12 }}>
+            Главная сваха Казахстана
+          </div>
+
+          <Ornament mb={32} />
+
+          <p style={{ fontSize: 18, color: '#F5F2E8', lineHeight: 1.55, maxWidth: 620, margin: '0 auto 16px', fontWeight: 500 }}>
             Это не сайт знакомств.
           </p>
-          <p style={{ fontSize: 17, color: '#C8C8D0', lineHeight: 1.7, maxWidth: 640, margin: '0 auto 18px' }}>
+          <p style={{ fontSize: 16, color: '#C8C8D0', lineHeight: 1.7, maxWidth: 640, margin: '0 auto 16px' }}>
             Это закрытая система подбора <span style={{ color: '#F5F2E8', fontWeight: 500 }}>идеальной пары под ваш уровень жизни</span> с гарантией.
           </p>
-          <p className="font-display" style={{ fontSize: 17, color: '#D4AF37', lineHeight: 1.6, maxWidth: 580, margin: '0 auto 44px', fontStyle: 'italic', letterSpacing: '0.005em' }}>
-            Мы экономим вам месяцы жизни и приводим к результату быстрее
+          <p style={{ fontSize: 15, color: '#9A9AA5', lineHeight: 1.7, maxWidth: 580, margin: '0 auto 44px' }}>
+            Мы экономим вам месяцы жизни и приводим к результату быстрее.
           </p>
 
-          {/* Hero stats — MASSIVE numbers for WOW */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, maxWidth: 620, margin: '0 auto 44px', background: 'rgba(212,175,55,0.18)', border: '1px solid rgba(212,175,55,0.22)' }}>
+          {/* Hero stats — symmetric grid with even cells */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, maxWidth: 680, margin: '0 auto 48px', background: 'rgba(212,175,55,0.22)', border: '1px solid rgba(212,175,55,0.28)' }}>
             {[
               { value: 10, suffix: ' лет', label: 'на рынке' },
               { value: 172, suffix: '', label: 'созданные пары' },
               { value: 344, suffix: '', label: 'соединённые судьбы' },
             ].map((s, i) => (
               <div key={i} style={{
-                padding: '28px 12px 22px', textAlign: 'center', background: '#0E0E13',
+                padding: '32px 14px 26px', textAlign: 'center', background: '#0E0E13',
               }}>
                 <div className="font-display" style={{ fontSize: 'clamp(38px, 9vw, 56px)', fontWeight: 600, color: '#D4AF37', letterSpacing: '-0.025em', lineHeight: 0.95 }}>
                   <Counter value={s.value} suffix={s.suffix} />
                 </div>
-                <div style={{ fontSize: 12, color: '#B8932F', marginTop: 14, letterSpacing: '0.16em', textTransform: 'uppercase', fontWeight: 600 }}>
+                <div style={{ fontSize: 11, color: '#B8932F', marginTop: 14, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 600 }}>
                   {s.label}
                 </div>
               </div>
@@ -152,63 +169,51 @@ export default function AgencyLanding() {
           </div>
 
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 14, padding: '22px 48px', background: 'linear-gradient(180deg, #E5C158, #B8932F)', color: '#08080B', fontSize: 16, fontWeight: 700, textDecoration: 'none', boxShadow: '0 16px 56px rgba(212,175,55,0.4)', letterSpacing: '0.14em', textTransform: 'uppercase' }}>
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 14, padding: '22px 52px', background: 'linear-gradient(180deg, #E5C158, #B8932F)', color: '#08080B', fontSize: 15, fontWeight: 700, textDecoration: 'none', boxShadow: '0 16px 56px rgba(212,175,55,0.4)', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
             <WhatsAppIcon size={18} />
             Написать менеджеру
           </a>
-          <p style={{ marginTop: 18, fontSize: 13, color: '#9A9AA5', letterSpacing: '0.16em' }}>WHATSAPP · ОТВЕТ В ТЕЧЕНИЕ ЧАСА</p>
+          <p style={{ marginTop: 18, fontSize: 12, color: '#9A9AA5', letterSpacing: '0.2em' }}>WHATSAPP · ОТВЕТ В ТЕЧЕНИЕ ЧАСА</p>
         </section>
 
-        {/* 2. STATUS BLOCK */}
+        <Ornament mb={50} />
+
+        {/* === STATUS BLOCK === */}
         <Reveal>
-          <section style={{ padding: '50px 0', position: 'relative' }}>
-            <SectionSpark />
-            <div className="surface" style={{ padding: 38 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 26, marginBottom: 28 }}>
-                <div style={{ width: 110, height: 110, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: '1px solid rgba(212,175,55,0.45)', boxShadow: '0 12px 40px rgba(212,175,55,0.22)' }}>
-                  <img src="/asem.jpg" alt="Асем Альмурзиева" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'saturate(0.85) contrast(1.05)' }} />
-                </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 600, letterSpacing: '0.22em', marginBottom: 10, textTransform: 'uppercase' }}>Статус эксперта</div>
-                  <h2 className="font-display" style={{ fontSize: 'clamp(24px, 5.2vw, 32px)', fontWeight: 600, color: '#F5F2E8', lineHeight: 1.15, letterSpacing: '-0.02em' }}>
-                    Главная сваха <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Казахстана</em>
-                  </h2>
-                </div>
-              </div>
+          <section style={{ padding: '0 0 50px', position: 'relative', textAlign: 'center' }}>
+            <SectionLabel center>Статус эксперта</SectionLabel>
+            <div className="surface" style={{ padding: 38, textAlign: 'left' }}>
+              <h2 className="font-display" style={{ fontSize: 'clamp(24px, 5.2vw, 32px)', fontWeight: 600, color: '#F5F2E8', lineHeight: 1.18, letterSpacing: '-0.02em', textAlign: 'center', marginBottom: 22 }}>
+                Главная сваха <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Казахстана</em>
+              </h2>
 
               <hr className="gold-divider" style={{ marginBottom: 22 }} />
 
-              <p style={{ fontSize: 17, color: '#F5F2E8', lineHeight: 1.65, marginBottom: 22, fontWeight: 400 }}>
+              <p style={{ fontSize: 16, color: '#F5F2E8', lineHeight: 1.65, marginBottom: 22, fontWeight: 400, textAlign: 'center', maxWidth: 640, margin: '0 auto 22px' }}>
                 <span style={{ fontWeight: 600 }}>Асем Альмурзиева</span> — главная сваха Казахстана, которой доверяют мужчины высокого уровня.
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16, fontSize: 15.5, color: '#C8C8D0', lineHeight: 1.65 }}>
-                  <span style={{ color: '#D4AF37', fontSize: 18, lineHeight: 1.4, flexShrink: 0, fontFamily: 'serif', marginTop: -2 }}>—</span>
-                  <span>Её приглашают <span style={{ color: '#F5F2E8', fontWeight: 500 }}>крупнейшие СМИ Казахстана</span></span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16, fontSize: 15.5, color: '#C8C8D0', lineHeight: 1.65 }}>
-                  <span style={{ color: '#D4AF37', fontSize: 18, lineHeight: 1.4, flexShrink: 0, fontFamily: 'serif', marginTop: -2 }}>—</span>
-                  <span>Работает с <span style={{ color: '#F5F2E8', fontWeight: 500 }}>предпринимателями, руководителями и публичными людьми</span></span>
-                </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 600, margin: '0 auto' }}>
+                <BulletLine>Её приглашают <strong style={{ color: '#F5F2E8', fontWeight: 500 }}>крупнейшие СМИ Казахстана</strong></BulletLine>
+                <BulletLine>Работает с <strong style={{ color: '#F5F2E8', fontWeight: 500 }}>предпринимателями, руководителями и публичными людьми</strong></BulletLine>
               </div>
             </div>
           </section>
         </Reveal>
 
-        {/* 3. О НАС ГОВОРЯТ */}
-        <Reveal>
-          <section style={{ padding: '60px 0' }}>
-            <div style={{ marginBottom: 32 }}>
-              <SectionLabel>О нас пишут и говорят</SectionLabel>
-              <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 14 }}>
-                Видеоинтервью и публикации в СМИ
-              </h2>
-              <p style={{ fontSize: 15, color: '#9A9AA5', lineHeight: 1.65, maxWidth: 600 }}>
-                Нажмите, чтобы посмотреть видео или прочитать статью.
-              </p>
-            </div>
+        <Ornament mb={50} />
 
-            <div style={{ marginBottom: 16 }}>
+        {/* === PRESS / VIDEO === */}
+        <Reveal>
+          <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
+            <SectionLabel center>О нас пишут и говорят</SectionLabel>
+            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 14 }}>
+              Видеоинтервью и публикации в СМИ
+            </h2>
+            <p style={{ fontSize: 14, color: '#9A9AA5', lineHeight: 1.65, maxWidth: 560, margin: '0 auto 32px' }}>
+              Нажмите, чтобы посмотреть видео или прочитать статью.
+            </p>
+
+            <div style={{ marginBottom: 16, textAlign: 'left' }}>
               <VideoCard
                 big
                 id="UMpcqWd2z5c"
@@ -216,14 +221,14 @@ export default function AgencyLanding() {
                 title="Сваха №1 в Казахстане. Асем Альмурзиева — как перестать выбирать абьюзеров"
               />
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 14, marginBottom: 32 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 14, marginBottom: 32, textAlign: 'left' }}>
               <VideoCard id="B3eEIb5dxlw" channel="Almaty TV" title="Каково быть свахой в Казахстане?" />
               <VideoCard id="hcvzPsigwxM" channel="Агентство Знакомств" title="Агентство эксклюзивных знакомств Асем Альмурзиевой" />
               <VideoCard id="z5yrWPIp0n4" channel="Адина Сабирова · подкаст" title="Где познакомиться с достойным/ой партнёром в Алматы?" />
               <VideoCard id="tTj5EzRysq4" channel="Адина Сабирова · подкаст" title="Вечеринки знакомств в Алматы — Flirt Party" />
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, textAlign: 'left' }}>
               <PressCardLink href="https://www.nur.kz/society/1781811-kazahstanskaa-svaha-rasskazala-kakie-devuski-nravatsa-millioneram/" src="/media/press-nur.jpg" outlet="NUR.KZ" title="«Главная сваха страны Асем Альмурзиева рассказала, какие девушки нравятся миллионерам»" />
               <PressCardLink href="https://www.zakon.kz/sovety/4960582-kak-nayti-muzha-millionera.html" src="/media/press-zakon.jpg" outlet="zakon.kz" title="«Как найти мужа-миллионера. Казахстанские реалии»" sub="Сваха, которой доверяют свою судьбу крупные миллионеры Казахстана" />
               <PressCardLink href="https://www.styleofeurasia.com/news/item/1762-marry-a-millionaire" src="/media/press-eurasia.jpg" outlet="Style of Eurasia" title="«Marry a Millionaire»" sub="Казахстанская сваха нашла эксклюзивный способ выдачи невест замуж за миллионеров" />
@@ -232,46 +237,53 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        {/* 4. КАК ЭТО РАБОТАЕТ */}
+        <Ornament mb={50} />
+
+        {/* === HOW IT WORKS === */}
         <Reveal>
-          <section style={{ padding: '70px 0' }}>
-            <SectionLabel>Как это работает</SectionLabel>
-            <p className="font-display" style={{ fontSize: 16, color: '#9A9AA5', lineHeight: 1.65, marginBottom: 32, maxWidth: 600, fontStyle: 'italic' }}>
-              Минимализм. Без воды.
+          <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
+            <SectionLabel center>Как это работает</SectionLabel>
+            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 14 }}>
+              Без воды. Только результат.
+            </h2>
+            <p style={{ fontSize: 14, color: '#9A9AA5', lineHeight: 1.65, maxWidth: 560, margin: '0 auto 32px' }}>
+              Минимализм во всём.
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 1, background: 'rgba(212,175,55,0.18)', border: '1px solid rgba(212,175,55,0.22)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 1, background: 'rgba(212,175,55,0.22)', border: '1px solid rgba(212,175,55,0.28)' }}>
               {[
                 'Вы оставляете запрос',
                 'Мы изучаем ваши критерии',
                 'Подбираем женщин из закрытой базы',
                 'Организуем встречи',
               ].map((t, i) => (
-                <div key={i} style={{ background: '#0E0E13', padding: '32px 26px' }}>
+                <div key={i} style={{ background: '#0E0E13', padding: '34px 28px', textAlign: 'center' }}>
                   <div className="font-display" style={{ fontSize: 36, fontWeight: 500, color: '#D4AF37', letterSpacing: '-0.02em', marginBottom: 18, fontStyle: 'italic', lineHeight: 1 }}>
                     {String(i + 1).padStart(2, '0')}
                   </div>
-                  <div style={{ fontSize: 16, fontWeight: 500, color: '#F5F2E8', lineHeight: 1.45 }}>{t}</div>
+                  <div style={{ fontSize: 15, fontWeight: 500, color: '#F5F2E8', lineHeight: 1.45 }}>{t}</div>
                 </div>
               ))}
             </div>
-            <p className="font-display" style={{ marginTop: 36, fontSize: 'clamp(20px, 4.4vw, 26px)', fontStyle: 'italic', color: '#F5F2E8', textAlign: 'center', lineHeight: 1.4, fontWeight: 500 }}>
-              Вы не ищете. <em style={{ color: '#D4AF37' }}>Мы делаем всё за вас.</em>
+            <p className="font-display" style={{ marginTop: 36, fontSize: 'clamp(20px, 4.4vw, 26px)', color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500 }}>
+              Вы не ищете. <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Мы делаем всё за вас.</em>
             </p>
           </section>
         </Reveal>
 
-        {/* 5. РЕЗУЛЬТАТЫ */}
+        <Ornament mb={50} />
+
+        {/* === RESULTS === */}
         <Reveal>
-          <section style={{ padding: '70px 0', position: 'relative' }}>
+          <section style={{ padding: '0 0 60px', position: 'relative', textAlign: 'center' }}>
             <SectionSpark />
-            <SectionLabel>Результаты</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(28px, 5.6vw, 38px)', fontWeight: 600, lineHeight: 1.12, marginBottom: 32, letterSpacing: '-0.02em', color: '#F5F2E8' }}>
+            <SectionLabel center>Результаты</SectionLabel>
+            <h2 className="font-display" style={{ fontSize: 'clamp(28px, 5.6vw, 38px)', fontWeight: 600, lineHeight: 1.12, marginBottom: 34, letterSpacing: '-0.02em', color: '#F5F2E8' }}>
               Результаты, за которыми<br/>
               <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>к нам приходят</em>
             </h2>
 
-            <div className="surface" style={{ padding: 38 }}>
-              <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 700, letterSpacing: '0.22em', marginBottom: 28, textTransform: 'uppercase' }}>За 10 лет работы</div>
+            <div className="surface" style={{ padding: 38, textAlign: 'left' }}>
+              <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 700, letterSpacing: '0.28em', marginBottom: 28, textTransform: 'uppercase', textAlign: 'center' }}>За 10 лет работы</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 22, marginBottom: 32 }}>
                 {[
                   ['172', 'пары, которые построили семью'],
@@ -287,15 +299,17 @@ export default function AgencyLanding() {
 
               <hr className="gold-divider" style={{ margin: '28px 0' }} />
 
-              <p className="font-display" style={{ fontSize: 19, color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500, marginBottom: 8 }}>
-                Мы не продаём процесс.
-              </p>
-              <p className="font-display" style={{ fontSize: 22, color: '#D4AF37', lineHeight: 1.4, fontStyle: 'italic', fontWeight: 500 }}>
-                Мы даём результат.
-              </p>
+              <div style={{ textAlign: 'center' }}>
+                <p className="font-display" style={{ fontSize: 19, color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500, marginBottom: 8 }}>
+                  Мы не продаём процесс.
+                </p>
+                <p className="font-display" style={{ fontSize: 22, color: '#D4AF37', lineHeight: 1.4, fontStyle: 'italic', fontWeight: 500 }}>
+                  Мы даём результат.
+                </p>
+              </div>
             </div>
 
-            <div style={{ marginTop: 22, padding: 32, background: 'linear-gradient(135deg, rgba(212,175,55,0.06), transparent)', border: '1px solid rgba(212,175,55,0.22)', textAlign: 'center' }}>
+            <div style={{ marginTop: 22, padding: 32, background: 'linear-gradient(135deg, rgba(212,175,55,0.06), transparent)', border: '1px solid rgba(212,175,55,0.22)' }}>
               <p className="font-display" style={{ fontSize: 'clamp(17px, 3.8vw, 20px)', color: '#F5F2E8', lineHeight: 1.5, marginBottom: 12, fontWeight: 500 }}>
                 Нас выбирают не потому что «интересно».
               </p>
@@ -309,29 +323,29 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        {/* 6. ГЛАВНЫЙ СМЫСЛ */}
+        <Ornament mb={50} />
+
+        {/* === MAIN MEANING === */}
         <Reveal>
-          <section style={{ padding: '60px 0' }}>
-            <SectionLabel>Главный смысл</SectionLabel>
-            <div className="surface" style={{ padding: 38 }}>
+          <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
+            <SectionLabel center>Главный смысл</SectionLabel>
+            <div className="surface" style={{ padding: 38, textAlign: 'center' }}>
               <p className="font-display" style={{ fontSize: 'clamp(24px, 5vw, 30px)', fontWeight: 600, lineHeight: 1.25, color: '#F5F2E8', marginBottom: 10, letterSpacing: '-0.02em' }}>
                 Вы платите не за знакомства.
               </p>
-              <p className="font-display" style={{ fontSize: 'clamp(20px, 4.4vw, 24px)', fontWeight: 500, color: '#9A9AA5', marginBottom: 32, lineHeight: 1.35 }}>
+              <p className="font-display" style={{ fontSize: 'clamp(20px, 4.4vw, 24px)', fontWeight: 500, color: '#9A9AA5', marginBottom: 36, lineHeight: 1.35 }}>
                 Вы платите за:
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 1, background: 'rgba(212,175,55,0.22)', border: '1px solid rgba(212,175,55,0.28)' }}>
                 {[
-                  { num: 'I', title: 'Экономию времени', desc: 'Месяцы и годы, которые вы бы потратили на самостоятельный поиск.' },
-                  { num: 'II', title: 'Точный подбор', desc: 'Только женщины, которые соответствуют вашим критериям.' },
-                  { num: 'III', title: 'Выход в отношения без лишних этапов', desc: 'Никаких многомесячных переписок и догадок.' },
+                  { num: 'I', title: 'Экономию времени', desc: 'Месяцы и годы, которые вы бы потратили на самостоятельный поиск' },
+                  { num: 'II', title: 'Точный подбор', desc: 'Только женщины, которые соответствуют вашим критериям' },
+                  { num: 'III', title: 'Выход в отношения', desc: 'Без лишних этапов и многомесячных переписок' },
                 ].map(item => (
-                  <div key={item.title} style={{ display: 'flex', gap: 26, alignItems: 'flex-start' }}>
-                    <div className="font-display" style={{ fontSize: 28, color: '#D4AF37', fontStyle: 'italic', fontWeight: 500, minWidth: 42, lineHeight: 1.05, paddingTop: 4 }}>{item.num}</div>
-                    <div>
-                      <div style={{ fontSize: 17, fontWeight: 600, color: '#F5F2E8', marginBottom: 8, letterSpacing: '-0.005em' }}>{item.title}</div>
-                      <p style={{ fontSize: 15, color: '#9A9AA5', lineHeight: 1.7 }}>{item.desc}</p>
-                    </div>
+                  <div key={item.title} style={{ background: '#0E0E13', padding: '32px 22px 28px' }}>
+                    <div className="font-display" style={{ fontSize: 30, color: '#D4AF37', fontStyle: 'italic', fontWeight: 500, marginBottom: 14, lineHeight: 1 }}>{item.num}</div>
+                    <div style={{ fontSize: 15, fontWeight: 600, color: '#F5F2E8', marginBottom: 10, letterSpacing: '-0.005em' }}>{item.title}</div>
+                    <p style={{ fontSize: 13, color: '#9A9AA5', lineHeight: 1.65 }}>{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -339,104 +353,75 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        {/* 7. ПАКЕТЫ */}
-        <Reveal>
-          <section style={{ padding: '60px 0' }}>
-            <SectionLabel>Пакеты услуг</SectionLabel>
+        <Ornament mb={50} />
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 22 }}>
-              <Package
-                vip
-                tag="Премиум · VIP"
-                title="Подбор под ключ"
-                subtitle="Для мужчин, которым важен результат"
-                includes={[
-                  'Неограниченное количество знакомств',
-                  'Персональный подбор',
-                  'Сопровождение',
-                  'Приоритетная работа',
-                ]}
+        {/* === PACKAGES === */}
+        <Reveal>
+          <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
+            <SectionLabel center>Пакеты услуг</SectionLabel>
+            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 32 }}>
+              Три формата работы
+            </h2>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 22, textAlign: 'left' }}>
+              <Package vip tag="Премиум · VIP" title="Подбор под ключ" subtitle="Для мужчин, которым важен результат"
+                includes={['Неограниченное количество знакомств', 'Персональный подбор', 'Сопровождение', 'Приоритетная работа']}
                 guarantee="Если мы не подберём женщин под ваши критерии — мы возвращаем деньги."
                 guaranteeFoot="Основано на 10-летнем опыте и 172 созданных парах."
-                price="от 2 500 000 тг"
-                cta="Написать менеджеру"
-                href={WHATSAPP_URL}
-              />
+                price="от 2 500 000 тг" cta="Написать менеджеру" href={WHATSAPP_URL} />
 
-              <Package
-                tag="Лично с Асем"
-                title="Работа лично с главной свахой"
-                subtitle="Вы работаете напрямую с Асем"
-                includes={[
-                  'Прямое участие Асем в подборе',
-                  'Доступ к более сильным кандидаткам',
-                  'Глубокий анализ совместимости',
-                  'Корректировка стратегии в отношениях',
-                ]}
-                price="от 5 000 000 тг"
-                cta="Начать с Асем"
-                href={WHATSAPP_URL}
-              />
+              <Package tag="Лично с Асем" title="Работа с главной свахой" subtitle="Вы работаете напрямую с Асем"
+                includes={['Прямое участие Асем в подборе', 'Доступ к более сильным кандидаткам', 'Глубокий анализ совместимости', 'Корректировка стратегии в отношениях']}
+                price="от 5 000 000 тг" cta="Начать с Асем" href={WHATSAPP_URL} />
 
-              <Package
-                tag="За количество знакомств"
-                title="Знакомства по фиксированной цене"
-                subtitle="Для тех, кто хочет начать"
-                includes={[
-                  'Подбор под критерии',
-                  'Оплата за количество знакомств',
-                ]}
+              <Package tag="За количество знакомств" title="Знакомства по фиксированной цене" subtitle="Для тех, кто хочет начать"
+                includes={['Подбор под критерии', 'Оплата за количество знакомств']}
                 guarantee="Каждая девушка соответствует вашим критериям."
-                tiers={[
-                  { label: '3 знакомства', price: '255 000 тг' },
-                  { label: '5 знакомств', price: '365 000 тг' },
-                ]}
+                tiers={[{ label: '3 знакомства', price: '255 000 тг' }, { label: '5 знакомств', price: '365 000 тг' }]}
                 extra="Лично с Асем: +30% к стоимости пакета"
-                cta="Написать менеджеру"
-                href={WHATSAPP_URL}
-              />
+                cta="Написать менеджеру" href={WHATSAPP_URL} />
             </div>
           </section>
         </Reveal>
 
-        {/* 8. ПРО ДЕВУШЕК */}
+        <Ornament mb={50} />
+
+        {/* === ABOUT WOMEN === */}
         <Reveal>
-          <section style={{ padding: '60px 0' }}>
-            <SectionLabel>Про девушек</SectionLabel>
-            <div className="surface" style={{ padding: 38 }}>
-              <h3 className="font-display" style={{ fontSize: 'clamp(24px, 5vw, 30px)', fontWeight: 600, lineHeight: 1.25, marginBottom: 32, color: '#F5F2E8', letterSpacing: '-0.02em' }}>
-                Все женщины в нашей базе:
-              </h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 1, background: 'rgba(212,175,55,0.18)', border: '1px solid rgba(212,175,55,0.22)' }}>
-                {[
-                  { num: '01', t: 'Проходят отбор' },
-                  { num: '02', t: 'Настроены на семью' },
-                  { num: '03', t: 'Реальные' },
-                  { num: '04', t: 'Соответствуют уровню' },
-                ].map(it => (
-                  <div key={it.t} style={{ padding: '28px 18px 24px', background: '#0E0E13', textAlign: 'center' }}>
-                    <div className="font-display" style={{ fontSize: 22, color: '#D4AF37', fontStyle: 'italic', marginBottom: 14, fontWeight: 500 }}>{it.num}</div>
-                    <div style={{ fontSize: 15, color: '#F5F2E8', fontWeight: 500, letterSpacing: '0.005em' }}>{it.t}</div>
-                  </div>
-                ))}
-              </div>
+          <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
+            <SectionLabel center>Про девушек</SectionLabel>
+            <h2 className="font-display" style={{ fontSize: 'clamp(24px, 5vw, 30px)', fontWeight: 600, lineHeight: 1.25, marginBottom: 32, color: '#F5F2E8', letterSpacing: '-0.02em' }}>
+              Все женщины в нашей базе:
+            </h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 1, background: 'rgba(212,175,55,0.22)', border: '1px solid rgba(212,175,55,0.28)' }}>
+              {[
+                { num: '01', t: 'Проходят отбор' },
+                { num: '02', t: 'Настроены на семью' },
+                { num: '03', t: 'Реальные' },
+                { num: '04', t: 'Соответствуют уровню' },
+              ].map(it => (
+                <div key={it.t} style={{ padding: '32px 18px 26px', background: '#0E0E13', textAlign: 'center' }}>
+                  <div className="font-display" style={{ fontSize: 22, color: '#D4AF37', fontStyle: 'italic', marginBottom: 14, fontWeight: 500 }}>{it.num}</div>
+                  <div style={{ fontSize: 15, color: '#F5F2E8', fontWeight: 500 }}>{it.t}</div>
+                </div>
+              ))}
             </div>
           </section>
         </Reveal>
 
-        {/* 9. ДЛЯ КОГО */}
+        <Ornament mb={50} />
+
+        {/* === FOR WHOM === */}
         <Reveal>
-          <section style={{ padding: '60px 0' }}>
-            <SectionLabel>Для кого</SectionLabel>
-            <div className="surface" style={{ padding: 38 }}>
-              <p style={{ fontSize: 14, color: '#B8932F', marginBottom: 26, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 600 }}>Для мужчин, которые:</p>
+          <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
+            <SectionLabel center>Для кого</SectionLabel>
+            <h2 className="font-display" style={{ fontSize: 'clamp(24px, 5vw, 30px)', fontWeight: 600, lineHeight: 1.25, marginBottom: 32, color: '#F5F2E8', letterSpacing: '-0.02em' }}>
+              Для мужчин, которые:
+            </h2>
+            <div className="surface" style={{ padding: 38, maxWidth: 720, margin: '0 auto' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-                {[
-                  'Ценят своё время',
-                  'Хотят серьёзные отношения',
-                  'Не готовы тратить месяцы на поиск',
-                ].map(t => (
-                  <div key={t} className="font-display" style={{ display: 'flex', gap: 18, fontSize: 'clamp(18px, 4vw, 22px)', color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500, alignItems: 'baseline' }}>
+                {['Ценят своё время', 'Хотят серьёзные отношения', 'Не готовы тратить месяцы на поиск'].map(t => (
+                  <div key={t} className="font-display" style={{ display: 'flex', gap: 18, fontSize: 'clamp(18px, 4vw, 22px)', color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500, alignItems: 'baseline', justifyContent: 'center' }}>
                     <span style={{ color: '#D4AF37', flexShrink: 0, fontStyle: 'italic', fontSize: 22 }}>—</span>{t}
                   </div>
                 ))}
@@ -445,16 +430,18 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        {/* 10. ИСТОРИИ КЛИЕНТОВ */}
+        <Ornament mb={50} />
+
+        {/* === STORIES === */}
         <Reveal>
-          <section style={{ padding: '70px 0', position: 'relative' }}>
+          <section style={{ padding: '0 0 60px', textAlign: 'center', position: 'relative' }}>
             <SectionSpark />
-            <SectionLabel>Истории клиентов</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 32 }}>
+            <SectionLabel center>Истории клиентов</SectionLabel>
+            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 36 }}>
               Что говорят наши клиенты
             </h2>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 18, textAlign: 'left' }}>
               {STORIES.map((s, i) => (
                 <Reveal key={i} delay={i * 70}>
                   <Story story={s} />
@@ -464,11 +451,16 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        {/* 11. FAQ */}
+        <Ornament mb={50} />
+
+        {/* === FAQ === */}
         <Reveal>
-          <section style={{ padding: '60px 0' }}>
-            <SectionLabel>Частые вопросы</SectionLabel>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
+            <SectionLabel center>Частые вопросы</SectionLabel>
+            <h2 className="font-display" style={{ fontSize: 'clamp(26px, 5.4vw, 34px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 32 }}>
+              Что важно знать
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, textAlign: 'left' }}>
               <FAQItem accent="#D4AF37" q="Вы берёте всех клиентов?" a="Нет. Мы работаем только с теми, кто проходит предварительный отбор. Это гарантирует качество с обеих сторон." />
               <FAQItem accent="#D4AF37" q="Вы гарантируете результат?" a="По пакету «Премиум»: если мы не подберём женщин под ваши критерии — возвращаем деньги. Сами отношения зависят от взаимной симпатии, но шансы в нашей среде в разы выше." />
               <FAQItem accent="#D4AF37" q="Как вы проверяете женщин?" a="Личное интервью, проверка документов, оценка психологической стабильности и серьёзности намерений. Случайных людей у нас нет." />
@@ -478,9 +470,11 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        {/* 12. ЗАКРЫТИЕ */}
+        <Ornament mb={50} />
+
+        {/* === CLOSING CTA === */}
         <Reveal>
-          <section style={{ padding: '90px 0 60px', textAlign: 'center', position: 'relative' }}>
+          <section style={{ padding: '20px 0 60px', textAlign: 'center', position: 'relative' }}>
             <SectionSpark />
             <h2 className="font-display" style={{ fontSize: 'clamp(28px, 5.4vw, 38px)', fontWeight: 600, lineHeight: 1.2, marginBottom: 22, color: '#F5F2E8', letterSpacing: '-0.025em' }}>
               Вы можете продолжать<br/>искать сами
@@ -488,39 +482,41 @@ export default function AgencyLanding() {
             <p className="font-display" style={{ fontSize: 'clamp(26px, 5vw, 32px)', fontWeight: 600, fontStyle: 'italic', marginBottom: 18, color: '#D4AF37', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               Или доверить это профессионалам
             </p>
-            <p style={{ fontSize: 16, color: '#9A9AA5', marginBottom: 44, lineHeight: 1.6, letterSpacing: '0.02em' }}>
-              И получить результат быстрее
+            <p style={{ fontSize: 16, color: '#9A9AA5', marginBottom: 44, lineHeight: 1.6 }}>
+              И получить результат быстрее.
             </p>
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: 14, padding: '24px 60px', background: 'linear-gradient(180deg, #E5C158, #B8932F)', color: '#08080B', fontSize: 16, fontWeight: 700, textDecoration: 'none', boxShadow: '0 18px 64px rgba(212,175,55,0.45)', letterSpacing: '0.16em', textTransform: 'uppercase' }}>
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 14, padding: '24px 60px', background: 'linear-gradient(180deg, #E5C158, #B8932F)', color: '#08080B', fontSize: 16, fontWeight: 700, textDecoration: 'none', boxShadow: '0 18px 64px rgba(212,175,55,0.45)', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
               <WhatsAppIcon size={20} />
               Написать менеджеру
             </a>
-            <p style={{ marginTop: 20, fontSize: 13, color: '#9A9AA5', letterSpacing: '0.18em' }}>+7 701 674 66 22 · WHATSAPP</p>
+            <p style={{ marginTop: 20, fontSize: 13, color: '#9A9AA5', letterSpacing: '0.2em' }}>+7 701 674 66 22 · WHATSAPP</p>
           </section>
         </Reveal>
 
-        {/* CROSS-LINKS */}
+        <Ornament mb={50} />
+
+        {/* === CROSS-LINKS === */}
         <Reveal>
-          <section style={{ padding: '50px 0' }}>
-            <div style={{ textAlign: 'center', marginBottom: 28 }}>
-              <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: 8 }}>Дополнительные направления</div>
+          <section style={{ padding: '0 0 50px', textAlign: 'center' }}>
+            <div style={{ marginBottom: 28 }}>
+              <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 600, letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 8 }}>Дополнительные направления</div>
             </div>
-            <div style={{ display: 'grid', gap: 1, gridTemplateColumns: '1fr', background: 'rgba(212,175,55,0.18)', border: '1px solid rgba(212,175,55,0.22)' }}>
+            <div style={{ display: 'grid', gap: 1, gridTemplateColumns: '1fr', background: 'rgba(212,175,55,0.22)', border: '1px solid rgba(212,175,55,0.28)', textAlign: 'left' }}>
               <ServiceLink href="/men" badge="Для мужчин" title="Найди Пару" subtitle="Telegram-приложение · 10 000 ₸ за 30 анкет" />
               <ServiceLink href="/asem" badge="Для девушек" title="Программа Асем" subtitle="Стать женщиной, которую выбирают · от 37 500 ₸/мес" />
             </div>
           </section>
         </Reveal>
 
-        {/* SMALL: бесплатная анкета */}
+        {/* === FREE FORM (small) === */}
         <Reveal>
-          <section style={{ padding: '24px 0 48px' }}>
-            <div style={{ padding: 22, border: '1px dashed rgba(212,175,55,0.18)', textAlign: 'center', maxWidth: 560, margin: '0 auto' }}>
-              <p style={{ fontSize: 13, color: '#9A9AA5', lineHeight: 1.7, marginBottom: 10, letterSpacing: '0.03em' }}>
+          <section style={{ padding: '20px 0 50px', textAlign: 'center' }}>
+            <div style={{ padding: 22, border: '1px dashed rgba(212,175,55,0.18)', maxWidth: 560, margin: '0 auto' }}>
+              <p style={{ fontSize: 13, color: '#9A9AA5', lineHeight: 1.7, marginBottom: 10 }}>
                 Если вы пока не готовы к персональному сопровождению —
               </p>
-              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#D4AF37', textDecoration: 'underline', textDecorationColor: 'rgba(212,175,55,0.3)', textUnderlineOffset: 5, letterSpacing: '0.04em', fontWeight: 500 }}>
+              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#D4AF37', textDecoration: 'underline', textDecorationColor: 'rgba(212,175,55,0.3)', textUnderlineOffset: 5, fontWeight: 500 }}>
                 заполните бесплатную анкету
                 <span style={{ fontSize: 11 }}>›</span>
               </a>
@@ -528,33 +524,35 @@ export default function AgencyLanding() {
           </section>
         </Reveal>
 
-        {/* FOOTER */}
-        <footer style={{ padding: '50px 0 130px', borderTop: '1px solid rgba(212,175,55,0.15)', marginTop: 48 }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 28, textAlign: 'center' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-              <BrandRings size={36} />
-              <div style={{ fontSize: 11, color: '#B8932F', fontWeight: 600, letterSpacing: '0.28em', textTransform: 'uppercase' }}>Агентство знакомств</div>
-              <div className="font-display" style={{ fontSize: 19, fontWeight: 500, color: '#F5F2E8', letterSpacing: '0.02em' }}>Асем Альмурзиева</div>
+        {/* === FOOTER === */}
+        <footer style={{ padding: '50px 0 130px', borderTop: '1px solid rgba(212,175,55,0.18)', marginTop: 24 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 30, textAlign: 'center', alignItems: 'center' }}>
+            <BrandRings size={40} />
+            <div>
+              <div style={{ fontSize: 11, color: '#B8932F', fontWeight: 600, letterSpacing: '0.32em', textTransform: 'uppercase', marginBottom: 8 }}>Агентство знакомств</div>
+              <div className="font-display" style={{ fontSize: 20, fontWeight: 500, color: '#F5F2E8' }}>Асем Альмурзиева</div>
             </div>
 
+            <Ornament mb={0} mt={0} />
+
             <div>
-              <div style={{ fontSize: 12, color: '#9A9AA5', fontWeight: 600, letterSpacing: '0.24em', marginBottom: 18, textTransform: 'uppercase' }}>Контакты</div>
+              <div style={{ fontSize: 11, color: '#9A9AA5', fontWeight: 600, letterSpacing: '0.28em', marginBottom: 18, textTransform: 'uppercase' }}>Контакты</div>
               <div style={{ display: 'flex', justifyContent: 'center', gap: 12, flexWrap: 'wrap' }}>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#D4AF37', textDecoration: 'none', padding: '12px 22px', background: 'rgba(212,175,55,0.05)', border: '1px solid rgba(212,175,55,0.3)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600 }}>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 12, color: '#D4AF37', textDecoration: 'none', padding: '12px 22px', background: 'rgba(212,175,55,0.05)', border: '1px solid rgba(212,175,55,0.3)', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>
                   <WhatsAppIcon size={14} color="#D4AF37" />
                   WhatsApp
                 </a>
-                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#E8D9B8', textDecoration: 'none', padding: '12px 22px', background: 'rgba(232,217,184,0.04)', border: '1px solid rgba(232,217,184,0.2)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600 }}>
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 12, color: '#E8D9B8', textDecoration: 'none', padding: '12px 22px', background: 'rgba(232,217,184,0.04)', border: '1px solid rgba(232,217,184,0.2)', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>
                   <InstagramIcon size={14} />
                   Instagram
                 </a>
-                <a href="https://t.me/Naidiparu2_bot" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#9A9AA5', textDecoration: 'none', padding: '12px 22px', background: 'rgba(122,122,133,0.05)', border: '1px solid rgba(122,122,133,0.2)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600 }}>
+                <a href="https://t.me/Naidiparu2_bot" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, fontSize: 12, color: '#9A9AA5', textDecoration: 'none', padding: '12px 22px', background: 'rgba(122,122,133,0.05)', border: '1px solid rgba(122,122,133,0.2)', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>
                   Telegram
                 </a>
               </div>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'center', gap: 16, fontSize: 13, flexWrap: 'wrap', color: '#9A9AA5', letterSpacing: '0.04em' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 16, fontSize: 12, flexWrap: 'wrap', color: '#9A9AA5', letterSpacing: '0.04em' }}>
               <Link href="/men" style={{ color: '#9A9AA5', textDecoration: 'none' }}>Для мужчин</Link>
               <span>·</span>
               <Link href="/asem" style={{ color: '#9A9AA5', textDecoration: 'none' }}>Для девушек</Link>
@@ -564,7 +562,7 @@ export default function AgencyLanding() {
               <Link href="/privacy" style={{ color: '#9A9AA5', textDecoration: 'none' }}>Конфиденциальность</Link>
             </div>
 
-            <p style={{ fontSize: 12, color: '#6B6B73', letterSpacing: '0.08em' }}>© {new Date().getFullYear()} Агентство знакомств Асем Альмурзиевой</p>
+            <p style={{ fontSize: 11, color: '#6B6B73', letterSpacing: '0.08em' }}>© {new Date().getFullYear()} Агентство знакомств Асем Альмурзиевой</p>
           </div>
         </footer>
       </div>
@@ -614,11 +612,27 @@ function Story({ story }) {
   );
 }
 
-function SectionLabel({ children }) {
+function BulletLine({ children }) {
   return (
-    <div style={{ marginBottom: 26, display: 'flex', alignItems: 'center', gap: 18 }}>
+    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, fontSize: 15, color: '#C8C8D0', lineHeight: 1.65 }}>
+      <span style={{ color: '#D4AF37', fontSize: 18, lineHeight: 1.4, flexShrink: 0, fontFamily: 'serif', marginTop: -2 }}>—</span>
+      <span>{children}</span>
+    </div>
+  );
+}
+
+function SectionLabel({ children, center = false }) {
+  if (center) {
+    return (
+      <div style={{ marginBottom: 14, textAlign: 'center' }}>
+        <h2 style={{ fontSize: 12, fontWeight: 700, color: '#D4AF37', textTransform: 'uppercase', letterSpacing: '0.32em' }}>{children}</h2>
+      </div>
+    );
+  }
+  return (
+    <div style={{ marginBottom: 22, display: 'flex', alignItems: 'center', gap: 18 }}>
       <div style={{ width: 44, height: 1, background: 'linear-gradient(90deg, #D4AF37, transparent)' }} />
-      <h2 style={{ fontSize: 13, fontWeight: 700, color: '#D4AF37', textTransform: 'uppercase', letterSpacing: '0.22em' }}>{children}</h2>
+      <h2 style={{ fontSize: 12, fontWeight: 700, color: '#D4AF37', textTransform: 'uppercase', letterSpacing: '0.22em' }}>{children}</h2>
     </div>
   );
 }
@@ -628,7 +642,6 @@ function ServiceLink({ href, badge, title, subtitle }) {
     <Link href={href} className="lift" style={{
       display: 'block', padding: 26, background: '#0E0E13',
       textDecoration: 'none', color: '#E8D9B8',
-      border: '1px solid rgba(212,175,55,0.05)',
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 22 }}>
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -658,7 +671,7 @@ function Package({ tag, title, subtitle, includes, guarantee, guaranteeFoot, tie
       )}
 
       <div style={{ padding: 36 }}>
-        <div style={{ marginBottom: 26 }}>
+        <div style={{ marginBottom: 26, textAlign: 'center' }}>
           <div style={{ fontSize: 11, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.28em', marginBottom: 14, textTransform: 'uppercase' }}>{tag}</div>
           <h3 className="font-display" style={{ fontSize: 'clamp(22px, 4.6vw, 28px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.2, color: '#F5F2E8', marginBottom: 10 }}>
             {title}
@@ -669,7 +682,7 @@ function Package({ tag, title, subtitle, includes, guarantee, guaranteeFoot, tie
         <hr className="gold-divider" style={{ marginBottom: 26 }} />
 
         <div style={{ marginBottom: 26 }}>
-          <div style={{ fontSize: 11, color: '#9A9AA5', fontWeight: 700, letterSpacing: '0.24em', marginBottom: 18, textTransform: 'uppercase' }}>Что входит</div>
+          <div style={{ fontSize: 11, color: '#9A9AA5', fontWeight: 700, letterSpacing: '0.24em', marginBottom: 18, textTransform: 'uppercase', textAlign: 'center' }}>Что входит</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {includes.map(f => (
               <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 16, fontSize: 15, color: '#F5F2E8', lineHeight: 1.55 }}>
@@ -680,7 +693,7 @@ function Package({ tag, title, subtitle, includes, guarantee, guaranteeFoot, tie
         </div>
 
         {guarantee && (
-          <div style={{ marginBottom: 26, padding: 22, background: 'rgba(212,175,55,0.04)', border: '1px solid rgba(212,175,55,0.25)' }}>
+          <div style={{ marginBottom: 26, padding: 22, background: 'rgba(212,175,55,0.04)', border: '1px solid rgba(212,175,55,0.25)', textAlign: 'center' }}>
             <div style={{ fontSize: 11, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.28em', marginBottom: 12, textTransform: 'uppercase' }}>Гарантия</div>
             <p className="font-display" style={{ fontSize: 15, color: '#F5F2E8', fontStyle: 'italic', lineHeight: 1.6, fontWeight: 500 }}>
               {guarantee}
@@ -705,7 +718,7 @@ function Package({ tag, title, subtitle, includes, guarantee, guaranteeFoot, tie
         )}
 
         {extra && (
-          <div style={{ padding: 16, background: 'rgba(212,175,55,0.04)', border: '1px solid rgba(212,175,55,0.22)', fontSize: 14, color: '#D4AF37', marginBottom: 26, fontWeight: 500, letterSpacing: '0.02em' }}>
+          <div style={{ padding: 16, background: 'rgba(212,175,55,0.04)', border: '1px solid rgba(212,175,55,0.22)', fontSize: 14, color: '#D4AF37', marginBottom: 26, fontWeight: 500, textAlign: 'center' }}>
             <span style={{ fontStyle: 'italic', marginRight: 8 }}>+</span> {extra}
           </div>
         )}
