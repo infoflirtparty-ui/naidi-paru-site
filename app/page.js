@@ -92,9 +92,9 @@ export default function AgencyLanding() {
       <div style={{ position: 'relative', zIndex: 1, maxWidth: 920, margin: '0 auto', padding: '0 24px' }}>
 
         {/* === BRAND CROWN (top center) === */}
-        <div style={{ padding: '50px 0 32px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14 }}>
+        <div style={{ padding: '40px 0 28px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
           <BrandRings size={50} />
-          <div style={{ fontSize: 11, color: '#B8932F', fontWeight: 700, letterSpacing: '0.42em', textTransform: 'uppercase' }}>
+          <div style={{ fontSize: 'clamp(13px, 2.8vw, 15px)', color: '#E5C158', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' }}>
             Агентство закрытых знакомств
           </div>
         </div>
@@ -193,7 +193,7 @@ export default function AgencyLanding() {
             ))}
           </div>
 
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary cta-manager"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 14, padding: '22px 52px', background: 'linear-gradient(180deg, #FAE5A1, #E5C158 30%, #B8932F 70%, #8B6914)', color: '#08080B', fontSize: 15, fontWeight: 800, textDecoration: 'none', boxShadow: '0 18px 64px rgba(212,175,55,0.5), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -2px 0 rgba(0,0,0,0.3)', letterSpacing: '0.2em', textTransform: 'uppercase', border: '1px solid rgba(229,193,88,0.6)' }}>
             <WhatsAppIcon size={18} />
             Написать менеджеру
@@ -209,7 +209,7 @@ export default function AgencyLanding() {
             <SectionLabel center>Статус эксперта</SectionLabel>
             <div className="surface" style={{ padding: 38, textAlign: 'left' }}>
               <h2 className="font-display" style={{ fontSize: 'clamp(20px, 3.8vw, 26px)', fontWeight: 600, color: '#F5F2E8', lineHeight: 1.18, letterSpacing: '-0.02em', textAlign: 'center', marginBottom: 22 }}>
-                Главная сваха <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Казахстана</em>
+                Главная сваха <span style={{ color: '#D4AF37', fontWeight: 700 }}>Казахстана</span>
               </h2>
 
               <hr className="gold-divider" style={{ marginBottom: 22 }} />
@@ -221,6 +221,59 @@ export default function AgencyLanding() {
                 <BulletLine>Её приглашают <strong style={{ color: '#F5F2E8', fontWeight: 500 }}>крупнейшие СМИ Казахстана</strong></BulletLine>
                 <BulletLine>Работает с <strong style={{ color: '#F5F2E8', fontWeight: 500 }}>предпринимателями, руководителями и публичными людьми</strong></BulletLine>
               </div>
+            </div>
+          </section>
+        </Reveal>
+
+        <SectionDivider />
+
+        {/* === RESULTS === (moved above press/video per client feedback) */}
+        <Reveal>
+          <section style={{ padding: '0 0 60px', position: 'relative', textAlign: 'center' }}>
+            <SectionSpark />
+            <SectionLabel center>Результаты</SectionLabel>
+            <h2 className="font-display" style={{ fontSize: 'clamp(24px, 4.4vw, 32px)', fontWeight: 600, lineHeight: 1.12, marginBottom: 34, letterSpacing: '-0.02em', color: '#F5F2E8' }}>
+              Результаты, за которыми<br/>
+              <span style={{ color: '#D4AF37', fontWeight: 700 }}>к нам приходят</span>
+            </h2>
+
+            <div className="surface" style={{ padding: 38, textAlign: 'left' }}>
+              <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 700, letterSpacing: '0.28em', marginBottom: 28, textTransform: 'uppercase', textAlign: 'center' }}>За 10 лет работы</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 22, marginBottom: 32 }}>
+                {[
+                  ['172', 'пары, которые построили семью'],
+                  ['344', 'человека нашли друг друга'],
+                  ['тысячи', 'проведённых знакомств'],
+                ].map(([num, text], i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: 26, paddingBottom: i < 2 ? 22 : 0, borderBottom: i < 2 ? '1px solid rgba(212,175,55,0.12)' : 'none' }}>
+                    <div className="font-display" style={{ fontSize: 'clamp(28px, 5vw, 38px)', fontWeight: 700, color: '#D4AF37', letterSpacing: '-0.03em', minWidth: 110, lineHeight: 1 }}>{num}</div>
+                    <div style={{ fontSize: 16, color: '#F5F2E8', lineHeight: 1.5, fontWeight: 400 }}>{text}</div>
+                  </div>
+                ))}
+              </div>
+
+              <hr className="gold-divider" style={{ margin: '28px 0' }} />
+
+              <div style={{ textAlign: 'center' }}>
+                <p className="font-display" style={{ fontSize: 19, color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500, marginBottom: 8 }}>
+                  Мы не продаём процесс.
+                </p>
+                <p className="font-display" style={{ fontSize: 24, color: '#D4AF37', lineHeight: 1.4, fontWeight: 700 }}>
+                  Мы даём результат.
+                </p>
+              </div>
+            </div>
+
+            <div style={{ marginTop: 22, padding: 32, background: 'linear-gradient(135deg, rgba(212,175,55,0.06), transparent)', border: '1px solid rgba(212,175,55,0.22)' }}>
+              <p className="font-display" style={{ fontSize: 'clamp(15px, 3vw, 17px)', color: '#F5F2E8', lineHeight: 1.5, marginBottom: 12, fontWeight: 500 }}>
+                Нас выбирают не потому что «интересно».
+              </p>
+              <p className="font-display" style={{ fontSize: 'clamp(17px, 3.4vw, 20px)', color: '#D4AF37', fontWeight: 700, lineHeight: 1.4, marginBottom: 18 }}>
+                Нас выбирают потому что это работает.
+              </p>
+              <p style={{ fontSize: 14, color: '#9A9AA5', lineHeight: 1.7, maxWidth: 580, margin: '0 auto' }}>
+                Именно поэтому наши клиенты готовы платить за результат, а не тратить годы на самостоятельный поиск.
+              </p>
             </div>
           </section>
         </Reveal>
@@ -282,7 +335,7 @@ export default function AgencyLanding() {
                 'Организуем встречи',
               ].map((t, i) => (
                 <div key={i} style={{ background: '#0E0E13', padding: '34px 28px', textAlign: 'center' }}>
-                  <div className="font-display" style={{ fontSize: 36, fontWeight: 500, color: '#D4AF37', letterSpacing: '-0.02em', marginBottom: 18, fontStyle: 'italic', lineHeight: 1 }}>
+                  <div className="font-display" style={{ fontSize: 36, fontWeight: 600, color: '#D4AF37', letterSpacing: '-0.02em', marginBottom: 18, lineHeight: 1 }}>
                     {String(i + 1).padStart(2, '0')}
                   </div>
                   <div style={{ fontSize: 15, fontWeight: 500, color: '#F5F2E8', lineHeight: 1.45 }}>{t}</div>
@@ -290,61 +343,8 @@ export default function AgencyLanding() {
               ))}
             </div>
             <p className="font-display" style={{ marginTop: 36, fontSize: 'clamp(18px, 3.6vw, 22px)', color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500 }}>
-              Вы не ищете. <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>Мы делаем всё за вас.</em>
+              Вы не ищете. <span style={{ color: '#D4AF37', fontWeight: 700 }}>Мы делаем всё за вас.</span>
             </p>
-          </section>
-        </Reveal>
-
-        <SectionDivider />
-
-        {/* === RESULTS === */}
-        <Reveal>
-          <section style={{ padding: '0 0 60px', position: 'relative', textAlign: 'center' }}>
-            <SectionSpark />
-            <SectionLabel center>Результаты</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(24px, 4.4vw, 32px)', fontWeight: 600, lineHeight: 1.12, marginBottom: 34, letterSpacing: '-0.02em', color: '#F5F2E8' }}>
-              Результаты, за которыми<br/>
-              <em style={{ color: '#D4AF37', fontStyle: 'italic' }}>к нам приходят</em>
-            </h2>
-
-            <div className="surface" style={{ padding: 38, textAlign: 'left' }}>
-              <div style={{ fontSize: 12, color: '#B8932F', fontWeight: 700, letterSpacing: '0.28em', marginBottom: 28, textTransform: 'uppercase', textAlign: 'center' }}>За 10 лет работы</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 22, marginBottom: 32 }}>
-                {[
-                  ['172', 'пары, которые построили семью'],
-                  ['344', 'человека нашли друг друга'],
-                  ['тысячи', 'проведённых знакомств'],
-                ].map(([num, text], i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: 26, paddingBottom: i < 2 ? 22 : 0, borderBottom: i < 2 ? '1px solid rgba(212,175,55,0.12)' : 'none' }}>
-                    <div className="font-display" style={{ fontSize: 'clamp(28px, 5vw, 38px)', fontWeight: 600, color: '#D4AF37', letterSpacing: '-0.03em', minWidth: 110, lineHeight: 1, fontStyle: 'italic' }}>{num}</div>
-                    <div style={{ fontSize: 16, color: '#F5F2E8', lineHeight: 1.5, fontWeight: 400 }}>{text}</div>
-                  </div>
-                ))}
-              </div>
-
-              <hr className="gold-divider" style={{ margin: '28px 0' }} />
-
-              <div style={{ textAlign: 'center' }}>
-                <p className="font-display" style={{ fontSize: 19, color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500, marginBottom: 8 }}>
-                  Мы не продаём процесс.
-                </p>
-                <p className="font-display" style={{ fontSize: 22, color: '#D4AF37', lineHeight: 1.4, fontStyle: 'italic', fontWeight: 500 }}>
-                  Мы даём результат.
-                </p>
-              </div>
-            </div>
-
-            <div style={{ marginTop: 22, padding: 32, background: 'linear-gradient(135deg, rgba(212,175,55,0.06), transparent)', border: '1px solid rgba(212,175,55,0.22)' }}>
-              <p className="font-display" style={{ fontSize: 'clamp(15px, 3vw, 17px)', color: '#F5F2E8', lineHeight: 1.5, marginBottom: 12, fontWeight: 500 }}>
-                Нас выбирают не потому что «интересно».
-              </p>
-              <p className="font-display" style={{ fontSize: 'clamp(16px, 3.2vw, 19px)', color: '#D4AF37', fontStyle: 'italic', fontWeight: 600, lineHeight: 1.4, marginBottom: 18 }}>
-                Нас выбирают потому что это работает.
-              </p>
-              <p style={{ fontSize: 14, color: '#9A9AA5', lineHeight: 1.7, maxWidth: 580, margin: '0 auto' }}>
-                Именно поэтому наши клиенты готовы платить за результат, а не тратить годы на самостоятельный поиск.
-              </p>
-            </div>
           </section>
         </Reveal>
 
@@ -368,7 +368,7 @@ export default function AgencyLanding() {
                   { num: 'III', title: 'Выход в отношения', desc: 'Без лишних этапов и многомесячных переписок' },
                 ].map(item => (
                   <div key={item.title} style={{ background: '#0E0E13', padding: '32px 22px 28px' }}>
-                    <div className="font-display" style={{ fontSize: 30, color: '#D4AF37', fontStyle: 'italic', fontWeight: 500, marginBottom: 14, lineHeight: 1 }}>{item.num}</div>
+                    <div className="font-display" style={{ fontSize: 30, color: '#D4AF37', fontWeight: 700, marginBottom: 14, lineHeight: 1 }}>{item.num}</div>
                     <div style={{ fontSize: 15, fontWeight: 600, color: '#F5F2E8', marginBottom: 10, letterSpacing: '-0.005em' }}>{item.title}</div>
                     <p style={{ fontSize: 13, color: '#9A9AA5', lineHeight: 1.65 }}>{item.desc}</p>
                   </div>
@@ -426,7 +426,7 @@ export default function AgencyLanding() {
                 { num: '04', t: 'Соответствуют уровню' },
               ].map(it => (
                 <div key={it.t} style={{ padding: '32px 18px 26px', background: '#0E0E13', textAlign: 'center' }}>
-                  <div className="font-display" style={{ fontSize: 22, color: '#D4AF37', fontStyle: 'italic', marginBottom: 14, fontWeight: 500 }}>{it.num}</div>
+                  <div className="font-display" style={{ fontSize: 22, color: '#D4AF37', marginBottom: 14, fontWeight: 700 }}>{it.num}</div>
                   <div style={{ fontSize: 15, color: '#F5F2E8', fontWeight: 500 }}>{it.t}</div>
                 </div>
               ))}
@@ -447,7 +447,7 @@ export default function AgencyLanding() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 {['Ценят своё время', 'Хотят серьёзные отношения', 'Не готовы тратить месяцы на поиск'].map(t => (
                   <div key={t} className="font-display" style={{ display: 'flex', gap: 18, fontSize: 'clamp(16px, 3.2vw, 19px)', color: '#F5F2E8', lineHeight: 1.4, fontWeight: 500, alignItems: 'baseline', justifyContent: 'center' }}>
-                    <span style={{ color: '#D4AF37', flexShrink: 0, fontStyle: 'italic', fontSize: 22 }}>—</span>{t}
+                    <span style={{ color: '#D4AF37', flexShrink: 0, fontSize: 22, fontWeight: 700 }}>—</span>{t}
                   </div>
                 ))}
               </div>
@@ -504,13 +504,13 @@ export default function AgencyLanding() {
             <h2 className="font-display" style={{ fontSize: 'clamp(24px, 4.4vw, 32px)', fontWeight: 600, lineHeight: 1.2, marginBottom: 22, color: '#F5F2E8', letterSpacing: '-0.025em' }}>
               Вы можете продолжать<br/>искать сами
             </h2>
-            <p className="font-display" style={{ fontSize: 'clamp(22px, 4.2vw, 28px)', fontWeight: 600, fontStyle: 'italic', marginBottom: 18, color: '#D4AF37', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+            <p className="font-display" style={{ fontSize: 'clamp(22px, 4.2vw, 28px)', fontWeight: 700, marginBottom: 18, color: '#D4AF37', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               Или доверить это профессионалам
             </p>
             <p style={{ fontSize: 16, color: '#9A9AA5', marginBottom: 44, lineHeight: 1.6 }}>
               И получить результат быстрее.
             </p>
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary cta-manager"
               style={{ display: 'inline-flex', alignItems: 'center', gap: 14, padding: '24px 60px', background: 'linear-gradient(180deg, #E5C158, #B8932F)', color: '#08080B', fontSize: 16, fontWeight: 700, textDecoration: 'none', boxShadow: '0 18px 64px rgba(212,175,55,0.45)', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
               <WhatsAppIcon size={20} />
               Написать менеджеру
@@ -612,7 +612,7 @@ function Story({ story }) {
     <div className="surface" style={{ padding: 32 }}>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, flexWrap: 'wrap', marginBottom: 22, paddingBottom: 20, borderBottom: '1px solid rgba(212,175,55,0.12)' }}>
         <div className="font-display" style={{ fontSize: 24, fontWeight: 600, color: '#F5F2E8', letterSpacing: '-0.01em' }}>
-          {story.name}, <span style={{ color: '#D4AF37', fontStyle: 'italic' }}>{story.age}</span>
+          {story.name}, <span style={{ color: '#D4AF37', fontWeight: 700 }}>{story.age}</span>
         </div>
         <div style={{ fontSize: 13, color: '#9A9AA5', letterSpacing: '0.06em' }}>{story.role}</div>
       </div>
@@ -630,7 +630,7 @@ function Story({ story }) {
 
       <hr className="gold-divider" style={{ marginBottom: 22 }} />
 
-      <p className="font-display" style={{ fontSize: 16, color: '#E8D9B8', lineHeight: 1.7, fontStyle: 'italic', fontWeight: 400 }}>
+      <p style={{ fontSize: 16, color: '#E8D9B8', lineHeight: 1.7, fontWeight: 400 }}>
         «{story.quote}»
       </p>
     </div>
@@ -674,7 +674,7 @@ function ServiceLink({ href, badge, title, subtitle }) {
           <div className="font-display" style={{ fontSize: 19, fontWeight: 600, marginBottom: 6, color: '#F5F2E8', letterSpacing: '-0.01em' }}>{title}</div>
           <div style={{ fontSize: 14, color: '#9A9AA5' }}>{subtitle}</div>
         </div>
-        <span style={{ fontSize: 22, color: '#D4AF37', flexShrink: 0, fontFamily: 'serif', fontStyle: 'italic' }}>›</span>
+        <span style={{ fontSize: 22, color: '#D4AF37', flexShrink: 0, fontWeight: 700 }}>›</span>
       </div>
     </Link>
   );
@@ -701,7 +701,7 @@ function Package({ tag, title, subtitle, includes, guarantee, guaranteeFoot, tie
           <h3 className="font-display" style={{ fontSize: 'clamp(20px, 3.8vw, 24px)', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.2, color: '#F5F2E8', marginBottom: 10 }}>
             {title}
           </h3>
-          <p style={{ fontSize: 15, color: '#9A9AA5', lineHeight: 1.6 }}>{subtitle}</p>
+          <p style={{ fontSize: 17, color: '#C8C8D0', lineHeight: 1.6, fontWeight: 500 }}>{subtitle}</p>
         </div>
 
         <hr className="gold-divider" style={{ marginBottom: 26 }} />
@@ -710,7 +710,7 @@ function Package({ tag, title, subtitle, includes, guarantee, guaranteeFoot, tie
           <div style={{ fontSize: 11, color: '#9A9AA5', fontWeight: 700, letterSpacing: '0.24em', marginBottom: 18, textTransform: 'uppercase', textAlign: 'center' }}>Что входит</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {includes.map(f => (
-              <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 16, fontSize: 15, color: '#F5F2E8', lineHeight: 1.55 }}>
+              <div key={f} style={{ display: 'flex', alignItems: 'flex-start', gap: 16, fontSize: 16, color: '#F5F2E8', lineHeight: 1.6 }}>
                 <span style={{ color: '#D4AF37', fontSize: 16, lineHeight: 1.4, flexShrink: 0, fontFamily: 'serif', marginTop: -1 }}>—</span>{f}
               </div>
             ))}
@@ -720,7 +720,7 @@ function Package({ tag, title, subtitle, includes, guarantee, guaranteeFoot, tie
         {guarantee && (
           <div style={{ marginBottom: 26, padding: 22, background: 'rgba(212,175,55,0.04)', border: '1px solid rgba(212,175,55,0.25)', textAlign: 'center' }}>
             <div style={{ fontSize: 11, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.28em', marginBottom: 12, textTransform: 'uppercase' }}>Гарантия</div>
-            <p className="font-display" style={{ fontSize: 15, color: '#F5F2E8', fontStyle: 'italic', lineHeight: 1.6, fontWeight: 500 }}>
+            <p style={{ fontSize: 16, color: '#F5F2E8', lineHeight: 1.6, fontWeight: 500 }}>
               {guarantee}
             </p>
             {guaranteeFoot && (
@@ -744,14 +744,14 @@ function Package({ tag, title, subtitle, includes, guarantee, guaranteeFoot, tie
 
         {extra && (
           <div style={{ padding: 16, background: 'rgba(212,175,55,0.04)', border: '1px solid rgba(212,175,55,0.22)', fontSize: 14, color: '#D4AF37', marginBottom: 26, fontWeight: 500, textAlign: 'center' }}>
-            <span style={{ fontStyle: 'italic', marginRight: 8 }}>+</span> {extra}
+            <span style={{ fontWeight: 800, marginRight: 8 }}>+</span> {extra}
           </div>
         )}
 
         {price && (
           <div style={{ padding: '22px 24px', background: 'rgba(212,175,55,0.04)', borderTop: '1px solid rgba(212,175,55,0.22)', borderBottom: '1px solid rgba(212,175,55,0.22)', marginBottom: 26, textAlign: 'center' }}>
             <div style={{ fontSize: 11, color: '#9A9AA5', fontWeight: 700, letterSpacing: '0.24em', marginBottom: 8, textTransform: 'uppercase' }}>Стоимость</div>
-            <div className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, color: '#D4AF37', letterSpacing: '-0.02em', fontStyle: 'italic' }}>{price}</div>
+            <div className="font-display" style={{ fontSize: 'clamp(24px, 4.4vw, 32px)', fontWeight: 700, color: '#D4AF37', letterSpacing: '-0.02em' }}>{price}</div>
           </div>
         )}
 

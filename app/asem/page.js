@@ -21,7 +21,7 @@ export default function AsemPage() {
         <TopNav current="asem" brandLabel="АСЕМ" brandColor="#D4AF37" />
 
         {/* HERO */}
-        <section className="fade-in" style={{ padding: '40px 0 60px', textAlign: 'center', position: 'relative' }}>
+        <section className="fade-in" style={{ padding: '12px 0 50px', textAlign: 'center', position: 'relative' }}>
           {/* Photo with glow ring */}
           <div style={{ position: 'relative', width: 156, height: 156, margin: '0 auto 28px' }}>
             <div style={{ position: 'absolute', inset: -8, borderRadius: '50%', background: 'conic-gradient(from 0deg, #D4AF37, #FF4D8D, #A855F7, #D4AF37)', filter: 'blur(12px)', opacity: 0.5 }} />
@@ -48,7 +48,7 @@ export default function AsemPage() {
 
           <h1 className="font-display" style={{ fontSize: 'clamp(26px, 6.5vw, 42px)', fontWeight: 700, lineHeight: 1.1, marginBottom: 14, letterSpacing: '-0.025em', color: '#F5E9CF' }}>
             Ты имеешь право быть<br/>
-            <em style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontStyle: 'italic', fontWeight: 800 }}>счастливой</em>
+            <span style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 800 }}>счастливой</span>
           </h1>
           <p style={{ fontSize: 15, color: '#A0A0C0', marginBottom: 6 }}>В любом возрасте</p>
           <p style={{ fontSize: 14, color: '#6B6B8D', marginBottom: 28 }}>Даже если тебе 50, 60 или 70</p>
@@ -58,7 +58,7 @@ export default function AsemPage() {
             <span style={{ color: '#D4AF37', fontWeight: 600 }}>которую мужчина выбирает</span>
           </p>
 
-          <p style={{ fontSize: 14, color: '#A0A0C0', lineHeight: 1.6, maxWidth: 520, margin: '0 auto 36px', fontStyle: 'italic' }}>
+          <p style={{ fontSize: 14, color: '#A0A0C0', lineHeight: 1.6, maxWidth: 520, margin: '0 auto 36px' }}>
             Я научу тебя, как стать той, ради которой мужчина<br/>
             <span style={{ color: '#F9A8D4' }}>выбирает, вкладывается и остаётся</span>
           </p>
@@ -99,9 +99,9 @@ export default function AsemPage() {
           <section style={{ padding: '20px 0 40px' }}>
             <div className="glass" style={{ padding: '40px 28px 32px', borderRadius: 24, borderColor: 'rgba(212,175,55,0.22)', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
               <div className="font-display" style={{ position: 'absolute', top: 0, left: 22, fontSize: 120, color: 'rgba(212,175,55,0.12)', lineHeight: 0.8, fontWeight: 700, pointerEvents: 'none' }}>"</div>
-              <p className="font-display" style={{ fontSize: 'clamp(18px, 4vw, 22px)', color: '#F5E9CF', lineHeight: 1.4, fontStyle: 'italic', marginBottom: 16, position: 'relative', fontWeight: 500 }}>
+              <p className="font-display" style={{ fontSize: 'clamp(20px, 4.4vw, 24px)', color: '#F5E9CF', lineHeight: 1.4, marginBottom: 16, position: 'relative', fontWeight: 600 }}>
                 Ты не для «попробовать».<br/>
-                Ты — та, на которой <em style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontStyle: 'italic' }}>женятся</em>.
+                Ты — та, на которой <span style={{ background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontWeight: 800 }}>женятся</span>.
               </p>
               <div className="divider" style={{ marginBottom: 16, background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent)' }} />
               <p style={{ fontSize: 13, color: '#A0A0C0', lineHeight: 1.65, maxWidth: 500, margin: '0 auto' }}>
@@ -156,7 +156,7 @@ export default function AsemPage() {
                   <div>— ты знаешь психологию лучше многих</div>
                   <div>— ты сама можешь быть кому угодно психологом</div>
                 </div>
-                <p style={{ marginTop: 12, fontSize: 13, color: '#F9A8D4', fontStyle: 'italic', lineHeight: 1.5 }}>
+                <p style={{ marginTop: 12, fontSize: 13, color: '#F9A8D4', lineHeight: 1.5, fontWeight: 500 }}>
                   НО с тобой это почему-то не работает. Ты всё понимаешь, но в жизни это не даёт результата.
                 </p>
                 <p style={{ marginTop: 10, fontSize: 13, color: '#D4AF37', fontWeight: 700 }}>
@@ -183,7 +183,7 @@ export default function AsemPage() {
                   <div key={t} style={{ padding: '10px 16px', background: 'rgba(212,175,55,0.08)', borderRadius: 10, fontSize: 14, color: '#F5E9CF', fontWeight: 500 }}>✓ {t}</div>
                 ))}
               </div>
-              <p style={{ marginTop: 18, fontSize: 13, color: '#A0A0C0', fontStyle: 'italic', textAlign: 'center' }}>
+              <p style={{ marginTop: 18, fontSize: 13, color: '#A0A0C0', textAlign: 'center' }}>
                 После моей программы женщины выходят в отношения и создают семью
               </p>
             </Card>
@@ -238,7 +238,7 @@ export default function AsemPage() {
                         <div style={{ fontSize: 11, color: '#D4AF37', marginTop: 2, fontWeight: 600, letterSpacing: '0.05em' }}>💍 {r.status.toUpperCase()}</div>
                       </div>
                     </div>
-                    <p style={{ fontSize: 13, color: '#A0A0C0', lineHeight: 1.6, fontStyle: 'italic' }}>«{r.text}»</p>
+                    <p style={{ fontSize: 13, color: '#A0A0C0', lineHeight: 1.6 }}>«{r.text}»</p>
                   </Card>
                 </Reveal>
               ))}
@@ -257,7 +257,7 @@ export default function AsemPage() {
                   <div key={t} style={{ fontSize: 15, color: '#D4AF37', fontWeight: 600 }}>✨ {t}</div>
                 ))}
               </div>
-              <p style={{ fontSize: 14, color: '#A0A0C0', fontStyle: 'italic' }}>И ты перестанешь быть одной.</p>
+              <p style={{ fontSize: 14, color: '#A0A0C0', fontWeight: 500 }}>И ты перестанешь быть одной.</p>
             </Card>
           </section>
         </Reveal>
@@ -356,7 +356,7 @@ export default function AsemPage() {
               ))}
             </div>
             <p style={{ fontSize: 18, color: '#A0A0C0', margin: '24px 0 8px' }}>или:</p>
-            <p className="font-display" style={{ fontSize: 'clamp(24px, 5.5vw, 32px)', fontWeight: 700, fontStyle: 'italic', marginBottom: 36, background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
+            <p className="font-display" style={{ fontSize: 'clamp(24px, 5.5vw, 32px)', fontWeight: 700, marginBottom: 36, background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               стать женщиной, которую выбирают
             </p>
             <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"

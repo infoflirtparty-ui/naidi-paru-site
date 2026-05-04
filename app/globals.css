@@ -99,6 +99,31 @@ button {
               filter 0.3s ease;
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Hero CTA — keep on a single line on phones, never wrap */
+.cta-manager {
+  white-space: nowrap;
+  max-width: 100%;
+}
+@media (max-width: 600px) {
+  .cta-manager {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+    font-size: 13px !important;
+    letter-spacing: 0.14em !important;
+    gap: 10px !important;
+  }
+}
+@media (max-width: 380px) {
+  .cta-manager {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    font-size: 12px !important;
+    letter-spacing: 0.1em !important;
+    gap: 8px !important;
+  }
 }
 .btn-primary::after {
   content: '';

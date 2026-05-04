@@ -21,9 +21,9 @@ export default function MainLanding() {
         <TopNav current="men" brandLabel="Найди Пару" brandColor="#A855F7" />
 
         {/* HERO */}
-        <section className="fade-in" style={{ padding: '50px 0 40px', textAlign: 'center', position: 'relative' }}>
+        <section className="fade-in" style={{ padding: '12px 0 32px', textAlign: 'center', position: 'relative' }}>
           <div className="glow-pulse" style={{ display: 'inline-block', padding: '6px 14px', background: 'rgba(255,77,141,0.1)', border: '1px solid rgba(255,77,141,0.3)', borderRadius: 20, fontSize: 12, color: '#FF4D8D', marginBottom: 24, fontWeight: 600, letterSpacing: '0.08em' }}>🔥 ЗАКРЫТАЯ ПЛАТФОРМА</div>
-          <h1 className="hero-title" style={{ fontSize: 'clamp(44px, 10vw, 72px)', fontWeight: 900, lineHeight: 0.98, marginBottom: 22, letterSpacing: '-0.04em' }}>
+          <h1 className="hero-title" style={{ fontSize: 'clamp(36px, 7.2vw, 56px)', fontWeight: 900, lineHeight: 0.98, marginBottom: 20, letterSpacing: '-0.04em' }}>
             НАЙДИ <span style={{ background: 'linear-gradient(135deg, #FF4D8D, #A855F7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>ПАРУ</span>
           </h1>
           <p style={{ fontSize: 18, color: '#D4D4E8', lineHeight: 1.5, maxWidth: 560, margin: '0 auto 14px', fontWeight: 500 }}>
@@ -45,7 +45,7 @@ export default function MainLanding() {
           <section style={{ padding: '30px 0' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
               {[
-                { value: 200, suffix: '+', label: 'Проверенных анкет' },
+                { value: 500, suffix: '+', label: 'Проверенных анкет' },
                 { value: 87, suffix: '%', label: 'Успешных знакомств' },
                 { value: 10, suffix: '+', label: 'Лет помогаем парам' },
               ].map((s, i) => (
@@ -211,7 +211,7 @@ export default function MainLanding() {
                   </div>
                 ))}
               </div>
-              <p style={{ marginTop: 20, padding: 14, background: 'rgba(255,77,141,0.06)', borderRadius: 12, fontSize: 14, color: '#F9A8D4', fontStyle: 'italic', textAlign: 'center', lineHeight: 1.5 }}>
+              <p style={{ marginTop: 20, padding: 14, background: 'rgba(255,77,141,0.06)', borderRadius: 12, fontSize: 14, color: '#F9A8D4', textAlign: 'center', lineHeight: 1.5, fontWeight: 500 }}>
                 Только нормальные девушки, которые хотят найти своего мужчину.
               </p>
             </Card>
@@ -224,15 +224,15 @@ export default function MainLanding() {
             <SectionTitle icon="❓" label="Частые вопросы" />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <FAQItem q="А если не понравится ни одна из 30 анкет?"
-                a="Редкий случай — мы подбираем под критерии. Но если так получилось, мы подберём новую подборку бесплатно." />
+                a="Такое бывает крайне редко. Мы подбираем анкеты по вашим критериям, и обычно людям откликается минимум 5–6 человек. Но если вдруг ни один вариант не зашёл — вы можете заказать новый подбор. Стоимость следующей подборки — 10 000 ₸. Важно: здесь вы выбираете сами. Мы даём проверенных, реальных людей — дальше решение за вами." />
               <FAQItem q="Как часто обновляются анкеты?"
                 a="Новые девушки проходят верификацию каждую неделю. Твоя подборка будет актуальной и свежей." />
               <FAQItem q="Безопасно ли платить?"
                 a="Оплата через Kaspi — стандартный банковский перевод, как и везде. Подтверждение ручное, доступ получаешь сразу после." />
               <FAQItem q="Что если я понравлюсь только одной из 30?"
                 a="Обычно взаимных симпатий 3-5. Чем полнее ты заполнишь анкету, тем точнее будет подбор." />
-              <FAQItem q="Можно вернуть деньги?"
-                a="Да, если в течение 48 часов после оплаты ты не получил подборку или не был доволен качеством." />
+              <FAQItem q="Можно ли вернуть деньги?"
+                a="Нет, возврат не предусмотрен. Мы предоставляем доступ к базе проверенных анкет и формируем подборку под ваши критерии — услуга считается оказанной с момента предоставления анкет. Если вам не откликнулась подборка, вы всегда можете заказать следующую и продолжить поиск." />
               <FAQItem q="Это анонимно?"
                 a="Твои данные видят только девушки, которым ты поставил лайк. Никаких публичных профилей или утечек." />
             </div>
@@ -284,7 +284,7 @@ export default function MainLanding() {
               style={{ display: 'inline-block', padding: '20px 52px', background: 'linear-gradient(135deg, #FF4D8D, #A855F7)', color: 'white', fontSize: 17, fontWeight: 700, borderRadius: 18, textDecoration: 'none', boxShadow: '0 14px 48px rgba(255,77,141,0.4)' }}>
               👉 Заполнить анкету
             </a>
-            <p style={{ marginTop: 32, fontSize: 14, color: '#8B8BA8', maxWidth: 440, margin: '32px auto 0', lineHeight: 1.6, fontStyle: 'italic' }}>
+            <p style={{ marginTop: 32, fontSize: 14, color: '#8B8BA8', maxWidth: 440, margin: '32px auto 0', lineHeight: 1.6 }}>
               💬 Можно продолжать листать бесконечные анкеты и тратить время.<br/>
               А можно сразу получать тех, кто тебе подходит.
             </p>

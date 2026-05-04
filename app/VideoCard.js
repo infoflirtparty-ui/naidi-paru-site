@@ -109,7 +109,7 @@ export function PressCardLink({ src, outlet, title, sub, href, gradient }) {
           <img src={src} alt={outlet} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} loading="lazy" />
         ) : (
           <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', minHeight: 140 }}>
-            <span className="font-display" style={{ fontSize: 64, fontWeight: 800, fontStyle: 'italic', background: 'linear-gradient(135deg, #D4AF37, #B8932F)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.05em', opacity: 0.85 }}>
+            <span className="font-display" style={{ fontSize: 64, fontWeight: 800, background: 'linear-gradient(135deg, #D4AF37, #B8932F)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.05em', opacity: 0.85 }}>
               {outlet[0]}
             </span>
             <div style={{ position: 'absolute', bottom: 10, left: 12, fontSize: 9, color: 'rgba(212,175,55,0.5)', letterSpacing: '0.15em', fontWeight: 700 }}>{outlet}</div>
@@ -121,7 +121,7 @@ export function PressCardLink({ src, outlet, title, sub, href, gradient }) {
           <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#D4AF37', flexShrink: 0 }} />
           <span style={{ fontSize: 10, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' }}>{outlet}</span>
         </div>
-        <div className="font-display" style={{ fontSize: 15, color: '#F5E9CF', fontWeight: 600, lineHeight: 1.35, marginBottom: sub ? 6 : 0, fontStyle: 'italic' }}>{title}</div>
+        <div style={{ fontSize: 15, color: '#F5E9CF', fontWeight: 600, lineHeight: 1.35, marginBottom: sub ? 6 : 0 }}>{title}</div>
         {sub && <div style={{ fontSize: 12, color: '#A0A0C0', lineHeight: 1.5 }}>{sub}</div>}
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 10, fontSize: 11, color: '#D4AF37', fontWeight: 600 }}>
           <span>Читать статью</span>
