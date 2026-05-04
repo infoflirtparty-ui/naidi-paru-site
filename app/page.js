@@ -147,37 +147,29 @@ export default function AgencyLanding() {
           </h2>
 
           {/* Gold caps subtitle (agency name) */}
-          <div className="gold-text-strong" style={{ fontSize: 'clamp(13px, 2.6vw, 16px)', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 32 }}>
+          <div className="gold-text-strong" style={{ fontSize: 'clamp(13px, 2.6vw, 16px)', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 28 }}>
             Агентство знакомств<br/>Асем Альмурзиевой
           </div>
 
-          <Ornament mb={28} />
+          <Ornament mb={26} />
 
-          {/* Audience caps */}
-          <div style={{ fontSize: 'clamp(12px, 2.4vw, 14px)', color: '#C8C8D0', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', lineHeight: 1.55, marginBottom: 18 }}>
-            Для мужчин-бизнесменов<br/>с высоким статусом
-          </div>
+          {/* Spec line — "Это не сайт знакомств..." */}
+          <p className="font-display" style={{ fontSize: 'clamp(16px, 3vw, 19px)', color: '#F5F2E8', lineHeight: 1.5, fontWeight: 500, marginBottom: 22, maxWidth: 620, marginLeft: 'auto', marginRight: 'auto' }}>
+            Это не сайт знакомств.<br/>
+            Это закрытая система подбора идеальной пары <span style={{ color: '#D4AF37', fontWeight: 700 }}>под ваш уровень жизни</span> с гарантией.
+          </p>
 
-          {/* Bold subtitle */}
-          <div style={{ fontSize: 'clamp(17px, 3.6vw, 22px)', color: '#F5F2E8', fontWeight: 800, letterSpacing: '0.04em', textTransform: 'uppercase', lineHeight: 1.15, marginBottom: 30 }}>
-            Под ваш уровень жизни
-          </div>
-
-          {/* Three-line tagline */}
-          <div style={{ fontSize: 'clamp(12px, 2.4vw, 14px)', color: '#9A9AA5', fontWeight: 500, letterSpacing: '0.16em', textTransform: 'uppercase', lineHeight: 1.7, marginBottom: 48 }}>
-            Мы экономим ваше время<br/>
-            <span style={{ color: '#D4AF37' }}>·</span>
-            <span style={{ margin: '0 12px' }}>Результаты</span>
-            <span style={{ color: '#D4AF37' }}>·</span>
-            <span style={{ marginLeft: 12 }}>Гарантия</span>
-          </div>
+          {/* Spec subhead */}
+          <p style={{ fontSize: 'clamp(14px, 2.8vw, 16px)', color: '#C8C8D0', lineHeight: 1.55, marginBottom: 44, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', fontWeight: 500 }}>
+            Мы экономим вам месяцы жизни и приводим к результату быстрее.
+          </p>
 
           {/* EMBOSSED GOLD STAT BOXES — 3D look */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12, maxWidth: 680, margin: '0 auto 48px' }}>
             {[
               { value: 10, suffix: '', label: 'лет', sub: 'на рынке' },
-              { value: 172, suffix: '', label: 'пары', sub: 'созданы' },
-              { value: 344, suffix: '', label: 'судьбы', sub: 'соединены' },
+              { value: 172, suffix: '', label: 'пары', sub: 'созданные' },
+              { value: 344, suffix: '', label: 'судьбы', sub: 'соединённых' },
             ].map((s, i) => (
               <div key={i} className="gold-emboss" style={{ padding: '24px 8px 20px', textAlign: 'center' }}>
                 <div className="font-display gold-text-strong" style={{ fontSize: 'clamp(28px, 6vw, 42px)', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 0.95, marginBottom: 6, position: 'relative' }}>
@@ -219,7 +211,7 @@ export default function AgencyLanding() {
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 600, margin: '0 auto' }}>
                 <BulletLine>Её приглашают <strong style={{ color: '#F5F2E8', fontWeight: 500 }}>крупнейшие СМИ Казахстана</strong></BulletLine>
-                <BulletLine>Работает с <strong style={{ color: '#F5F2E8', fontWeight: 500 }}>предпринимателями, руководителями и публичными людьми</strong></BulletLine>
+                <BulletLine>Она работает с <strong style={{ color: '#F5F2E8', fontWeight: 500 }}>предпринимателями, руководителями и публичными людьми</strong></BulletLine>
               </div>
             </div>
           </section>
@@ -233,7 +225,7 @@ export default function AgencyLanding() {
             <SectionSpark />
             <SectionLabel center>Результаты</SectionLabel>
             <h2 className="font-display" style={{ fontSize: 'clamp(24px, 4.4vw, 32px)', fontWeight: 600, lineHeight: 1.12, marginBottom: 34, letterSpacing: '-0.02em', color: '#F5F2E8' }}>
-              Результаты, за которыми<br/>
+              Результаты, за которые<br/>
               <span style={{ color: '#D4AF37', fontWeight: 700 }}>к нам приходят</span>
             </h2>
 
@@ -322,12 +314,9 @@ export default function AgencyLanding() {
         <Reveal>
           <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
             <SectionLabel center>Как это работает</SectionLabel>
-            <h2 className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 14 }}>
-              Без воды. Только результат.
+            <h2 className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 32 }}>
+              Минимализм. <span style={{ color: '#D4AF37', fontWeight: 700 }}>Без воды.</span>
             </h2>
-            <p style={{ fontSize: 14, color: '#9A9AA5', lineHeight: 1.65, maxWidth: 560, margin: '0 auto 32px' }}>
-              Минимализм во всём.
-            </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 1, background: 'rgba(212,175,55,0.22)', border: '1px solid rgba(212,175,55,0.28)' }}>
               {[
                 'Вы оставляете запрос',
@@ -417,7 +406,7 @@ export default function AgencyLanding() {
           <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
             <SectionLabel center>Про девушек</SectionLabel>
             <h2 className="font-display" style={{ fontSize: 'clamp(20px, 3.8vw, 26px)', fontWeight: 600, lineHeight: 1.25, marginBottom: 32, color: '#F5F2E8', letterSpacing: '-0.02em' }}>
-              Все женщины в нашей базе:
+              Все женщины:
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 1, background: 'rgba(212,175,55,0.22)', border: '1px solid rgba(212,175,55,0.28)' }}>
               {[
@@ -539,11 +528,12 @@ export default function AgencyLanding() {
         <Reveal>
           <section style={{ padding: '20px 0 50px', textAlign: 'center' }}>
             <div style={{ padding: 22, border: '1px dashed rgba(212,175,55,0.18)', maxWidth: 560, margin: '0 auto' }}>
-              <p style={{ fontSize: 13, color: '#9A9AA5', lineHeight: 1.7, marginBottom: 10 }}>
-                Если вы пока не готовы к персональному сопровождению —
+              <p style={{ fontSize: 13, color: '#9A9AA5', lineHeight: 1.7, marginBottom: 12 }}>
+                Если вы пока не готовы к персональному сопровождению,<br/>
+                вы можете начать с заполнения анкеты.
               </p>
               <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#D4AF37', textDecoration: 'underline', textDecorationColor: 'rgba(212,175,55,0.3)', textUnderlineOffset: 5, fontWeight: 500 }}>
-                заполните бесплатную анкету
+                Заполнить анкету
                 <span style={{ fontSize: 11 }}>›</span>
               </a>
             </div>
