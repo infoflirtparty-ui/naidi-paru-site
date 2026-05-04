@@ -291,6 +291,14 @@ export default function AgencyLanding() {
               Нажмите, чтобы посмотреть видео или прочитать статью.
             </p>
 
+            {/* Articles first (above video interviews per client feedback) */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 36, textAlign: 'left' }}>
+              <PressCardLink href="https://www.nur.kz/society/1781811-kazahstanskaa-svaha-rasskazala-kakie-devuski-nravatsa-millioneram/" src="/media/press-nur.jpg" outlet="NUR.KZ" title="«Главная сваха страны Асем Альмурзиева рассказала, какие девушки нравятся миллионерам»" />
+              <PressCardLink href="https://www.zakon.kz/sovety/4960582-kak-nayti-muzha-millionera.html" src="/media/press-zakon.jpg" outlet="zakon.kz" title="«Как найти мужа-миллионера. Казахстанские реалии»" sub="Сваха, которой доверяют свою судьбу крупные миллионеры Казахстана" />
+              <PressCardLink href="https://www.styleofeurasia.com/news/item/1762-marry-a-millionaire" src="/media/press-eurasia.jpg" outlet="Style of Eurasia" title="«Marry a Millionaire»" sub="Казахстанская сваха нашла эксклюзивный способ выдачи невест замуж за миллионеров" />
+              <PressCardLink href="https://the-steppe.com/lyudi/brachnoe-agentsvo" src="/media/press-steppe.jpg" outlet="The Steppe" title="«Свахи 80 lvl: Найти свою любовь через агентство знакомств»" sub="Большое интервью о том, как работает агентство эксклюзивных знакомств" />
+            </div>
+
             <div style={{ marginBottom: 16, textAlign: 'left' }}>
               <VideoCard
                 big
@@ -299,18 +307,11 @@ export default function AgencyLanding() {
                 title="Сваха №1 в Казахстане. Асем Альмурзиева — как перестать выбирать абьюзеров"
               />
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: 14, marginBottom: 32, textAlign: 'left' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: 14, textAlign: 'left' }}>
               <VideoCard id="B3eEIb5dxlw" channel="Almaty TV" title="Каково быть свахой в Казахстане?" />
               <VideoCard id="hcvzPsigwxM" channel="Агентство Знакомств" title="Агентство эксклюзивных знакомств Асем Альмурзиевой" />
               <VideoCard id="z5yrWPIp0n4" channel="Адина Сабирова · подкаст" title="Где познакомиться с достойным/ой партнёром в Алматы?" />
               <VideoCard id="tTj5EzRysq4" channel="Адина Сабирова · подкаст" title="Вечеринки знакомств в Алматы — Flirt Party" />
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, textAlign: 'left' }}>
-              <PressCardLink href="https://www.nur.kz/society/1781811-kazahstanskaa-svaha-rasskazala-kakie-devuski-nravatsa-millioneram/" src="/media/press-nur.jpg" outlet="NUR.KZ" title="«Главная сваха страны Асем Альмурзиева рассказала, какие девушки нравятся миллионерам»" />
-              <PressCardLink href="https://www.zakon.kz/sovety/4960582-kak-nayti-muzha-millionera.html" src="/media/press-zakon.jpg" outlet="zakon.kz" title="«Как найти мужа-миллионера. Казахстанские реалии»" sub="Сваха, которой доверяют свою судьбу крупные миллионеры Казахстана" />
-              <PressCardLink href="https://www.styleofeurasia.com/news/item/1762-marry-a-millionaire" src="/media/press-eurasia.jpg" outlet="Style of Eurasia" title="«Marry a Millionaire»" sub="Казахстанская сваха нашла эксклюзивный способ выдачи невест замуж за миллионеров" />
-              <PressCardLink href="https://the-steppe.com/lyudi/brachnoe-agentsvo" src="/media/press-steppe.jpg" outlet="The Steppe" title="«Свахи 80 lvl: Найти свою любовь через агентство знакомств»" sub="Большое интервью о том, как работает агентство эксклюзивных знакомств" />
             </div>
           </section>
         </Reveal>

@@ -45,7 +45,7 @@ export default function MainLanding() {
           <section style={{ padding: '30px 0' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
               {[
-                { value: 500, suffix: '+', label: 'Проверенных анкет' },
+                { value: 200, suffix: '+', label: 'Проверенных анкет' },
                 { value: 87, suffix: '%', label: 'Успешных знакомств' },
                 { value: 10, suffix: '+', label: 'Лет помогаем парам' },
               ].map((s, i) => (

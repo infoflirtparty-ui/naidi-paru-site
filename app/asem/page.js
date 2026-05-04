@@ -75,7 +75,7 @@ export default function AsemPage() {
           <section style={{ padding: '20px 0 40px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
               {[
-                { value: 300, suffix: '+', label: 'Учениц в отношениях' },
+                { value: 2000, suffix: '+', label: 'Проверенных анкет' },
                 { value: 85, suffix: '%', label: 'Выходят замуж' },
                 { value: 7, suffix: ' лет', label: 'Опыта работы' },
               ].map((s, i) => (

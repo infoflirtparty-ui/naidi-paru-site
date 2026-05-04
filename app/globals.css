@@ -166,6 +166,31 @@ button {
   border: 1px solid rgba(212, 175, 55, 0.12);
 }
 
+/* Animated background blobs (used on /men, /asem) */
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-25px, 15px) scale(0.95); }
+}
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: blobFloat 18s ease-in-out infinite;
+  will-change: transform;
+}
+.blob-2 { animation-delay: -6s; }
+
+/* Glow pulse for badges */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,77,141,0.0); }
+  50% { box-shadow: 0 0 24px 4px rgba(255,77,141,0.15); }
+}
+.glow-pulse {
+  animation: glowPulse 3.2s ease-in-out infinite;
+}
+
 /* Subtle ambient glow — slow */
 @keyframes ambientShift {
   0%, 100% { transform: translate(0, 0); opacity: 0.55; }
