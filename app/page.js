@@ -57,6 +57,36 @@ function Ornament({ width = 'auto', mb = 28, mt = 0 }) {
   );
 }
 
+// Premium luxury top-nav — centered gold pill with anchor links
+function LuxNav() {
+  const items = [
+    { href: '#status', label: 'Об эксперте' },
+    { href: '#press', label: 'СМИ' },
+    { href: '#packages', label: 'Пакеты' },
+    { href: '#stories', label: 'Отзывы' },
+    { href: '#faq', label: 'FAQ' },
+  ];
+  return (
+    <nav className="lux-nav" aria-label="Главная навигация">
+      <div className="lux-nav-inner">
+        <a href="#top" className="lux-nav-brand" aria-label="Наверх">
+          <BrandRings size={28} />
+          <span className="lux-nav-brand-text">Асем Альмурзиевой</span>
+        </a>
+        <div className="lux-nav-links">
+          {items.map(it => (
+            <a key={it.href} href={it.href} className="lux-nav-link">{it.label}</a>
+          ))}
+        </div>
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="lux-nav-cta">
+          <WhatsAppIcon size={13} color="#08080B" />
+          <span>Связаться</span>
+        </a>
+      </div>
+    </nav>
+  );
+}
+
 // Strong full-width section divider — separates major blocks
 function SectionDivider({ mb = 40, mt = 40 }) {
   return (
@@ -74,8 +104,9 @@ function SectionDivider({ mb = 40, mt = 40 }) {
 
 export default function AgencyLanding() {
   return (
-    <div style={{ color: '#E8D9B8', minHeight: '100vh', position: 'relative', overflowX: 'hidden' }}>
+    <div style={{ color: '#E8D9B8', minHeight: '100vh', position: 'relative', overflowX: 'hidden' }} id="top">
       <LoadingScreen />
+      <LuxNav />
 
       {/* Ambient golden orbs */}
       <div className="ambient" style={{ top: '-10%', left: '-10%', width: 700, height: 700, background: 'radial-gradient(circle, rgba(212,175,55,0.22), transparent 70%)', zIndex: 0 }} />
@@ -153,14 +184,14 @@ export default function AgencyLanding() {
 
           <Ornament mb={26} />
 
-          {/* Spec line — "Это не сайт знакомств..." */}
-          <p className="font-display" style={{ fontSize: 'clamp(16px, 3vw, 19px)', color: '#F5F2E8', lineHeight: 1.5, fontWeight: 500, marginBottom: 22, maxWidth: 620, marginLeft: 'auto', marginRight: 'auto' }}>
+          {/* Spec line — "Это не сайт знакомств..." (Manrope sans, larger per client request) */}
+          <p style={{ fontSize: 'clamp(19px, 3.6vw, 24px)', color: '#F5F2E8', lineHeight: 1.45, fontWeight: 600, marginBottom: 26, maxWidth: 720, marginLeft: 'auto', marginRight: 'auto', letterSpacing: '-0.005em' }}>
             Это не сайт знакомств.<br/>
-            Это закрытая система подбора идеальной пары <span style={{ color: '#D4AF37', fontWeight: 700 }}>под ваш уровень жизни</span> с гарантией.
+            Это закрытая система подбора идеальной пары <span style={{ color: '#D4AF37', fontWeight: 800 }}>под ваш уровень жизни</span> с гарантией.
           </p>
 
-          {/* Spec subhead */}
-          <p style={{ fontSize: 'clamp(14px, 2.8vw, 16px)', color: '#C8C8D0', lineHeight: 1.55, marginBottom: 44, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', fontWeight: 500 }}>
+          {/* Spec subhead — same Manrope family, slightly smaller */}
+          <p style={{ fontSize: 'clamp(17px, 3.2vw, 20px)', color: '#C8C8D0', lineHeight: 1.5, marginBottom: 46, maxWidth: 640, marginLeft: 'auto', marginRight: 'auto', fontWeight: 500 }}>
             Мы экономим вам месяцы жизни и приводим к результату быстрее.
           </p>
 
@@ -197,7 +228,7 @@ export default function AgencyLanding() {
 
         {/* === STATUS BLOCK === */}
         <Reveal>
-          <section style={{ padding: '0 0 50px', position: 'relative', textAlign: 'center' }}>
+          <section id="status" style={{ padding: '0 0 50px', position: 'relative', textAlign: 'center', scrollMarginTop: 100 }}>
             <SectionLabel center>Статус эксперта</SectionLabel>
             <div className="surface" style={{ padding: 38, textAlign: 'left' }}>
               <h2 className="font-display" style={{ fontSize: 'clamp(20px, 3.8vw, 26px)', fontWeight: 600, color: '#F5F2E8', lineHeight: 1.18, letterSpacing: '-0.02em', textAlign: 'center', marginBottom: 22 }}>
@@ -274,7 +305,7 @@ export default function AgencyLanding() {
 
         {/* === PRESS / VIDEO === */}
         <Reveal>
-          <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
+          <section id="press" style={{ padding: '0 0 60px', textAlign: 'center', scrollMarginTop: 100 }}>
             <SectionLabel center>О нас пишут и говорят</SectionLabel>
             <h2 className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 14 }}>
               Видеоинтервью и публикации в СМИ
@@ -372,7 +403,7 @@ export default function AgencyLanding() {
 
         {/* === PACKAGES === */}
         <Reveal>
-          <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
+          <section id="packages" style={{ padding: '0 0 60px', textAlign: 'center', scrollMarginTop: 100 }}>
             <SectionLabel center>Пакеты услуг</SectionLabel>
             <h2 className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 32 }}>
               Три формата работы
@@ -449,7 +480,7 @@ export default function AgencyLanding() {
 
         {/* === STORIES === */}
         <Reveal>
-          <section style={{ padding: '0 0 60px', textAlign: 'center', position: 'relative' }}>
+          <section id="stories" style={{ padding: '0 0 60px', textAlign: 'center', position: 'relative', scrollMarginTop: 100 }}>
             <SectionSpark />
             <SectionLabel center>Истории клиентов</SectionLabel>
             <h2 className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 36 }}>
@@ -470,7 +501,7 @@ export default function AgencyLanding() {
 
         {/* === FAQ === */}
         <Reveal>
-          <section style={{ padding: '0 0 60px', textAlign: 'center' }}>
+          <section id="faq" style={{ padding: '0 0 60px', textAlign: 'center', scrollMarginTop: 100 }}>
             <SectionLabel center>Частые вопросы</SectionLabel>
             <h2 className="font-display" style={{ fontSize: 'clamp(22px, 4vw, 28px)', fontWeight: 600, lineHeight: 1.18, letterSpacing: '-0.02em', color: '#F5F2E8', marginBottom: 32 }}>
               Что важно знать
@@ -546,7 +577,7 @@ export default function AgencyLanding() {
             <BrandRings size={40} />
             <div>
               <div style={{ fontSize: 11, color: '#B8932F', fontWeight: 600, letterSpacing: '0.32em', textTransform: 'uppercase', marginBottom: 8 }}>Агентство знакомств</div>
-              <div className="font-display" style={{ fontSize: 20, fontWeight: 500, color: '#F5F2E8' }}>Асем Альмурзиева</div>
+              <div className="font-display" style={{ fontSize: 20, fontWeight: 500, color: '#F5F2E8' }}>Асем Альмурзиевой</div>
             </div>
 
             <Ornament mb={0} mt={0} />

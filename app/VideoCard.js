@@ -43,22 +43,22 @@ export function VideoCard({ id, title, channel, big = false }) {
             />
             {/* Dark overlay */}
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 50%, rgba(10,10,20,0.55) 100%)', pointerEvents: 'none' }} />
-            {/* Big play button */}
+            {/* Play button — bottom-right corner so it doesn't cover faces/text */}
             <button
               aria-label={`Play: ${title}`}
               onClick={(e) => { e.stopPropagation(); setActive(true); }}
               style={{
-                position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-                width: big ? 78 : 64, height: big ? 78 : 64, borderRadius: '50%',
-                background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)',
-                border: '3px solid rgba(255,255,255,0.9)',
+                position: 'absolute', right: 14, bottom: 14,
+                width: big ? 60 : 50, height: big ? 60 : 50, borderRadius: '50%',
+                background: 'linear-gradient(135deg, #FAE5A1, #B8932F)',
+                border: '2px solid rgba(255,255,255,0.85)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                cursor: 'pointer', boxShadow: '0 12px 40px rgba(212,175,55,0.5), 0 0 0 8px rgba(255,255,255,0.05)',
+                cursor: 'pointer', boxShadow: '0 10px 28px rgba(0,0,0,0.5), 0 0 0 4px rgba(0,0,0,0.25)',
                 transition: 'transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)',
               }}
               className="play-btn"
             >
-              <svg width={big ? 28 : 24} height={big ? 28 : 24} viewBox="0 0 24 24" fill="white" style={{ marginLeft: 4 }}>
+              <svg width={big ? 22 : 18} height={big ? 22 : 18} viewBox="0 0 24 24" fill="#08080B" style={{ marginLeft: 3 }}>
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </button>
@@ -85,7 +85,7 @@ export function VideoCard({ id, title, channel, big = false }) {
       </div>
       <div style={{ padding: '14px 16px' }}>
         <div style={{ fontSize: 10, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 6 }}>{channel}</div>
-        <div className="font-display" style={{ fontSize: big ? 16 : 14, color: '#F5E9CF', fontWeight: 600, lineHeight: 1.35 }}>{title}</div>
+        <div style={{ fontSize: big ? 16 : 14, color: '#F5E9CF', fontWeight: 600, lineHeight: 1.4, letterSpacing: '-0.005em' }}>{title}</div>
       </div>
     </div>
   );
@@ -121,7 +121,7 @@ export function PressCardLink({ src, outlet, title, sub, href, gradient }) {
           <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#D4AF37', flexShrink: 0 }} />
           <span style={{ fontSize: 10, color: '#D4AF37', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' }}>{outlet}</span>
         </div>
-        <div style={{ fontSize: 15, color: '#F5E9CF', fontWeight: 600, lineHeight: 1.35, marginBottom: sub ? 6 : 0 }}>{title}</div>
+        <div style={{ fontSize: 15, color: '#F5E9CF', fontWeight: 600, lineHeight: 1.4, marginBottom: sub ? 6 : 0, letterSpacing: '-0.005em' }}>{title}</div>
         {sub && <div style={{ fontSize: 12, color: '#A0A0C0', lineHeight: 1.5 }}>{sub}</div>}
         <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 10, fontSize: 11, color: '#D4AF37', fontWeight: 600 }}>
           <span>Читать статью</span>

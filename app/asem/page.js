@@ -7,6 +7,29 @@ export const metadata = {
 };
 
 const TALLY_URL = 'https://tally.so/r/VLJNAg';
+const WHATSAPP_URL = 'https://wa.me/77016746622?text=Здравствуйте!%20Я%20хочу%20узнать%20о%20программе%20Асем';
+const PHONE_DISPLAY = '+7 701 674 66 22';
+
+function WhatsAppIcon({ size = 18, color = '#08080B' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  );
+}
+
+function GoldWhatsAppCTA({ label = 'Написать менеджеру', sublabel = PHONE_DISPLAY + ' · WHATSAPP' }) {
+  return (
+    <div style={{ textAlign: 'center', marginTop: 14 }}>
+      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary cta-manager"
+        style={{ display: 'inline-flex', alignItems: 'center', gap: 12, padding: '18px 38px', background: 'linear-gradient(180deg, #FAE5A1, #E5C158 30%, #B8932F 70%, #8B6914)', color: '#08080B', fontSize: 14, fontWeight: 800, textDecoration: 'none', borderRadius: 16, boxShadow: '0 14px 44px rgba(212,175,55,0.45), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -2px 0 rgba(0,0,0,0.3)', letterSpacing: '0.14em', textTransform: 'uppercase', border: '1px solid rgba(229,193,88,0.6)' }}>
+        <WhatsAppIcon size={16} />
+        {label}
+      </a>
+      <p style={{ marginTop: 12, fontSize: 12, color: '#A0A0C0', letterSpacing: '0.14em' }}>{sublabel}</p>
+    </div>
+  );
+}
 
 export default function AsemPage() {
   return (
@@ -63,11 +86,18 @@ export default function AsemPage() {
             <span style={{ color: '#F9A8D4' }}>выбирает, вкладывается и остаётся</span>
           </p>
 
-          <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
-            style={{ display: 'inline-block', padding: '20px 48px', background: 'linear-gradient(135deg, #D4AF37, #B8860B)', color: '#1A1000', fontSize: 16, fontWeight: 800, borderRadius: 16, textDecoration: 'none', boxShadow: '0 14px 48px rgba(212,175,55,0.4)', letterSpacing: '0.03em' }}>
-            👉 Пройти отбор
-          </a>
-          <p style={{ marginTop: 14, fontSize: 12, color: '#6B6B8D' }}>Анкета · 3 минуты</p>
+          <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
+              style={{ display: 'inline-block', padding: '20px 38px', background: 'linear-gradient(135deg, #D4AF37, #B8860B)', color: '#1A1000', fontSize: 15, fontWeight: 800, borderRadius: 16, textDecoration: 'none', boxShadow: '0 14px 48px rgba(212,175,55,0.4)', letterSpacing: '0.03em' }}>
+              Пройти отбор
+            </a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary cta-manager"
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '20px 32px', background: 'linear-gradient(180deg, #FAE5A1, #E5C158 30%, #B8932F 70%, #8B6914)', color: '#08080B', fontSize: 14, fontWeight: 800, textDecoration: 'none', borderRadius: 16, boxShadow: '0 14px 44px rgba(212,175,55,0.45), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -2px 0 rgba(0,0,0,0.3)', letterSpacing: '0.12em', textTransform: 'uppercase', border: '1px solid rgba(229,193,88,0.6)' }}>
+              <WhatsAppIcon size={16} />
+              Написать менеджеру
+            </a>
+          </div>
+          <p style={{ marginTop: 14, fontSize: 12, color: '#A0A0C0', letterSpacing: '0.1em' }}>Анкета · 3 минуты &nbsp;·&nbsp; WhatsApp: {PHONE_DISPLAY}</p>
         </section>
 
         {/* STATS */}
@@ -75,7 +105,7 @@ export default function AsemPage() {
           <section style={{ padding: '20px 0 40px' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
               {[
-                { value: 2000, suffix: '+', label: 'Проверенных анкет' },
+                { value: 300, suffix: '+', label: 'Учениц в отношениях' },
                 { value: 85, suffix: '%', label: 'Выходят замуж' },
                 { value: 7, suffix: ' лет', label: 'Опыта работы' },
               ].map((s, i) => (
@@ -300,6 +330,7 @@ export default function AsemPage() {
               <Tariff tag="VIP" vip priceMonthly="122 647" priceTotal="1 471 775"
                 features={['Уроки в записи', 'Домашние задания', 'Ответы на вопросы', 'Поддержка 1 месяц после', '5 личных разборов', '4 знакомства с мужчинами', 'Доступ 6 месяцев']} />
             </div>
+            <GoldWhatsAppCTA label="Узнать о тарифах в WhatsApp" />
           </section>
         </Reveal>
 
@@ -359,10 +390,18 @@ export default function AsemPage() {
             <p className="font-display" style={{ fontSize: 'clamp(24px, 5.5vw, 32px)', fontWeight: 700, marginBottom: 36, background: 'linear-gradient(135deg, #D4AF37, #FF4D8D)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.02em', lineHeight: 1.2 }}>
               стать женщиной, которую выбирают
             </p>
-            <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
-              style={{ display: 'inline-block', padding: '22px 60px', background: 'linear-gradient(135deg, #D4AF37, #B8860B)', color: '#1A1000', fontSize: 17, fontWeight: 800, borderRadius: 18, textDecoration: 'none', boxShadow: '0 16px 56px rgba(212,175,55,0.45)', letterSpacing: '0.02em' }}>
-              👉 Пройти отбор
-            </a>
+            <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+              <a href={TALLY_URL} target="_blank" rel="noopener noreferrer" className="btn-primary"
+                style={{ display: 'inline-block', padding: '22px 44px', background: 'linear-gradient(135deg, #D4AF37, #B8860B)', color: '#1A1000', fontSize: 16, fontWeight: 800, borderRadius: 18, textDecoration: 'none', boxShadow: '0 16px 56px rgba(212,175,55,0.45)', letterSpacing: '0.02em' }}>
+                Пройти отбор
+              </a>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-primary cta-manager"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: 12, padding: '22px 36px', background: 'linear-gradient(180deg, #FAE5A1, #E5C158 30%, #B8932F 70%, #8B6914)', color: '#08080B', fontSize: 14, fontWeight: 800, textDecoration: 'none', borderRadius: 18, boxShadow: '0 16px 56px rgba(212,175,55,0.45), inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -2px 0 rgba(0,0,0,0.3)', letterSpacing: '0.14em', textTransform: 'uppercase', border: '1px solid rgba(229,193,88,0.6)' }}>
+                <WhatsAppIcon size={16} />
+                Написать менеджеру
+              </a>
+            </div>
+            <p style={{ marginTop: 14, fontSize: 13, color: '#A0A0C0', letterSpacing: '0.08em' }}>WhatsApp · {PHONE_DISPLAY}</p>
           </section>
         </Reveal>
 
@@ -383,7 +422,7 @@ export default function AsemPage() {
       </div>
 
       {/* Sticky CTA (mobile) */}
-      <StickyCTA href={TALLY_URL} label="Пройти отбор" accent="#D4AF37" accentTo="#B8860B" textColor="#1A1000" />
+      <StickyCTA href={WHATSAPP_URL} label="Написать менеджеру" accent="#FAE5A1" accentTo="#8B6914" textColor="#08080B" />
     </div>
   );
 }

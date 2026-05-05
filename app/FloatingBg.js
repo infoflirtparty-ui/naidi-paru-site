@@ -164,7 +164,7 @@ export function LoadingScreen() {
         opacity: 0,
         animation: 'loaderFade 0.9s ease 0.45s forwards',
       }}>
-        Асем Альмурзиева
+        Асем Альмурзиевой
       </div>
 
       {/* Subtle dot loader */}
