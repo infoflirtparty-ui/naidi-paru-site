@@ -756,9 +756,9 @@ function Package({ tag, title, subtitle, includes, guarantee, guaranteeFoot, tie
         {tiers && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0, marginBottom: 18, border: '1px solid rgba(212,175,55,0.22)' }}>
             {tiers.map((t, i) => (
-              <div key={t.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', background: '#0E0E13', borderTop: i > 0 ? '1px solid rgba(212,175,55,0.12)' : 'none' }}>
-                <span style={{ fontSize: 15, color: '#F5F2E8', fontWeight: 500 }}>{t.label}</span>
-                <span className="font-display" style={{ fontSize: 20, color: '#D4AF37', fontWeight: 600, letterSpacing: '-0.01em' }}>{t.price}</span>
+              <div key={t.label} className="tier-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, padding: '18px 20px', background: '#0E0E13', borderTop: i > 0 ? '1px solid rgba(212,175,55,0.12)' : 'none' }}>
+                <span style={{ fontSize: 'clamp(13px, 3.4vw, 15px)', color: '#F5F2E8', fontWeight: 500, whiteSpace: 'nowrap' }}>{t.label}</span>
+                <span className="font-display" style={{ fontSize: 'clamp(16px, 4.4vw, 20px)', color: '#D4AF37', fontWeight: 600, letterSpacing: '-0.01em', whiteSpace: 'nowrap' }}>{t.price}</span>
               </div>
             ))}
           </div>

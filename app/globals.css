@@ -721,7 +721,7 @@ button {
   /* Tighter container padding */
   .lux-container { padding-left: 16px !important; padding-right: 16px !important; }
   /* Card paddings reduced */
-  .surface { padding: 22px !important; }
+  .surface { padding: 18px !important; }
   /* Reduce gap between elements */
   .ornament { margin-bottom: 22px !important; }
   /* Smaller pill */
@@ -736,6 +736,15 @@ button {
   }
   /* Hero spacing tighter */
   .hero-title { letter-spacing: 0 !important; }
+  /* Pricing tier rows — keep "3 знакомства / 255 000 тг" on one line */
+  .tier-row { padding: 14px 14px !important; gap: 8px !important; }
+}
+@media (max-width: 380px) {
+  /* Even tighter on small phones */
+  .surface { padding: 14px !important; }
+  .tier-row { padding: 12px 10px !important; }
+  .tier-row > span:first-child { font-size: 12px !important; }
+  .tier-row > span:last-child  { font-size: 14px !important; }
 }
 
 /* Tablets (600-900px) */
